@@ -1,6 +1,6 @@
 # LI2
 Repositório do Grupo *** de LI2.
-Guardaremos neste repositório o nosso trabalho de LI2.\n
+Guardaremos neste repositório o nosso trabalho de LI2.
 Fazem parte deste grupo os seguintes alunos:
 Leonardo Araújo Freitas - a93281;
 Rodrigo Pires Rodrigues - a93201;
