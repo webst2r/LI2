@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/Module1.dir/main.c.o CMakeFiles/Module1.dir/camadadedados.c.o  -o Module1 
