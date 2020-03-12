@@ -1,4 +1,4 @@
-# LI2
+# LI2 PL2 Grupo 4
 ## Jogo "Rastros".
 Projeto desenvolvido no âmbito da UC Laborátorios de Informática II.
 Os elementos constituintes do grupo pertecem ao PL2, grupo 4, sendo:
