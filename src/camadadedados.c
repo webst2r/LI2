@@ -25,10 +25,24 @@ typedef struct {
 
 
 ESTADO *inicializar_estado() {
-ESTADO *e = (ESTADO *) malloc(sizeof(ESTADO));
-e->jogador_atual = 1;
-e->num_jogadas = 0;
-// Falta a resto da inicialização.
+ESTADO *e1 = (ESTADO *) malloc(sizeof(ESTADO));
+e1->jogador_atual = 1;
+e1->num_jogadas = 0;
+COORDENADA *c1 = (COORDENADA *) malloc(sizeof(COORDENADA));
+c1->coluna = NULL;
+c1->linha = NULL;
+e -> ultima_jogada = c1;
+COORDENADA *c2 = (COORDENADA *) malloc(sizeof(COORDENADA));
+c2 ->coluna = NULL;
+c2 ->linha = NULL;
+e -> ultima_jogada = c2;
+JOGADA *j = (JOGADAS *) malloc(32*sizeof(JOGADA));
+j->jogador1=c1;
+j->jogador2=c2;
+e -> jogadas = j;
+CASA *h = (enum *) malloc(64*sizeof(enum));
+e -> enum = h;
 return e;
 }
+
 
