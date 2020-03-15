@@ -29,8 +29,17 @@ void mostrar_tabuleiro(ESTADO state) {
             else if (i == 7 && k == 0)
                 printf("1");
             else {
-                switch (estado->tab[k][i]) {
-                    case PRETA
+                switch (estado->tab[k][i])
+                {
+                    case PRETA:
+                        printf("#");
+                        break;
+                    case VAZIO:
+                        printf(".");
+                        break;
+                    case BRANCA:
+                        printf("*");
+                        break;
                 }
             }
         }
