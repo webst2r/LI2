@@ -7,8 +7,8 @@
 
 ESTADO *inicializar_estado() {
     ESTADO e;
-    CASA arr;
-    e = (ESTADO){.tab = {imprime_tabuleiro(arr[ARRAY_SIZE])},
+    CASA arr[];
+    e = (ESTADO){.tab = {imprime_tabuleiro(arr)},
                  .ultima_jogada = {4,3},
                  .jogadas = {},
                  .num_jogadas = 0,

@@ -19,7 +19,7 @@ int interpretador(ESTADO *e) {
 }
 
 
-void mostrar_tabuleiro(ESTADO estado) {
+void mostrar_tabuleiro(ESTADO *e) {
     for (int i = 0; i < 8; i++)
     {
         for (int k = 0; k < 8; k++) {
@@ -28,7 +28,7 @@ void mostrar_tabuleiro(ESTADO estado) {
             else if (i == 7 && k == 0)
                 printf("1");
             else {
-                switch (estado->tab[k][i])
+                switch (e->tab[k][i])
                 {
                     case PRETA:
                         printf("#");

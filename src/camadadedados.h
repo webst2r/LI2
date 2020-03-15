@@ -27,4 +27,5 @@ int obter_jogador_atual(ESTADO *estado);
 int obter_numero_de_jogadas(ESTADO *estado);
 CASA obter_estado_casa(ESTADO *e, COORDENADA c);
 int imprime_tabuleiro (CASA *arr);
+
 #endif // SRC_CAMADADEDADOS_H
