@@ -1,12 +1,10 @@
+#include "camadadedados.h"
 #include "logica.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#define BUF_SIZE 1024
 
 
 int jogar(ESTADO *e, COORDENADA c) {
-printf("jogar %d %d\n", c.coluna, c.linha);
-return 1;
+    printf("jogar %d %d\n", c.coluna, c.linha);
+    e->tab[c.linha][c.coluna] = BRANCA;
+    return 1;
 }
-
