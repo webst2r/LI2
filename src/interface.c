@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "interface.h"
 #include "camadadedados.h"
+#define BUF_SIZE 1024
 
 int interpretador(ESTADO *e) {
     char linha[BUF_SIZE];
@@ -18,7 +19,7 @@ int interpretador(ESTADO *e) {
 }
 
 
-void mostrar_tabuleiro(ESTADO state) {
+void mostrar_tabuleiro(ESTADO estado) {
     for (int i = 0; i < 8; i++)
     {
         for (int k = 0; k < 8; k++) {
