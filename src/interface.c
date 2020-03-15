@@ -28,9 +28,14 @@ void mostrar_tabuleiro(ESTADO state) {
                 printf("2");
             else if (i == 7 && k == 0)
                 printf("1");
-            else
-                printf(obter_casa(state, i, k) == VAZIO) ? "." : (obter_casa(state, i, k) == BRANCA) ? "*" : "#" );
+            else {
+                switch (estado->tab[k][i]) {
+                    case PRETA
+                }
+            }
         }
         putchar("\n Efetua a tua jogada");
     }
 }
+
+//printf(obter_casa(state, i, k) == VAZIO) ? "." : (obter_casa(state, i, k) == BRANCA) ? "*" : "#" );
