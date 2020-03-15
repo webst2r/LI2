@@ -1,5 +1,5 @@
 # LI2 PL2 Grupo 4
-## Jogo "Rastros".
+## Jogo "Rastros" (Linguagem C).
 Projeto desenvolvido no âmbito da UC Laborátorios de Informática II.
 GRUPO 4 - PL2:    
 Leonardo Araújo Freitas - a93281;  
