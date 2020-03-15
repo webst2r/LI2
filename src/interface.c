@@ -1,19 +1,36 @@
-#include "interface.h"
 #include <stdio.h>
-#include <stdlib.h>
-
-#include <string.h>
-#define BUF_SIZE 1024
-
+#include "interface.h"
+#include "camadadedados.h"
 
 int interpretador(ESTADO *e) {
-char linha[BUF_SIZE];
-char col[2], lin[2];
-if(fgets(linha, BUF_SIZE, stdin) == NULL)
-return 0;
-if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
-COORDENADA coord = {*col - 'a', *lin - '1'};
-jogar(e, coord);
-mostrar_tabuleiro(e);
+    char linha[BUF_SIZE];
+    char col[2], lin[2];
+
+    if(fgets(linha, BUF_SIZE, stdin) == NULL)
+        return 0;
+
+    if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
+        COORDENADA coord = {*col - 'a', *lin - '1'};
+        jogar(e, coord);
+        mostrar_tabuleiro(e);
+    }
+    return 1;
 }
-return 1;
+
+
+// Função que deve ser completada e colocada na camada de interface
+void mostrar_tabuleiro(ESTADO state) {
+    int k,i;
+    for (i = 0; i < 8; i++)
+    {
+        for (k = 0; k < 8; k++) {
+            if (k == 7 && i == 0)
+                printf("2");
+            else if (i == 7 && k == 0)
+                printf("1");
+            else
+                printf(obter_casa(state, i, k) == VAZIO) ? "." : (obter_casa(state, i, k) == BRANCA) ? "*" : "#" );
+        }
+        putchar("\n Efetua a tua jogada");
+    }
+}
