@@ -20,10 +20,9 @@ int interpretador(ESTADO *e) {
 
 // Função que deve ser completada e colocada na camada de interface
 void mostrar_tabuleiro(ESTADO state) {
-    int k,i;
-    for (i = 0; i < 8; i++)
+    for (int i = 0; i < 8; i++)
     {
-        for (k = 0; k < 8; k++) {
+        for (int k = 0; k < 8; k++) {
             if (k == 7 && i == 0)
                 printf("2");
             else if (i == 7 && k == 0)
