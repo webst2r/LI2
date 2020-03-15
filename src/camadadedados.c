@@ -25,3 +25,17 @@ ESTADO *inicializar_estado() {
     e -> enum = h;
     return e;
 }
+
+
+int obter_jogador_atual(ESTADO *estado) {
+    int play;
+    play = estado->jogadorAtual;
+    return play;
+}
+
+int obter_numero_de_jogadas(ESTADO *estado) {
+    int n_jogadas;
+    jogadas = estado->numeroJogadas;
+    
+    return n_jogadas;
+}
