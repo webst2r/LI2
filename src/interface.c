@@ -18,7 +18,6 @@ int interpretador(ESTADO *e) {
 }
 
 
-// Função que deve ser completada e colocada na camada de interface
 void mostrar_tabuleiro(ESTADO state) {
     for (int i = 0; i < 8; i++)
     {
