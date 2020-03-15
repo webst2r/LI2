@@ -17,7 +17,7 @@ ESTADO *inicializar_estado() {
 
 void imprime_tabuleiro (CASA *arr) {
     for(int linha = 0; linha < 3; linha++) {
-        for(int coluna = 0; coluna < 7; coluna++) {
+        for(int coluna = 0; coluna < 8; coluna++) {
             arr[coluna] = VAZIO;
         }
     } for(int linha = 3; linha < 4; linha++) {
@@ -27,8 +27,8 @@ void imprime_tabuleiro (CASA *arr) {
          arr[5] = VAZIO;
          arr[6] = VAZIO;
          arr[7] = VAZIO;
-    } for(int linha = 4; linha < 7; linha++) {
-         for(int coluna = 0; coluna < 7; coluna++) {
+    } for(int linha = 4; linha < 8; linha++) {
+         for(int coluna = 0; coluna < 8; coluna++) {
              arr[coluna] = VAZIO;
         }
 }
