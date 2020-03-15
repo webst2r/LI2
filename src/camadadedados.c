@@ -6,26 +6,32 @@
 
 
 ESTADO *inicializar_estado() {
-    ESTADO *e1 = (ESTADO *) malloc(sizeof(ESTADO));
-    e1->jogador_atual = 1;
-    e1->num_jogadas = 0;
-    COORDENADA *c1 = (COORDENADA *) malloc(sizeof(COORDENADA));
-    c1->coluna = NULL;
-    c1->linha = NULL;
-    e -> ultima_jogada = c1;
-    COORDENADA *c2 = (COORDENADA *) malloc(sizeof(COORDENADA));
-    c2 ->coluna = NULL;
-    c2 ->linha = NULL;
-    e -> ultima_jogada = c2;
-    JOGADA *j = (JOGADAS *) malloc(32*sizeof(JOGADA));
-    j->jogador1=c1;
-    j->jogador2=c2;
-    e -> jogadas = j;
-    CASA *h = (enum *) malloc(64*sizeof(enum));
-    e -> enum = h;
-    return e;
+    ESTADO e;
+    e = (ESTADO){.tab = imprime_tabuleiro(arr[8])
+                          .ultima_jogada = {4,3},
+                          .jogadas = {},
+                          .num_jogadas = 0,
+                          .jogador_atual = 1};
+    return &e;
 }
 
+void imprime_tabuleiro (CASA *arr) {
+    for(int linha = 0; linha < 3; linha++) {
+        for(int coluna = 0; coluna < 7; coluna++) {
+            arr[coluna] = VAZIO;
+        }
+    } for(int linha = 3; linha < 4; linha++) {
+         for(int coluna = 0; coluna < 4; coluna++) {
+             arr[coluna] = VAZIO;
+         } arr[4] = BRANCA;
+         arr[5] = VAZIO;
+         arr[6] = VAZIO;
+         arr[7] = VAZIO;
+    } for(int linha = 4; linha < 7; linha++) {
+         for(int coluna = 0; coluna < 7; coluna++) {
+             arr[coluna] = VAZIO;
+        }
+}
 
 int obter_jogador_atual(ESTADO *estado) {
     int play;
@@ -36,6 +42,11 @@ int obter_jogador_atual(ESTADO *estado) {
 int obter_numero_de_jogadas(ESTADO *estado) {
     int n_jogadas;
     jogadas = estado->numeroJogadas;
-    
     return n_jogadas;
+}
+
+CASA obter_estado_casa(ESTADO *estado, COORDENADA c) {
+     CASA estadocasa;
+     estadocasa = estado->tab[c.linha][c.coluna];
+     return estadocasa;
 }
