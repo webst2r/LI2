@@ -16,7 +16,9 @@ ESTADO *inicializar_estado() {
     return &e;
 }
 
-int imprime_tabuleiro (CASA *arr) {
+int imprime_tabuleiro (CASA *arr)
+
+/*{
     CASA arr1[8];
     CASA arr2[8];
     CASA arr3[8];
@@ -55,6 +57,7 @@ int imprime_tabuleiro (CASA *arr) {
     arr[6] = *arr7;
     arr[7] = *arr8;
 }
+*/
 /* ANTIGA DEFINIÇÃO DA imprime_tabuleiro
     for(int linha = 0; linha < 3; linha++) {
         for(int coluna = 0; coluna < 8; coluna++) {
