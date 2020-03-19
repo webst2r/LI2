@@ -6,9 +6,9 @@ Definição do estado e das funções que o manipulam
 #define SRC_CAMADADEDADOS_H
 /**
 \brief Tipos de casas
-*/
-typedef enum {VAZIO, BRANCA, PRETA} CASA;
 
+typedef enum {VAZIO, BRANCA, PRETA} CASA;
+*/
 /**
 \brief Tipo de dados para as Coordenadas
 */
