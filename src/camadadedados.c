@@ -7,8 +7,7 @@
 
 ESTADO *inicializar_estado() {
     ESTADO e;
-    CASA arr[];
-    e = (ESTADO){.tab = {imprime_tabuleiro(arr)},
+    e = (ESTADO){.tab = {imprime_tabuleiro()},
                  .ultima_jogada = {4,3},
                  .jogadas = {},
                  .num_jogadas = 0,
@@ -16,73 +15,31 @@ ESTADO *inicializar_estado() {
     return &e;
 }
 
-int imprime_tabuleiro (CASA *arr) {
+void imprime_tabuleiro() {
     CASA arr[8][8];
     for (linha = 0; linha < 3; linha++) {
-        for(coluna = 0; coluna < 7; coluna++) {
-            arr[]
+        for(coluna = 0; coluna < 8; coluna++) {
+            arr[linha][coluna] = VAZIO;
+        }
+    } imprime_linha_3(arr[8][8])
+    for(linha = 4; linha < 8; linha++) {
+        for(coluna = 0; coluna < 8; coluna++) {
+            arr[linha][coluna] = VAZIO;
         }
     }
 }
 
-/*{
-    CASA arr1[8];
-    CASA arr2[8];
-    CASA arr3[8];
-    CASA arr4[8];
-    CASA arr5[8];
-    CASA arr6[8];
-    CASA arr7[8];
-    CASA arr8[8];
-    for(int coluna = 0; coluna < 8; coluna++) {
-        arr1[coluna] = VAZIO;
-    } for(int coluna = 0; coluna < 8; coluna++) {
-        arr2[coluna] = VAZIO;
-    } for(int coluna = 0; coluna < 8; coluna++) {
-        arr3[coluna] = VAZIO;
-    } for(int coluna = 0; coluna < 4; coluna++) {
-        arr4[coluna] = VAZIO;
-    } arr4[4] = BRANCA;
-    arr4[5] = VAZIO;
-    arr4[6] = VAZIO;
-    arr4[7] = VAZIO;
-    for(int coluna = 0; coluna < 8; coluna++) {
-        arr5[coluna] = VAZIO;
-    } for(int coluna = 0; coluna < 8; coluna++) {
-        arr6[coluna] = VAZIO;
-    } for(int coluna = 0; coluna < 8; coluna++) {
-        arr7[coluna] = VAZIO;
-    } for(int coluna = 0; coluna < 8; coluna++) {
-        arr8[coluna] = VAZIO;
+
+void imprime_linha_3(CASA arr[8][8]) {
+    int coluna;
+    for (coluna = 0; coluna < 4; coluna++) {
+        arr[3][coluna] = VAZIO;
+    } arr[3][4] = BRANCA;
+    for (coluna = 5; coluna < 8; coluna++) {
+        arr[3][coluna] = VAZIO;
     }
-    arr[0] = *arr1;
-    arr[1] = *arr2;
-    arr[2] = *arr3;
-    arr[3] = *arr4;
-    arr[4] = *arr5;
-    arr[5] = *arr6;
-    arr[6] = *arr7;
-    arr[7] = *arr8;
 }
-*/
-/* ANTIGA DEFINIÇÃO DA imprime_tabuleiro
-    for(int linha = 0; linha < 3; linha++) {
-        for(int coluna = 0; coluna < 8; coluna++) {
-            arr[coluna] = VAZIO;
-        }
-    } for(int linha = 3; linha < 4; linha++) {
-         for(int coluna = 0; coluna < 4; coluna++) {
-             arr[coluna] = VAZIO;
-         } arr[4] = BRANCA;
-         arr[5] = VAZIO;
-         arr[6] = VAZIO;
-         arr[7] = VAZIO;
-    } for(int linha = 4; linha < 8; linha++) {
-         for(int coluna = 0; coluna < 8; coluna++) {
-             arr[coluna] = VAZIO;
-        }
-}
-*/
+
 int obter_jogador_atual(ESTADO *estado) {
     int play;
     play = estado->jogador_atual;
