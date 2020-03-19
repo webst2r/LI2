@@ -30,6 +30,19 @@ typedef struct {
 */
 typedef JOGADA JOGADAS[32];
 
+
+/**
+\brief Tipo de dados para a casa
+*/
+
+typedef enum {
+    UM = '1',
+    DOIS = '2',
+    VAZIO = '.',
+    BRANCA = '*',
+    PRETA = '#'
+} CASA;
+
 /**
 \brief Tipo de dados para o estado
 */
