@@ -16,7 +16,14 @@ ESTADO *inicializar_estado() {
     return &e;
 }
 
-int imprime_tabuleiro (CASA *arr)
+int imprime_tabuleiro (CASA *arr) {
+    CASA arr[8][8];
+    for (linha = 0; linha < 3; linha++) {
+        for(coluna = 0; coluna < 7; coluna++) {
+            arr[]
+        }
+    }
+}
 
 /*{
     CASA arr1[8];
