@@ -3,19 +3,25 @@
 #include <stdlib.h>
 #include <string.h>
 #define BUF_SIZE 1024
-#define ARRAY_SIZE 8
 
 ESTADO *inicializar_estado() {
     ESTADO e;
     CASA arr[8][8];
-    e = (ESTADO){.tab = {imprime_tabuleiro(arr)},
+    e = (ESTADO){.tab = {{VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
+                         {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
+                         {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
+                         {VAZIO, VAZIO, VAZIO, VAZIO, BRANCA, VAZIO, VAZIO, VAZIO},
+                         {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
+                         {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
+                         {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
+                         {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO}},
                  .ultima_jogada = {4,3},
                  .jogadas = {},
                  .num_jogadas = 0,
                  .jogador_atual = 1};
     return &e;
 }
-
+/*
 int imprime_tabuleiro(CASA arr[8][8]) {
     for (int linha = 0; linha < 3; linha++) {
         for(int coluna = 0; coluna < 8; coluna++) {
@@ -39,7 +45,7 @@ int imprime_linha_3(CASA arr[8][8]) {
         arr[3][coluna] = VAZIO;
     }
 }
-
+*/
 int obter_jogador_atual(ESTADO *estado) {
     int play;
     play = estado->jogador_atual;
