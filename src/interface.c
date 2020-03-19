@@ -42,7 +42,7 @@ void mostrar_tabuleiro(ESTADO *e) {
                 }
             }
         }
-        putchar("\n Efetua a tua jogada");
+        printf("\n Efetua a tua jogada");
     }
 }
 

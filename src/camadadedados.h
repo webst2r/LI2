@@ -30,11 +30,9 @@ typedef struct {
 */
 typedef JOGADA JOGADAS[32];
 
-
 /**
 \brief Tipo de dados para a casa
 */
-
 typedef enum {
     UM = '1',
     DOIS = '2',
@@ -46,7 +44,6 @@ typedef enum {
 /**
 \brief Tipo de dados para o estado
 */
-
 typedef struct {
     /** O tabuleiro */
     CASA tab[8][8];
@@ -59,6 +56,7 @@ typedef struct {
     /** O jogador atual */
     int jogador_atual;
 } ESTADO;
+
 /**
 \brief Inicializa o valor do estado
 Esta função inicializa o valor do estado. Isso implica o tabuleiro ser colocado na posição inicial e todos os campos do estado estarem com o valor por omissão.
@@ -77,7 +75,6 @@ int obter_numero_de_jogadas(ESTADO *estado);
 \brief Obtém o estado de determinada casa.
 */
  CASA obter_estado_casa(ESTADO *e, COORDENADA c);
-
 /**
 \brief Imprime o tabuleiro para jogar.
 */
