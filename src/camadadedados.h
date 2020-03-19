@@ -78,6 +78,9 @@ int obter_numero_de_jogadas(ESTADO *estado);
 /**
 \brief Imprime o tabuleiro para jogar.
 */
-int imprime_tabuleiro (CASA *arr);
-
+int imprime_tabuleiro (CASA arr[8][8]);
+/**
+\brief Imprime a linha 3.
+*/
+int imprime_linha_3 (CASA arr[8][8]);
 #endif // SRC_CAMADADEDADOS_H

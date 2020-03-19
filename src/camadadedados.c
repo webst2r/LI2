@@ -7,7 +7,8 @@
 
 ESTADO *inicializar_estado() {
     ESTADO e;
-    e = (ESTADO){.tab = {imprime_tabuleiro()},
+    CASA arr[8][8];
+    e = (ESTADO){.tab = {imprime_tabuleiro(arr)},
                  .ultima_jogada = {4,3},
                  .jogadas = {},
                  .num_jogadas = 0,
@@ -15,22 +16,21 @@ ESTADO *inicializar_estado() {
     return &e;
 }
 
-void imprime_tabuleiro() {
-    CASA arr[8][8];
-    for (linha = 0; linha < 3; linha++) {
-        for(coluna = 0; coluna < 8; coluna++) {
+int imprime_tabuleiro(CASA arr[8][8]) {
+    for (int linha = 0; linha < 3; linha++) {
+        for(int coluna = 0; coluna < 8; coluna++) {
             arr[linha][coluna] = VAZIO;
         }
-    } imprime_linha_3(arr[8][8])
-    for(linha = 4; linha < 8; linha++) {
-        for(coluna = 0; coluna < 8; coluna++) {
+    } imprime_linha_3(arr);
+    for(int linha = 4; linha < 8; linha++) {
+        for(int coluna = 0; coluna < 8; coluna++) {
             arr[linha][coluna] = VAZIO;
         }
     }
 }
 
 
-void imprime_linha_3(CASA arr[8][8]) {
+int imprime_linha_3(CASA arr[8][8]) {
     int coluna;
     for (coluna = 0; coluna < 4; coluna++) {
         arr[3][coluna] = VAZIO;
