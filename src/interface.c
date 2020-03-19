@@ -31,13 +31,13 @@ void mostrar_tabuleiro(ESTADO *e) {
                 switch (e->tab[k][i])
                 {
                     case PRETA:
-                        putchar('#');
+                        putchar(PRETA);
                         break;
                     case VAZIO:
-                        putchar(".");
+                        putchar(VAZIO);
                         break;
                     case BRANCA:
-                        putchar("*");
+                        putchar(BRANCA);
                         break;
                 }
             }
