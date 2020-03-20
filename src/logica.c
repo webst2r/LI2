@@ -9,14 +9,55 @@
 
 
 int jogar(ESTADO *e, COORDENADA c) {
-    printf("jogar %d %d\n", c.coluna, c.linha);
+    int coluna, colunaNova, linha, linhaNova;
+    coluna=e->ultima_jogada.coluna;
+    linha=e->ultima_jogada.linha;
+    colunaNova=c.coluna;
+    linhaNova=c.linha;
+
+
+    printf("jogar %d %d\n", colunaNova, linhaNova);
     if(casa_livre(e,c)) {
         if(check_movimentos(e,c)) {
-            e->tab[c.linha][c.coluna] = BRANCA;
-            return 1;
+            e->tab[linhaNova][colunaNova] = BRANCA;
+            e->tab[coluna][linha] = PRETA;
+
+            verifica_se_acabou(e,c);
+
         } else return 0;
     } else return 0;
 }
+
+
+int verifica_se_acabou (ESTADO *estado, COORDENADA c){
+    srand(time(NULL));
+    int coluna, linha;
+    coluna = c.coluna;
+    linha = c.linha;
+    random = rand() % 10
+
+    if(obter_jogador_atual(estado) == 2 && coluna == 7 && linha == 0 || obter_jogador_atual(estado) == 1 && coluna == 0 && linha 7) {
+        switch(random) {
+            case 1:
+                printf("Parabéns, é o Vencedor!");
+                break;
+
+            case 2:
+                printf("Venceu!");
+                break;
+
+            case 3:
+                printf("Winner Winner, Chicken Dinner!");
+                break;
+
+            case 4:
+                printf("Você saiu vitorioso!")
+                break;
+        }
+    } else
+    return 0;
+}
+
 
 
 int check_movimentos(ESTADO *estado,COORDENADA c){

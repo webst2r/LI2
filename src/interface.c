@@ -45,20 +45,6 @@ int interpretador(ESTADO *e) {
 */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void mostrar_tabuleiro(ESTADO *e) {
     for (int i = 0; i < 8; i++)
     {
