@@ -34,10 +34,10 @@ int verifica_se_acabou (ESTADO *estado, COORDENADA c){
     int coluna, linha;
     coluna = c.coluna;
     linha = c.linha;
-    random = rand() % 10
+    int n = rand() % 10;
 
     if(obter_jogador_atual(estado) == 2 && coluna == 7 && linha == 0 || obter_jogador_atual(estado) == 1 && coluna == 0 && linha 7) {
-        switch(random) {
+        switch(n) {
             case 1:
                 printf("Parabéns, é o Vencedor!");
                 break;
