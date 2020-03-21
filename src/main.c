@@ -1,9 +1,17 @@
 #include <stdio.h>
+#include "camadadedados.h"
 
-int main(){
-{
-ESTADO *e = inicializar_estado();
-interpretador(e);
+void prompt (ESTADO *e) {
+    int nc = 01 ;
+    int ja = obter_jogador_atual (e);
+    int nj = obter_numero_de_jogadas(e);
+    printf ("# %i PL%i (%i)>",nc, ja , nj );
 }
-return 0;
+
+int main() {
+    ESTADO *e = inicializar_estado();
+    prompt(e);
+    interpretador(e);
+    return 0;
 }
+
