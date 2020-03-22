@@ -18,7 +18,8 @@ ESTADO *inicializar_estado() {
                  .ultima_jogada = {4,3},
                  .jogadas = {},
                  .num_jogadas = 0,
-                 .jogador_atual = 1};
+                 .jogador_atual = 1,
+                 .numeroComandos = 0};
     return &e;
 }
 /*
@@ -29,6 +30,7 @@ int imprime_tabuleiro(CASA arr[8][8]) {
         }
     } imprime_linha_3(arr);
     for(int linha = 4; linha < 8; linha++) {
+
         for(int coluna = 0; coluna < 8; coluna++) {
             arr[linha][coluna] = VAZIO;
         }
