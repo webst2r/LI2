@@ -5,7 +5,6 @@ Definição da interface e das funções que a manipulam
 
 #ifndef SRC_INTERFACE_H
 #define SRC_INTERFACE_H
-
 /**
 \brief Interpretador de jogadas
 */
