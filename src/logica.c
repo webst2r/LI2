@@ -30,27 +30,29 @@ int jogar(ESTADO *e, COORDENADA c) {
 
 
 int verifica_se_acabou (ESTADO *estado, COORDENADA c){
-    srand(time(NULL));
     int coluna, linha;
     coluna = c.coluna;
     linha = c.linha;
-    int n = rand() % 10;
+
+    srand(time(NULL));
+
 
     if(obter_jogador_atual(estado) == 2 && coluna == 7 && linha == 0 || obter_jogador_atual(estado) == 1 && coluna == 0 && linha 7) {
-        switch(n) {
-            case 1:
+        int resposta = rand() % 4;
+        switch(resposta) {
+            case 0:
                 printf("Parabéns, é o Vencedor!");
                 break;
 
-            case 2:
+            case 1:
                 printf("Venceu!");
                 break;
 
-            case 3:
+            case 2:
                 printf("Winner Winner, Chicken Dinner!");
                 break;
 
-            case 4:
+            case 3:
                 printf("Você saiu vitorioso!")
                 break;
         }
