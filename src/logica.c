@@ -31,34 +31,34 @@ int jogar(ESTADO *e, COORDENADA c) {
 
 
 int verifica_se_acabou (ESTADO *estado, COORDENADA c){
-    srand(time(NULL));
     int coluna, linha;
     coluna = c.coluna;
     linha = c.linha;
-    int n = rand() % 10;
+
+    srand(time(NULL));
 
     if(obter_jogador_atual(estado) == 2 && coluna == 7 && linha == 0 || obter_jogador_atual(estado) == 1 && coluna == 0 && linha 7) {
-        switch(n) {
-            case 1:
-                printf("Parabéns, é o Vencedor!");
+        int resposta = rand() % 4;
+        switch(resposta) {
+            case 0:
+                printf("Parabéns, você é o Vencedor!");
                 break;
 
-            case 2:
+            case 1:
                 printf("Venceu!");
                 break;
 
-            case 3:
-                printf("Winner Winner, Chicken Dinner!");
+            case 2:
+                printf("Ganhou!");
                 break;
 
-            case 4:
-                printf("Você saiu vitorioso!")
+            case 3:
+                printf("Vitória!")
                 break;
         }
     } else
     return 0;
 }
-
 
 
 int check_movimentos(ESTADO *estado,COORDENADA c){
