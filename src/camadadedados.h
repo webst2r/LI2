@@ -4,11 +4,7 @@ Definição do estado e das funções que o manipulam
 */
 #ifndef SRC_CAMADADEDADOS_H
 #define SRC_CAMADADEDADOS_H
-/**
-\brief Tipos de casas
 
-typedef enum {VAZIO, BRANCA, PRETA} CASA;
-*/
 /**
 \brief Tipo de dados para as Coordenadas
 */
@@ -76,7 +72,7 @@ int obter_numero_de_jogadas(ESTADO *estado);
 /**
 \brief Obtém o estado de determinada casa.
 */
- CASA obter_estado_casa(ESTADO *e, COORDENADA c);
+CASA obter_estado_casa(ESTADO *e, COORDENADA c);
 /**
 \brief Imprime o tabuleiro para jogar.
 */
