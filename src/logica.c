@@ -1,4 +1,3 @@
-#include "camadadedados.h"
 #include "logica.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,6 +13,7 @@ int jogar(ESTADO *e, COORDENADA c) {
     linha=e->ultima_jogada.linha;
     colunaNova=c.coluna;
     linhaNova=c.linha;
+    add_numerodecomandos(*e);
 
 
     printf("jogar %d %d\n", colunaNova, linhaNova);
@@ -25,6 +25,7 @@ int jogar(ESTADO *e, COORDENADA c) {
             verifica_se_acabou(e,c);
 
         } else return 0;
+        add_numerodecomandos(*e);
     } else return 0;
 }
 

@@ -65,3 +65,7 @@ CASA obter_estado_casa(ESTADO *estado, COORDENADA c) {
      estadocasa = estado->tab[c.linha][c.coluna];
      return estadocasa;
 }
+
+void add_numerodecomandos(ESTADO *e){
+    e->numeroComandos++ ;
+}
