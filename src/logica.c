@@ -36,12 +36,11 @@ int verifica_se_acabou (ESTADO *estado, COORDENADA c){
 
     srand(time(NULL));
 
-
     if(obter_jogador_atual(estado) == 2 && coluna == 7 && linha == 0 || obter_jogador_atual(estado) == 1 && coluna == 0 && linha 7) {
         int resposta = rand() % 4;
         switch(resposta) {
             case 0:
-                printf("Parabéns, é o Vencedor!");
+                printf("Parabéns, você é o Vencedor!");
                 break;
 
             case 1:
@@ -49,17 +48,16 @@ int verifica_se_acabou (ESTADO *estado, COORDENADA c){
                 break;
 
             case 2:
-                printf("Winner Winner, Chicken Dinner!");
+                printf("Ganhou!");
                 break;
 
             case 3:
-                printf("Você saiu vitorioso!")
+                printf("Vitória!")
                 break;
         }
     } else
     return 0;
 }
-
 
 
 int check_movimentos(ESTADO *estado,COORDENADA c){
