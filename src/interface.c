@@ -2,7 +2,6 @@
 #include "interface.h"
 #include "camadadedados.h"
 #define DEBUG
-#include "debug.h"
 #define BUF_SIZE 1024
 /**
 int interpretador(ESTADO *e) {
@@ -18,7 +17,6 @@ int interpretador(ESTADO *e) {
 
     if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
         COORDENADA coord = {*col - 'a', *lin - '1'};
-        ERROS erro;
         if ((erro = jogar(e, coord)) == OK)
             mostrar_tabuleiro(stdout, e);
         else
@@ -36,10 +34,7 @@ int interpretador(ESTADO *e) {
         if((erro = ler(e,nome_ficheiro)) == OK)
             mostrar_tabuleiro(stdout, e);
         else
-            print_erro(erro);
     }
-
-    PRINT_DEBUG("Comando %s não encontrado.", linha);
     return 1;
 }
 */
