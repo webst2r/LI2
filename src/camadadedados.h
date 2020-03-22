@@ -55,6 +55,8 @@ typedef struct {
     int num_jogadas;
     /** O jogador atual */
     int jogador_atual;
+    /**  numero de comandos */
+    int numeroComandos;
 } ESTADO;
 
 /**
