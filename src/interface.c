@@ -10,12 +10,6 @@ int interpretador(ESTADO *e) {
     char col[2], lin[2];
     char nome_ficheiro[BUF_SIZE];
 
-
-    e->num_comando++;
-    printf("# %02d PL%d (%d)> ", e->num_comando, e->jogador_atual,e->num_jogadas);
-    if(fgets(linha, BUF_SIZE, stdin) == NULL)
-        return 0;
-
     if(strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
         COORDENADA coord = {*col - 'a', *lin - '1'};
         ERROS erro;
