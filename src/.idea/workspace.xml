@@ -18,6 +18,20 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="ProjectId" id="1Yww8TvhCSCCrj4Vtn2TLTdmKTS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583866804952</updated>
       <workItem from="1583866806847" duration="146000" />
-      <workItem from="1583871026467" duration="28415000" />
+      <workItem from="1583871026467" duration="30274000" />
     </task>
     <servers />
   </component>

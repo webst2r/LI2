@@ -19,7 +19,7 @@ int interpretador(ESTADO *e)
         if ((erro = jogar(e, coord)) == OK)
             mostrar_tabuleiro(stdout, e); // FIXME - ADAPTAR MOSTRAR_TABULEIRO PARA RECEBER UM FICHEIRO
         else
-            printf(erro);
+            print_erro(erro);
     }
     if (strcmp(linha, "Q\n") == 0)
         return 0;
@@ -30,9 +30,24 @@ int interpretador(ESTADO *e)
         if((erro = ler(e,nome_ficheiro)) == OK)
           mostrar_tabuleiro(stdout, e);
         else
-          printf(erro);
+          print_erro(erro);
         }
     return 1;
+}
+}
+
+void print_erro(ERROS erro) {
+    if (erro == JOGADA_INVALIDA) {
+        printf("A sua jogada é inválida.\n");
+    } else {
+        if (erro == COORDENADA_INVALIDA) {
+            printf("A coordenada é inválida.\n");
+        } else {
+            if (erro == ERRO_LER_TAB) {
+                printf("Ocorreu um erro ao ler o tabuleiro.\n");
+            } else printf("Ocorreu um erro ao abrir o ficheiro.\n");
+        }
+    }
 }
 /*
 void print_erro (ESTADO *estado, char nome_ficheiro[BUF_SIZE]) {
@@ -76,7 +91,7 @@ int interpretador(ESTADO *e) {
 }
 */
 
-void gravar(ESTADO *e, char* nome_ficheiro) {
+ERROS gravar(ESTADO *e, char* nome_ficheiro) {
     FILE *fp;
 
     fp = fopen(nome_ficheiro, "w");
@@ -121,21 +136,21 @@ void gravar(ESTADO *e, char* nome_ficheiro) {
 }
 
 
-void ler(ESTADO *e, char* nome_ficheiro){
+ERROS ler(ESTADO *e, char* nome_ficheiro){
+    ERROS erro;
     char buffer[BUF_SIZE]; //FIXME - ACABAR A IMPLEMENTAÇÃO
     int l = 0;
     FILE *fp;
-    while(fgets(buffer, BUF_SIZE, f) != NULL) {
-        for(int c = 0; c < 8; c++) set_casa(estado, {l, c}, buffer[c]);
+    while(fgets(buffer, BUF_SIZE, fp) != NULL) {
+        for(int c = 0; c < 8; c++) set_casa(e, {l, c}, buffer[c]);
         l++;
     }
     fclose(fp);
-
 }
 
-void set_casa(ESTADO *e, COORDENADA c, CASA valor) {       // COLOCA O VALOR NA CASA COM COORDENADA por miudos COORDENADA -> VALOR
+CASA set_casa(ESTADO *e, COORDENADA c, CASA valor) {       // COLOCA O VALOR NA CASA COM COORDENADA por miudos COORDENADA -> VALOR
     CASA estadocasa;
-    estadocasa = estado->tab[c.linha][c.coluna];
+    estadocasa = e->tab[c.linha][c.coluna];
     estadocasa = valor;
     return estadocasa;
 }

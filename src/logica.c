@@ -39,6 +39,9 @@ ERROS verifica_se_acabou (ESTADO *estado, COORDENADA c){
     return erro;
 }
 
+void add_numerodecomandos(ESTADO *e){
+    e->numeroComandos++ ;
+}
 
 ERROS jogar(ESTADO *e, COORDENADA c) {
     ERROS erro;
@@ -48,7 +51,6 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
     colunaNova=c.coluna;
     linhaNova=c.linha;
     add_numerodecomandos(e);
-
 
     printf("jogar %d %d\n", colunaNova, linhaNova);
     if(erro = casa_livre(e,c) == OK) {
