@@ -48,9 +48,9 @@ int imprime_linha_3(CASA arr[8][8]) {
 }
 */
 int obter_jogador_atual(ESTADO *estado) {
-    int play;
-    play = estado->jogador_atual;
-    return play;
+    int player;
+    player = estado->jogador_atual;
+    return player;
 }
 
 int obter_numero_de_jogadas(ESTADO *estado) {

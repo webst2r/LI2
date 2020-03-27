@@ -35,6 +35,14 @@ int interpretador(ESTADO *e)
     return 1;
 }
 /*
+void print_erro (ESTADO *estado, char nome_ficheiro[BUF_SIZE]) {
+
+}
+*/
+
+
+
+/*
 int interpretador(ESTADO *e) {
     char linha[BUF_SIZE];
     char col[2], lin[2];
@@ -91,13 +99,13 @@ void gravar(ESTADO *e, char* nome_ficheiro) {
                 switch (e->tab[k][i])
                 {
                     case PRETA:
-                        fputchar(stdout,PRETA);
+                        fputchar(PRETA);
                         break;
                     case VAZIO:
-                        fputchar(stdout,VAZIO);
+                        fputchar(VAZIO);
                         break;
                     case BRANCA:
-                        fputchar(stdout,BRANCA);
+                        fputchar(BRANCA);
                         break;
                 }
             }
@@ -105,34 +113,28 @@ void gravar(ESTADO *e, char* nome_ficheiro) {
     }
 
 
-
     fclose(fp); /* Fechar ficheiro para salvar a informação */
 
     printf("Ficheiro criado e salvado com sucesso. :) \n");
-
 
     return 0;
 }
 
 
 void ler(ESTADO *e, char* nome_ficheiro){
-    char buffer[BUF_SIZE];
+    char buffer[BUF_SIZE]; //FIXME - ACABAR A IMPLEMENTAÇÃO
     int l = 0;
     FILE *fp;
     while(fgets(buffer, BUF_SIZE, f) != NULL) {
         for(int c = 0; c < 8; c++) set_casa(estado, {l, c}, buffer[c]);
         l++;
     }
-
     fclose(fp);
 
 }
 
-/*
-void print_erro (ESTADO *estado, char nome_ficheiro[BUF_SIZE]) {
+void set_casa(ESTADO *e, COORDENADA c, CASA valor); // COLOCA O VALOR NA CASA COM COORDENADA C
 
-}
-*/
 
 void mostrar_tabuleiro(char* nome_ficheiro, ESTADO *e) {
     ler(e, nome_ficheiro)
