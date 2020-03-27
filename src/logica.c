@@ -4,8 +4,8 @@
 #include <string.h>
 #include "camadadedados.h"
 #include "interface.h"
-#include "math.h"
-#include "time.h"
+#include <math.h>
+#include <time.h>
 #define BUF_SIZE 1024
 
 ERROS verifica_se_acabou (ESTADO *estado, COORDENADA c){

@@ -142,7 +142,7 @@ ERROS ler(ESTADO *e, char* nome_ficheiro){  // FIXME - IMPLEMENTAR ERRO DE LEITU
     int linha = 0;
     FILE *fp;
     while(fgets(buffer, BUF_SIZE, fp) != NULL) {
-        for(int coluna = 0; coluna < 8; coluna++) set_casa(e, {linha, coluna}, buffer[coluna]);
+        for(int coluna = 0; coluna < 8; coluna++) set_casa(e, (COORDENADA) {linha, coluna}, buffer[coluna]);
         linha++;
     }
     fclose(fp);

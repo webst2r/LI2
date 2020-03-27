@@ -60,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583866804952</updated>
       <workItem from="1583866806847" duration="146000" />
-      <workItem from="1583871026467" duration="31638000" />
+      <workItem from="1583871026467" duration="33697000" />
     </task>
     <servers />
   </component>
@@ -72,10 +72,10 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="616" y="381" key="com.intellij.ide.util.TipDialog/0.28.1920.1052@0.28.1920.1052" timestamp="1583866808279" />
-    <state x="657" y="90" width="662" height="795" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584312294946">
+    <state x="657" y="90" width="662" height="795" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585334059720">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="657" y="90" width="662" height="795" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.923@67.27.1853.923" timestamp="1584312294946" />
+    <state x="657" y="90" width="662" height="795" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.923@67.27.1853.923" timestamp="1585334059720" />
     <state x="657" y="221" key="run.anything.popup" timestamp="1584644076882">
       <screen x="67" y="27" width="1853" height="923" />
     </state>

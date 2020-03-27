@@ -54,6 +54,9 @@ typedef struct {
     /**  numero de comandos */
     int numeroComandos;
 } ESTADO;
+/**
+\brief Tipo de dados para os erros
+*/
 typedef enum {
     OK,
     COORDENADA_INVALIDA,
