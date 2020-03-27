@@ -88,7 +88,8 @@ int imprime_tabuleiro (CASA arr[8][8]);
 \brief Imprime a linha 3.
 */
 int imprime_linha_3 (CASA arr[8][8]);
-
+/**
+\brief Soma o numero de comandos.
 void add_numerodecomandos(ESTADO *e);
-
+*/
 #endif // SRC_CAMADADEDADOS_H

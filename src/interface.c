@@ -52,7 +52,7 @@ void gravar(ESTADO *estado, char* nome_ficheiro) {
         exit(EXIT_FAILURE);
     }
     fprintf(fp , "%d", e -> num_jogadas )
-  //fazer fprintf
+  //fazer fprintf (de cada linha?)
 
 
 
@@ -77,10 +77,11 @@ void ler(ESTADO *estado, char nome_ficheiro[BUF_SIZE]){
 
 }
 
+/*
 void print_erro (ESTADO *estado, char nome_ficheiro[BUF_SIZE]) {
 
 }
-
+*/
 
 void mostrar_tabuleiro(ESTADO *e) {
     for (int i = 0; i < 8; i++)
