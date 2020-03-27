@@ -133,11 +133,15 @@ void ler(ESTADO *e, char* nome_ficheiro){
 
 }
 
-void set_casa(ESTADO *e, COORDENADA c, CASA valor); // COLOCA O VALOR NA CASA COM COORDENADA C
-
+void set_casa(ESTADO *e, COORDENADA c, CASA valor) {       // COLOCA O VALOR NA CASA COM COORDENADA por miudos COORDENADA -> VALOR
+    CASA estadocasa;
+    estadocasa = estado->tab[c.linha][c.coluna];
+    estadocasa = valor;
+    return estadocasa;
+}
 
 void mostrar_tabuleiro(char* nome_ficheiro, ESTADO *e) {
-    ler(e, nome_ficheiro)
+    ler(e, nome_ficheiro);
     for (int i = 0; i < 8; i++)
     {
         for (int k = 0; k < 8; k++) {
@@ -160,7 +164,7 @@ void mostrar_tabuleiro(char* nome_ficheiro, ESTADO *e) {
                 }
             }
         }
-        printf("\n Efetua a tua jogada");
+       // printf("\n Efetua a tua jogada");
     }
 }
 
