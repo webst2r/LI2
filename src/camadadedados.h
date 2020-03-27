@@ -54,6 +54,13 @@ typedef struct {
     /**  numero de comandos */
     int numeroComandos;
 } ESTADO;
+typedef enum {
+    OK,
+    COORDENADA_INVALIDA,
+    JOGADA_INVALIDA,
+    ERRO_LER_TAB,
+    ERRO_ABRIR_FICHEIRO,
+} ERROS;
 
 /**
 \brief Inicializa o valor do estado

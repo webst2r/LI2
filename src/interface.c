@@ -2,8 +2,11 @@
 #include <stdlib.h>
 #include "interface.h"
 #include "camadadedados.h"
+#include "logica.h"
 #define DEBUG
 #define BUF_SIZE 1024
+#include <string.h>
+
 
 int interpretador(ESTADO *e) {
     char linha[BUF_SIZE];
@@ -16,7 +19,7 @@ int interpretador(ESTADO *e) {
         if ((erro = jogar(e, coord)) == OK)
             mostrar_tabuleiro(stdout, e);
         else
-            print_erro(erro);
+            printf(erro);
     }
     if (strcmp(linha, "Q\n") == 0)
         return 0;
@@ -38,21 +41,23 @@ int interpretador(ESTADO *e) {
 }
 
 
-void gravar(ESTADO *estado, char nome_ficheiro[BUF_SIZE]) {
+void gravar(ESTADO *estado, char* nome_ficheiro) {
     FILE *fp;
 
-    fp = fopen("src/nome_ficheiro.txt", "w");
+    fp = fopen(nome_ficheiro, "w");
 
-    if(fPtr == NULL)  // fopen() devolve NULL se a ultima operação foi mal sucedida
+    if(fp == NULL)  // fopen() devolve NULL se a ultima operação foi mal sucedida
     {
         printf("Não é possivel criar o ficheiro.\n");
         exit(EXIT_FAILURE);
     }
+    fprintf(fp , "%d", e -> num_jogadas )
+  //fazer fprintf
 
 
-    fgets(nome_ficheiro, BUF_SIZE, stdin); /* Input contents from user to store in file */ // printf("Enter contents to store in file : \n");
 
-    fputs(nome_ficheiro, fp); /* Escrever informação no ficheiro */
+
+
 
     fclose(fp); /* Fechar ficheiro para salvar a informação */
 

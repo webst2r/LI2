@@ -4,31 +4,9 @@
 #include <string.h>
 #include "camadadedados.h"
 #include "interface.h"
+#include "math.h"
+#include "time.h"
 #define BUF_SIZE 1024
-
-
-int jogar(ESTADO *e, COORDENADA c) {
-    int coluna, colunaNova, linha, linhaNova;
-    coluna=e->ultima_jogada.coluna;
-    linha=e->ultima_jogada.linha;
-    colunaNova=c.coluna;
-    linhaNova=c.linha;
-    add_numerodecomandos(*e);
-
-
-    printf("jogar %d %d\n", colunaNova, linhaNova);
-    if(casa_livre(e,c)) {
-        if(check_movimentos(e,c)) {
-            e->tab[linhaNova][colunaNova] = BRANCA;
-            e->tab[coluna][linha] = PRETA;
-
-            verifica_se_acabou(e,c);
-
-        } else return 0;
-        add_numerodecomandos(*e);
-    } else return 0;
-}
-
 
 int verifica_se_acabou (ESTADO *estado, COORDENADA c){
     int coluna, linha;
@@ -37,7 +15,7 @@ int verifica_se_acabou (ESTADO *estado, COORDENADA c){
 
     srand(time(NULL));
 
-    if(obter_jogador_atual(estado) == 2 && coluna == 7 && linha == 0 || obter_jogador_atual(estado) == 1 && coluna == 0 && linha 7) {
+    if(obter_jogador_atual(estado) == 2 && coluna == 7 && linha == 0 || obter_jogador_atual(estado) == 1 && coluna == 0 && linha == 7) {
         int resposta = rand() % 4;
         switch(resposta) {
             case 0:
@@ -53,13 +31,35 @@ int verifica_se_acabou (ESTADO *estado, COORDENADA c){
                 break;
 
             case 3:
-                printf("Vitória!")
+                printf("Vitória!");
                 break;
         }
     } else
     return 0;
 }
 
+
+int jogar(ESTADO *e, COORDENADA c) {
+    int coluna, colunaNova, linha, linhaNova;
+    coluna=e->ultima_jogada.coluna;
+    linha=e->ultima_jogada.linha;
+    colunaNova=c.coluna;
+    linhaNova=c.linha;
+    add_numerodecomandos(e);
+
+
+    printf("jogar %d %d\n", colunaNova, linhaNova);
+    if(casa_livre(e,c)) {
+        if(check_movimentos(e,c)) {
+            e->tab[linhaNova][colunaNova] = BRANCA;
+            e->tab[coluna][linha] = PRETA;
+
+            verifica_se_acabou(e,c);
+
+        } else return 0;
+        add_numerodecomandos(e);
+    } else return 0;
+}
 
 int check_movimentos(ESTADO *estado,COORDENADA c){
     int coluna1,coluna2,linha1,linha2;

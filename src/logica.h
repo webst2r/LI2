@@ -5,6 +5,7 @@ Definição da interface e das funções que a manipulam
 
 #ifndef SRC_LOGICA_H
 #define SRC_LOGICA_H
+#include "camadadedados.h"
 
 /**
 \brief Função que permite fazer jogadas, tendo em conta um estado e uma coordenada.

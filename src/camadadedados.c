@@ -5,9 +5,9 @@
 #define BUF_SIZE 1024
 
 ESTADO *inicializar_estado() {
-    ESTADO e;
+    ESTADO *e = (ESTADO*)malloc(sizeof(ESTADO));
     CASA arr[8][8];
-    e = (ESTADO){.tab = {{VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
+    *e = (ESTADO){.tab = {{VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
                          {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
                          {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
                          {VAZIO, VAZIO, VAZIO, VAZIO, BRANCA, VAZIO, VAZIO, VAZIO},
@@ -20,7 +20,7 @@ ESTADO *inicializar_estado() {
                  .num_jogadas = 0,
                  .jogador_atual = 1,
                  .numeroComandos = 0};
-    return &e;
+    return e;
 }
 /*
 int imprime_tabuleiro(CASA arr[8][8]) {
