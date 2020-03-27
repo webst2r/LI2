@@ -6,8 +6,7 @@
 #define BUF_SIZE 1024
 #include <string.h>
 
-int interpretador(ESTADO *e)
-{
+int interpretador(ESTADO *e) {
     char linha[BUF_SIZE];
     char col[2], lin[2];
     char nome_ficheiro[BUF_SIZE];
@@ -29,11 +28,10 @@ int interpretador(ESTADO *e)
         ERROS erro;
         if((erro = ler(e,nome_ficheiro)) == OK)
           mostrar_tabuleiro(nome_ficheiro, e);
-        else
-          print_erro(erro);
+        else print_erro(erro);
         }
     return 1;
-}
+    }
 }
 
 void print_erro(ERROS erro) {
@@ -178,7 +176,7 @@ void mostrar_tabuleiro(char* nome_ficheiro, ESTADO *e) {
                 }
             }
         }
-       // printf("\n Efetua a tua jogada");
+       printf("\n Efetua a tua jogada");
     }
 }
 

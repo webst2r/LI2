@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "camadadedados.h"
 #include "interface.h"
+#include "logica.h"
+
 void prompt (ESTADO *e) {
     int nc = e -> numeroComandos ;
     int ja = obter_jogador_atual (e);
