@@ -38,7 +38,7 @@ ERROS ler(ESTADO *e, char* nome_ficheiro);
 /**
 \brief Função que coloca o novo valor numa casa.
 */
-CASA set_casa(ESTADO *e, COORDENADA c, CASA valor);
+void set_casa(ESTADO *e, COORDENADA c, CASA valor);
 
 
 #endif // SRC_INTERFACE_H

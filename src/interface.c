@@ -17,7 +17,7 @@ int interpretador(ESTADO *e)
         COORDENADA coord = {*col - 'a', *lin - '1'};
         ERROS erro;
         if ((erro = jogar(e, coord)) == OK)
-            mostrar_tabuleiro(stdout, e); // FIXME - ADAPTAR MOSTRAR_TABULEIRO PARA RECEBER UM FICHEIRO
+            mostrar_tabuleiro(nome_ficheiro, e); // FIXME - ADAPTAR MOSTRAR_TABULEIRO PARA RECEBER UM FICHEIRO
         else
             print_erro(erro);
     }
@@ -28,7 +28,7 @@ int interpretador(ESTADO *e)
     if(sscanf(linha, "ler %s", nome_ficheiro) == 1) {
         ERROS erro;
         if((erro = ler(e,nome_ficheiro)) == OK)
-          mostrar_tabuleiro(stdout, e);
+          mostrar_tabuleiro(nome_ficheiro, e);
         else
           print_erro(erro);
         }
@@ -91,7 +91,7 @@ int interpretador(ESTADO *e) {
 }
 */
 
-ERROS gravar(ESTADO *e, char* nome_ficheiro) {
+ERROS gravar(ESTADO *e, char* nome_ficheiro) { // FIXME - IMPLEMENTAR ERRO
     FILE *fp;
 
     fp = fopen(nome_ficheiro, "w");
@@ -109,18 +109,18 @@ ERROS gravar(ESTADO *e, char* nome_ficheiro) {
             if (k == 7 && i == 0)
                 fprintf(stdout,"2");
             else if (i == 7 && k == 0)
-                printf(stdout,"1");
+                fprintf(stdout,"1");
             else {
                 switch (e->tab[k][i])
                 {
                     case PRETA:
-                        fputchar(PRETA);
+                        putchar(PRETA);
                         break;
                     case VAZIO:
-                        fputchar(VAZIO);
+                        putchar(VAZIO);
                         break;
                     case BRANCA:
-                        fputchar(BRANCA);
+                        putchar(BRANCA);
                         break;
                 }
             }
@@ -136,23 +136,22 @@ ERROS gravar(ESTADO *e, char* nome_ficheiro) {
 }
 
 
-ERROS ler(ESTADO *e, char* nome_ficheiro){
+ERROS ler(ESTADO *e, char* nome_ficheiro){  // FIXME - IMPLEMENTAR ERRO DE LEITURA
     ERROS erro;
-    char buffer[BUF_SIZE]; //FIXME - ACABAR A IMPLEMENTAÇÃO
-    int l = 0;
+    char buffer[BUF_SIZE];
+    int linha = 0;
     FILE *fp;
     while(fgets(buffer, BUF_SIZE, fp) != NULL) {
-        for(int c = 0; c < 8; c++) set_casa(e, {l, c}, buffer[c]);
-        l++;
+        for(int coluna = 0; coluna < 8; coluna++) set_casa(e, {linha, coluna}, buffer[coluna]);
+        linha++;
     }
     fclose(fp);
 }
 
-CASA set_casa(ESTADO *e, COORDENADA c, CASA valor) {       // COLOCA O VALOR NA CASA COM COORDENADA por miudos COORDENADA -> VALOR
+void set_casa(ESTADO *e, COORDENADA c, CASA valor) {       // COLOCA O VALOR NA CASA COM COORDENADA por miudos COORDENADA -> VALOR
     CASA estadocasa;
     estadocasa = e->tab[c.linha][c.coluna];
     estadocasa = valor;
-    return estadocasa;
 }
 
 void mostrar_tabuleiro(char* nome_ficheiro, ESTADO *e) {
