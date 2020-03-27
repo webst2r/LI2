@@ -6,6 +6,7 @@
 #include "interface.h"
 #include "math.h"
 #include "time.h"
+#include "camadadedados.h"
 #define BUF_SIZE 1024
 
 ERROS verifica_se_acabou (ESTADO *estado, COORDENADA c){
@@ -40,7 +41,7 @@ ERROS verifica_se_acabou (ESTADO *estado, COORDENADA c){
 }
 
 
-ERROS jogar(ESTADO *e, COORDENADA c) {
+ERROS jogar (ESTADO *e, COORDENADA c) {
     ERROS erro;
     int coluna, colunaNova, linha, linhaNova;
     coluna=e->ultima_jogada.coluna;

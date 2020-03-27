@@ -18,7 +18,7 @@ int interpretador(ESTADO *e);
 \brief Função que mostra o tabuleiro
 */
 
-void mostrar_tabuleiro(ESTADO *e);
+void mostrar_tabuleiro (ESTADO *e);
 
 
 #endif // SRC_INTERFACE_H

@@ -65,6 +65,6 @@ CASA obter_estado_casa(ESTADO *estado, COORDENADA c) {
      return estadocasa;
 }
 
-void add_numerodecomandos(ESTADO *e){
-    e->numeroComandos++ ;
+void add_numerodecomandos (ESTADO *e){
+    e-> numeroComandos++ ;
 }
