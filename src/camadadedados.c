@@ -22,7 +22,7 @@ ESTADO *inicializar_estado() {
                  .numeroComandos = 0};
     return e;
 }
-/*
+/* Maneira alternativa de imprimir o tabuleiro inicial.
 int imprime_tabuleiro(CASA arr[8][8]) {
     for (int linha = 0; linha < 3; linha++) {
         for(int coluna = 0; coluna < 8; coluna++) {
@@ -36,7 +36,6 @@ int imprime_tabuleiro(CASA arr[8][8]) {
         }
     }
 }
-
 
 int imprime_linha_3(CASA arr[8][8]) {
     int coluna;
