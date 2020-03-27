@@ -3,11 +3,27 @@
 #include "interface.h"
 #include "camadadedados.h"
 #include "logica.h"
-#define DEBUG
 #define BUF_SIZE 1024
 #include <string.h>
 
+int interpretador(ESTADO *e)
+{
+    char linha[BUF_SIZE];
+    char col[2], lin[2];
+    if (fgets(linha, BUF_SIZE, stdin) == NULL)
+        return 0;
+    if (strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2)
+    {
+        COORDENADA coord = {*col - 'a', *lin - '1'};
+        jogar(e, coord);
+        mostrar_tabuleiro(e);
+        if (strcmp(linha, "Q\n") == 0)
+            return 0;
 
+    }
+    return 1;
+}
+/*
 int interpretador(ESTADO *e) {
     char linha[BUF_SIZE];
     char col[2], lin[2];
@@ -39,9 +55,9 @@ int interpretador(ESTADO *e) {
     PRINT_DEBUG("Comando %s não encontrado.", linha);
     return 1;
 }
+*/
 
-
-void gravar(ESTADO *estado, char* nome_ficheiro) {
+void gravar(ESTADO *e, char* nome_ficheiro) {
     FILE *fp;
 
     fp = fopen(nome_ficheiro, "w");
@@ -68,10 +84,14 @@ void gravar(ESTADO *estado, char* nome_ficheiro) {
 }
 
 
-void ler(ESTADO *estado, char nome_ficheiro[BUF_SIZE]){
+void ler(ESTADO *e, char nome_ficheiro){
+    char buffer[BUF_SIZE];
+    int l = 0;
     FILE *fp;
-
-    fp = fopen("src/nome_ficheiro.txt","r");
+    while(fgets(buffer, BUF_SIZE, f) != NULL) {
+        for(int c = 0; c < 8; c++) set_casa(estado, {l, c}, buffer[c]);
+        l++;
+    }
 
     fclose(fp);
 
