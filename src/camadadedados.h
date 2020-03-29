@@ -96,4 +96,9 @@ int imprime_linha_3 (CASA arr[8][8]);
 */
 void add_numerodecomandos(ESTADO *e);
 
+/**
+\brief Armazena jogadas.
+*/
+void armazenar_jogada(ESTADO *e, COORDENADA c)
+
 #endif // SRC_CAMADADEDADOS_H

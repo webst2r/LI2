@@ -18,7 +18,12 @@ int interpretador(ESTADO *e);
 \brief Função que mostra o tabuleiro
 */
 
-void mostrar_tabuleiro(char* nome_ficheiro, ESTADO *e);
+void mostrar_tabuleiro(ESTADO *e);
+
+/**
+\brief Função que mostra as letras das colunas do tabuleiro.
+*/
+void mostrar_tabuleiro2 (char* nome_ficheiro, ESTADO *e);
 
 /**
 \brief Função que imprime a razão pela qual ocorreram erros

@@ -40,7 +40,7 @@ ERROS verifica_se_acabou (ESTADO *estado, COORDENADA c){
 }
 
 void add_numerodecomandos(ESTADO *e){
-    e->numeroComandos++ ;
+    e->numeroComandos++;
 }
 
 ERROS jogar(ESTADO *e, COORDENADA c) {
@@ -107,5 +107,3 @@ ERROS jogada_valida(ESTADO *e, COORDENADA c) {
     else erro = JOGADA_INVALIDA;
     return erro;
 }
-
-
