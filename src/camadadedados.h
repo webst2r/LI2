@@ -101,4 +101,10 @@ void add_numerodecomandos(ESTADO *e);
 */
 void armazenar_jogada(ESTADO *e, COORDENADA c)
 
+void str_to_coord (char jogador[256]);
+
+void coluna(char jogador[256], int arr[]);
+
+void linha(char jogador[256], int arr[]);
+
 #endif // SRC_CAMADADEDADOS_H

@@ -74,6 +74,73 @@ void armazenar_jogada(ESTADO *e, COORDENADA c) {
     }
 }
 
+void str_to_coord (char jogador[256]) {
+    int arr[];
+    coluna(jogador[0], arr);
+    linha(jogador[1]), arr;
+}
 
 
+void coluna(char jogador[256], int arr[]) {
+
+    coluna_jogador = jogador[0];
+
+    switch (coluna_jogador) {
+        case a:
+            arr[0] = 0;
+            break;
+        case b:
+            arr[0] = 1;
+            break;
+        case c:
+            arr[0] = 2;
+            break;
+        case d:
+            arr[0] = 3;
+            break;
+        case e:
+            arr[0] = 4;
+            break;
+        case f:
+            arr[0] = 5;
+            break;
+        case g:
+            arr[0] = 6;
+            break;
+        case h:
+            arr[0] = 7;
+            break;
+    }
+}
+
+void linha(char jogador[256], int arr[]){
+    linha_jogador = jogador[1];
+
+    switch(linha_jogador){
+        case 1:
+            arr[1] = 0;
+            break;
+        case 2:
+            arr[1] = 1;
+            break;
+        case 3:
+            arr[1] = 2;
+            break;
+        case 4:
+            arr[1] = 3;
+            break;
+        case 5:
+            arr[1] = 4;
+            break;
+        case 6:
+            arr[1] = 5;
+            break;
+        case 7:
+            arr[1] = 6;
+            break;
+        case 8:
+            arr[1] = 7;
+            break;
+    }
+}
 
