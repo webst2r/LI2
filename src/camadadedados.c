@@ -7,15 +7,15 @@
 ESTADO *inicializar_estado() {
     ESTADO *e = (ESTADO*)malloc(sizeof(ESTADO));
     CASA arr[8][8];
-    *e = (ESTADO){.tab = {{VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
+    *e = (ESTADO){.tab = {{UM, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
+                          {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
                           {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
                           {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
                           {VAZIO, VAZIO, VAZIO, VAZIO, BRANCA, VAZIO, VAZIO, VAZIO},
                           {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
                           {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
-                          {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
-                          {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO}},
-            .ultima_jogada = {4,3},
+                          {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, DOIS}},
+            .ultima_jogada = {4,4},
             .jogadas = {},
             .num_jogadas = 0,
             .jogador_atual = 1,
@@ -65,82 +65,39 @@ CASA obter_estado_casa(ESTADO *estado, COORDENADA c) {
     return estadocasa;
 }
 
-void armazenar_jogada(ESTADO *e, COORDENADA c) {
+void atualiza_jogadas(ESTADO *e, COORDENADA c){
+    if(obter_jogador_atual(e) == 1){
+        e->jogadas[obter_numero_de_jogadas(e)].jogador1 = c;
+    } else
+        e->jogadas[obter_numero_de_jogadas(e)].jogador2 = c;
+}
 
-    if(e->jogador_atual == 1) e->jogadas[i].jogador1 = c;
+
+
+int atualiza_jogador_atual(ESTADO *e) {
+    if(obter_jogador_atual(e) == 1) {
+        return 2;
+    } else return 1;
+}
+
+
+
+int atualiza_num_jogadas(ESTADO *e) {
+    int n = obter_numero_de_jogadas(e);
+    if(obter_jogador_atual(e) == 2) {
+        n++;
+    }
+    return n;
+}
+
+
+void armazenar_jogada(ESTADO *e, COORDENADA c1, COORDENADA c2) {
+    int i = 0;
+    if(e->jogador_atual == 1) e->jogadas[i].jogador1 = c1;
     else if(e->jogador_atual == 2) {
-        e->jogadas[i].jogador2 = c;
+        e->jogadas[i].jogador2 = c2;
         e->num_jogadas++;
     }
 }
 
-void str_to_coord (char jogador[256]) {
-    int arr[];
-    coluna(jogador[0], arr);
-    linha(jogador[1]), arr;
-}
-
-
-void coluna(char jogador[256], int arr[]) {
-
-    coluna_jogador = jogador[0];
-
-    switch (coluna_jogador) {
-        case a:
-            arr[0] = 0;
-            break;
-        case b:
-            arr[0] = 1;
-            break;
-        case c:
-            arr[0] = 2;
-            break;
-        case d:
-            arr[0] = 3;
-            break;
-        case e:
-            arr[0] = 4;
-            break;
-        case f:
-            arr[0] = 5;
-            break;
-        case g:
-            arr[0] = 6;
-            break;
-        case h:
-            arr[0] = 7;
-            break;
-    }
-}
-
-void linha(char jogador[256], int arr[]){
-    linha_jogador = jogador[1];
-
-    switch(linha_jogador){
-        case 1:
-            arr[1] = 0;
-            break;
-        case 2:
-            arr[1] = 1;
-            break;
-        case 3:
-            arr[1] = 2;
-            break;
-        case 4:
-            arr[1] = 3;
-            break;
-        case 5:
-            arr[1] = 4;
-            break;
-        case 6:
-            arr[1] = 5;
-            break;
-        case 7:
-            arr[1] = 6;
-            break;
-        case 8:
-            arr[1] = 7;
-            break;
-    }
-}
 

@@ -17,7 +17,9 @@ int main() {
     ESTADO *e = inicializar_estado();
     mostrar_tabuleiro(e);
     printf("abcdefgh\n");
-    prompt(e);
-    interpretador(e);
+    while(e->num_jogadas < 32) {
+        prompt(e);
+        interpretador(e);
+    }
     return 0;
 }

@@ -8,6 +8,8 @@
 #include <time.h>
 #define BUF_SIZE 1024
 
+void func(ESTADO *e);
+
 ERROS verifica_se_acabou (ESTADO *estado, COORDENADA c){
     int coluna, linha;
     ERROS erro;
@@ -19,22 +21,28 @@ ERROS verifica_se_acabou (ESTADO *estado, COORDENADA c){
     if(obter_jogador_atual(estado) == 2 && coluna == 7 && linha == 0 || obter_jogador_atual(estado) == 1 && coluna == 0 && linha == 7) {
         int resposta = rand() % 4;
         switch(resposta) {
+
             case 0:
+                estado->num_jogadas = 32;
                 printf("Parabéns, você é o Vencedor!");
                 break;
 
             case 1:
+                estado->num_jogadas = 32;
                 printf("Venceu!");
                 break;
 
             case 2:
+                estado->num_jogadas = 32;
                 printf("Ganhou!");
                 break;
 
             case 3:
+                estado->num_jogadas = 32;
                 printf("Vitória!");
                 break;
         }
+
     } else erro = OK;
     return erro;
 }
@@ -46,39 +54,47 @@ void add_numerodecomandos(ESTADO *e){
 ERROS jogar(ESTADO *e, COORDENADA c) {
     ERROS erro;
     int coluna, colunaNova, linha, linhaNova;
-    coluna=e->ultima_jogada.coluna;
-    linha=e->ultima_jogada.linha;
-    colunaNova=c.coluna;
-    linhaNova=c.linha;
+    //coluna = e->ultima_jogada.coluna;
+    //linha = e->ultima_jogada.linha;
+    //colunaNova = c.coluna;
+    //linhaNova = c.linha;
     add_numerodecomandos(e);
 
-    printf("jogar %d %d\n", colunaNova, linhaNova);
-    if(erro = casa_livre(e,c) == OK) {
-        if(erro = check_movimentos(e,c) == OK) {
-            e->tab[linhaNova][colunaNova] = BRANCA;
-            e->tab[coluna][linha] = PRETA;
+    if(erro = jogada_valida(e,c) == OK) {
 
-            verifica_se_acabou(e,c);
-
-        } else erro = JOGADA_INVALIDA;
-        add_numerodecomandos(e);
-    } else erro = casa_livre(e,c);
-    return erro;
+        printf("Jogar %d %d\n", c.coluna, c.linha);
+        e->tab[c.linha][c.coluna] = BRANCA;
+        //e->tab[linha][coluna] = PRETA;
+        func(e);
+        e->num_jogadas = atualiza_num_jogadas(e);
+        e->jogador_atual = atualiza_jogador_atual(e);
+        atualiza_jogadas(e,c);
+        return OK;
+        //verifica_se_acabou(e, c);
+    } else return JOGADA_INVALIDA;
 }
 
-ERROS check_movimentos(ESTADO *estado,COORDENADA c){
-    int coluna1,coluna2,linha1,linha2;
-    ERROS erro;
-    coluna1=estado->ultima_jogada.coluna;
-    linha1=estado-> ultima_jogada.linha;
-    coluna2 = c.coluna;
-    linha2=c.linha;
-
-    if ((sqrt((coluna1-coluna2)^2-(linha1-linha2)^2)) == 1) {
-        erro = OK;
+void func(ESTADO *e) {
+    int linha, coluna;
+    for (linha = 7; linha >= 0; linha --) {
+        for (coluna = 0; coluna <=7 ; coluna ++) {
+            if (e -> tab [linha] [coluna] == BRANCA) e -> tab [linha] [coluna] = PRETA;
+        }
     }
-    else erro = JOGADA_INVALIDA;
-    return erro;
+}
+
+
+ERROS check_movimentos(ESTADO *estado,COORDENADA c) {
+    int coluna1, coluna2, linha1, linha2;
+    coluna1 = estado->ultima_jogada.coluna;
+    linha1 = estado->ultima_jogada.linha;
+    coluna2 = c.coluna;
+    linha2 = c.linha;
+
+    if ((coluna2 == coluna1 + 1 || coluna2 == coluna1 - 1 || coluna2 == coluna1) && (linha2 == linha1 + 1 || linha2 == linha1 - 1 || linha2 == linha1))
+        return OK;
+
+    else return JOGADA_INVALIDA;
 }
 
 //esta função devolveria 0 se a casa não existe (porque ultrapassa os limites do tabuleiro) ou se não está livre e 1 caso contrário
@@ -89,8 +105,8 @@ ERROS casa_livre(ESTADO *e, COORDENADA c) {
     coluna = c.coluna;
     linha = c.linha;
 
-    if(coluna < 8 || linha < 8 ) {
-        if (obter_estado_casa(e, c) == VAZIO || obter_estado_casa(e, c) == 1 || obter_estado_casa(e, c) == 2) {
+    if((coluna < 8) && (linha < 8)) {
+        if (obter_estado_casa(e, c) == VAZIO || obter_estado_casa(e, c) == UM || obter_estado_casa(e, c) == DOIS) {
             erro = OK;
         }
         else erro = JOGADA_INVALIDA; // devolve 0 se a casa não estiver vazia;
@@ -98,12 +114,10 @@ ERROS casa_livre(ESTADO *e, COORDENADA c) {
     return erro;
 }
 
-
 // se a casa estiver livre, confirma se é casa vizinha (se está em distancia aceitavel para jogar).
 ERROS jogada_valida(ESTADO *e, COORDENADA c) {
-    ERROS erro;
-    if(erro = casa_livre(e,c) == OK) // se a função casa_livre retornar OK significa que a casa está livre.
-        check_movimentos(e,c);
-    else erro = JOGADA_INVALIDA;
-    return erro;
+    if(casa_livre(e,c) == OK) // se a função casa_livre retornar OK significa que a casa está livre.
+        return check_movimentos(e,c);
+    else return JOGADA_INVALIDA;
+
 }

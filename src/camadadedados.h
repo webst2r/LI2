@@ -99,7 +99,7 @@ void add_numerodecomandos(ESTADO *e);
 /**
 \brief Armazena jogadas.
 */
-void armazenar_jogada(ESTADO *e, COORDENADA c)
+void armazenar_jogada(ESTADO *e, COORDENADA c);
 
 void str_to_coord (char jogador[256]);
 
