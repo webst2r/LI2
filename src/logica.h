@@ -27,4 +27,6 @@ ERROS casa_livre(ESTADO *e, COORDENADA c);
 */
 ERROS jogada_valida(ESTADO *e, COORDENADA c);
 
+void func(ESTADO *e);
+
 #endif // SRC_LOGICA_H

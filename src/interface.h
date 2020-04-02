@@ -45,5 +45,6 @@ ERROS ler(ESTADO *e, char* nome_ficheiro);
 */
 void set_casa(ESTADO *e, COORDENADA c, CASA valor);
 
+void printMovs(ESTADO *e, FILE *fp);
 
 #endif // SRC_INTERFACE_H

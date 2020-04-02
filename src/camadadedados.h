@@ -100,11 +100,9 @@ void add_numerodecomandos(ESTADO *e);
 \brief Armazena jogadas.
 */
 void armazenar_jogada(ESTADO *e, COORDENADA c);
+int atualiza_num_jogadas(ESTADO *e);
+int atualiza_jogador_atual(ESTADO *e);
+void atualiza_jogadas(ESTADO *e, COORDENADA c);
 
-void str_to_coord (char jogador[256]);
-
-void coluna(char jogador[256], int arr[]);
-
-void linha(char jogador[256], int arr[]);
 
 #endif // SRC_CAMADADEDADOS_H
