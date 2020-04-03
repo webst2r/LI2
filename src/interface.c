@@ -93,61 +93,74 @@ void printMovs(ESTADO *e, FILE *fp) {
 }
 
 ERROS ler(ESTADO *e, char *nome_ficheiro) {
-        ERROS erro;
-        char buffer[BUF_SIZE];
-        int l = 0;
-        int w = 0;
-        char linha[BUF_SIZE];
-        FILE *fp;
+    ERROS erro;
+    COORDENADA c1, c2;
+    char buffer[BUF_SIZE];
+    int line = 0;
+    int w = 0;
+    char linha[BUF_SIZE];
 
-          e->num_jogadas = 0;
+    FILE *fp;
+    fp = fopen(nome_ficheiro, "r");
+    if (fp == NULL) {
+        perror("Ao ler");
+        return ERRO_ABRIR_FICHEIRO;
+    }
 
-        while (w < 32) {          // meter o array de jogadas tudo a zero
+    e->num_jogadas = 0;
 
+    while (w < 32) {          
         e->jogadas[w].jogador1.coluna = 0;
         e->jogadas[w].jogador1.linha = 0;
         e->jogadas[w].jogador2.coluna = 0;
         e->jogadas[w].jogador2.linha = 0;
         w++;
     }
-
-        while (fgets(buffer, BUF_SIZE, fp) != NULL) {
-            for (int c = 0; c < 8; c++) set_casa(e, (COORDENADA) {l, c}, buffer[c]);
-            l++;
-            int num_jog;
-            COORDENADA c1, c2;
-            char jog1[BUF_SIZE];
-            char jog2[BUF_SIZE];
-            int num_tokens = sscanf(linha, "%d: %s %s", &num_jog, jog1, jog2);
-            if (num_tokens == 3) {
-                c1.coluna = jog1[0] - 'a';
-                c1.linha = jog1[1] - '1';
-                c2.coluna = jog2[0] - 'a';
-                c2.linha = jog2[1] - '1';
-
-                e->jogador_atual = 1;
-                e->jogadas[l - 9].jogador1 = c1;               // linha 9: indice 0
-                e->jogadas[l - 9].jogador2 = c2;
-                e->ultima_jogada = c2;
-                e->num_jogadas = l + 1;
-
-            } else {
-                c1.coluna = jog1[0] - 'a';
-                c1.linha = jog1[1] - '1';
-                c2.coluna = -1;
-                c2.linha = -1;
-
-                e->jogador_atual = 2;
-                e->jogadas[l - 9].jogador1 = c1;
-                e->ultima_jogada = c1;
-                e->num_jogadas = l;
-            }
-            l++;
+    int linha2, coluna2;
+    for (linha2 = 0; linha2 < 8; linha2++) {
+        for (coluna2 = 0; coluna2 < 8; coluna2++) {
+            if (linha2 == 4 && coluna2 == 4)
+                e->tab[linha2][coluna2] = BRANCA;
+            else
+                e->tab[linha2][coluna2] = VAZIO;
         }
-    mostrar_tabuleiro(stdout, e);
-    fclose(fp);
-    return OK;
-}
+    }
+    e->tab[0][0] = UM;
+    e->tab[7][7] = DOIS;
+
+    while (fgets(buffer, BUF_SIZE, fp) != NULL) {
+        if (line <= 7) {
+            for (int j = 0; j <= 7; j++) {
+                if (buffer[j] == '.') e->tab[7 - line][j] = VAZIO;
+                else if (buffer[j] == '*') e->tab[7 - line][j] = BRANCA;
+                else if (buffer[j] == '#') e->tab[7 - line][j] = PRETA;
+            }
+        } else {
+            if (line >= 9) {
+                if (buffer[4] >= 'a' && buffer[4] <= 'h' && buffer[5] >= '1' && buffer[5] <= '8') {
+                    e->jogador_atual = 2;
+                    c1.linha = buffer[5] - '1';
+                    c1.coluna = buffer[4] - 'a';
+                    e->jogadas[e->num_jogadas].jogador1 = c1;
+                    e->ultima_jogada = c1;
+                }
+                if (buffer[7] >= 'a' && buffer[7] <= 'h' && buffer[8] >= '1' && buffer[8] <= '8') {
+                    e->jogador_atual = 1;
+                    c2.linha = buffer[8] - '1';
+                    c2.coluna = buffer[7] - 'a';
+                    e->jogadas[e->num_jogadas].jogador2 = c2;
+                    e->ultima_jogada = c2;
+                    e->num_jogadas++;
+                }
+            }
+        }
+        line++;
+    }
+        mostrar_tabuleiro(stdout, e);
+        printMovs(e, stdout);
+        fclose(fp);
+        return OK;
+    }
 
 
 void set_casa(ESTADO *e, COORDENADA c, CASA valor) {       // COLOCA O VALOR NA CASA COM COORDENADA por miudos COORDENADA -> VALOR
@@ -206,17 +219,18 @@ int interpretador(ESTADO *e) {
 
     if (sscanf(linha, "gr %s", nome_ficheiro) == 1) { // invocar na gravar o a -- stdout
         gravar(e, nome_ficheiro);
+    }
 
         if (sscanf(linha, "ler %s", nome_ficheiro) == 1) {
             ERROS erro;
-            if ((erro = ler(e, nome_ficheiro)) == OK)
-            mostrar_tabuleiro(stdout, e);
-           else
-               print_erro(erro);
+            //if ((erro = ler(e, nome_ficheiro)) == OK)
+            ler(e,nome_ficheiro);
+
+          // else
+          //     print_erro(erro);
         }
-        return 1;
-    }
-    if (strcmp(linha, "movs\n") == 0) {
+
+    if(strcmp(linha, "movs\n") == 0) {
         printMovs(e, stdout);
     }
 
