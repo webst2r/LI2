@@ -10,14 +10,11 @@ Definição da interface e das funções que a manipulam
 /**
 \brief Interpretador de jogadas
 */
-
-
 int interpretador(ESTADO *e);
 
 /**
 \brief Função que mostra o tabuleiro
 */
-
 void mostrar_tabuleiro(FILE *fp,ESTADO *e);
 
 
@@ -40,7 +37,9 @@ ERROS ler(ESTADO *e, char *nome_ficheiro);
 \brief Função que coloca o novo valor numa casa.
 */
 void set_casa(ESTADO *e, COORDENADA c, CASA valor);
-
+/**
+\brief Imprime os movimentos efetuados.
+*/
 void printMovs(ESTADO *e, FILE *fp);
 
 #endif // SRC_INTERFACE_H
