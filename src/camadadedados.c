@@ -91,13 +91,11 @@ int atualiza_num_jogadas(ESTADO *e) {
 }
 
 
-void armazenar_jogada(ESTADO *e, COORDENADA c1, COORDENADA c2) {
+void armazenar_jogada(ESTADO *e, COORDENADA c) {
     int i = 0;
-    if(e->jogador_atual == 1) e->jogadas[i].jogador1 = c1;
+    if(e->jogador_atual == 1) e->jogadas[i].jogador1 = c;
     else if(e->jogador_atual == 2) {
-        e->jogadas[i].jogador2 = c2;
+        e->jogadas[i].jogador2 = c;
         e->num_jogadas++;
     }
 }
-
-

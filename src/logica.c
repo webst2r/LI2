@@ -63,12 +63,14 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
     if(erro = jogada_valida(e,c) == OK) {
 
         printf("Jogar %d %d\n", c.coluna, c.linha);
-        e->tab[c.linha][c.coluna] = BRANCA;
-        //e->tab[linha][coluna] = PRETA;
         func(e);
+        e->tab[c.linha][c.coluna] = BRANCA;
+        atualiza_jogadas(e,c);
+                                    //e->tab[linha][coluna] = PRETA;
         e->num_jogadas = atualiza_num_jogadas(e);
         e->jogador_atual = atualiza_jogador_atual(e);
-        atualiza_jogadas(e,c);
+        e->ultima_jogada = c;
+
         return OK;
         //verifica_se_acabou(e, c);
     } else return JOGADA_INVALIDA;
@@ -90,6 +92,7 @@ ERROS check_movimentos(ESTADO *estado,COORDENADA c) {
     linha1 = estado->ultima_jogada.linha;
     coluna2 = c.coluna;
     linha2 = c.linha;
+
 
     if ((coluna2 == coluna1 + 1 || coluna2 == coluna1 - 1 || coluna2 == coluna1) && (linha2 == linha1 + 1 || linha2 == linha1 - 1 || linha2 == linha1))
         return OK;
