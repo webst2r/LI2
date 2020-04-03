@@ -26,7 +26,9 @@ ERROS casa_livre(ESTADO *e, COORDENADA c);
 \brief Função que averigua se uma jogada é valida.
 */
 ERROS jogada_valida(ESTADO *e, COORDENADA c);
-
+/**
+\brief Altera as casas para PRETO.
+*/
 void func(ESTADO *e);
 
 #endif // SRC_LOGICA_H
