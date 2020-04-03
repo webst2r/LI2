@@ -10,7 +10,7 @@ void prompt (ESTADO *e) {
     int nc = e->numeroComandos ;
     int ja = obter_jogador_atual (e);
     int nj = obter_numero_de_jogadas(e);
-    printf ("# %i PL%i (%i)>",nc, ja , nj );
+    printf ("# %i PL%i (%i)>",nc ,ja ,nj);
 }
 
 int main() {
