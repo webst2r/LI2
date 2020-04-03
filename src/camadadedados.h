@@ -92,7 +92,7 @@ int imprime_tabuleiro (CASA arr[8][8]);
 */
 int imprime_linha_3 (CASA arr[8][8]);
 /**
-\brief Soma o numero de comandos.
+\brief Soma o número de comandos.
 */
 void add_numerodecomandos(ESTADO *e);
 
@@ -100,8 +100,17 @@ void add_numerodecomandos(ESTADO *e);
 \brief Armazena jogadas.
 */
 void armazenar_jogada(ESTADO *e, COORDENADA c);
+/**
+\brief Atualiza o número de jogadas.
+*/
 int atualiza_num_jogadas(ESTADO *e);
+/**
+\brief Atualiza o jogador atual.
+*/
 int atualiza_jogador_atual(ESTADO *e);
+/**
+\brief Atualiza o array de jogadas.
+*/
 void atualiza_jogadas(ESTADO *e, COORDENADA c);
 
 
