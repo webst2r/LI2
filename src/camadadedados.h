@@ -99,7 +99,7 @@ void add_numerodecomandos(ESTADO *e);
 /**
 \brief Armazena jogadas.
 */
-void armazenar_jogada(ESTADO *e, COORDENADA c);
+void armazenar_jogada(ESTADO *e, COORDENADA c, COORDENADA c2);
 int atualiza_num_jogadas(ESTADO *e);
 int atualiza_jogador_atual(ESTADO *e);
 void atualiza_jogadas(ESTADO *e, COORDENADA c);
