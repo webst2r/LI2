@@ -63,6 +63,7 @@ typedef enum {
     JOGADA_INVALIDA,
     ERRO_LER_TAB,
     ERRO_ABRIR_FICHEIRO,
+    ERRO_GRAVAR_TAB,
 } ERROS;
 
 /**
@@ -73,15 +74,22 @@ Esta função inicializa o valor do estado. Isso implica o tabuleiro ser colocad
 ESTADO *inicializar_estado();
 /**
 \brief Obtém o jogador atual.
+@param Apontador para o estado.
+@returns O número do jogador atual.
 */
 int obter_jogador_atual(ESTADO *estado);
 /**
 \brief Obtém o numero de jogadas.
+@param Apontador para o estado.
+@returns O número de jogadas.
 */
 int obter_numero_de_jogadas(ESTADO *estado);
 /**
 \brief Obtém o estado de determinada casa.
-*/
+@param Apontador para o estado.
+@param A coordenado.
+@returns O estado da casa,
+ */
 CASA obter_estado_casa(ESTADO *e, COORDENADA c);
 /**
 \brief Imprime o tabuleiro para jogar.
@@ -92,26 +100,45 @@ int imprime_tabuleiro (CASA arr[8][8]);
 */
 int imprime_linha_3 (CASA arr[8][8]);
 /**
-\brief Soma o número de comandos.
+\brief Aumenta o número de comandos.
+@param Apontador para o estado.
 */
 void add_numerodecomandos(ESTADO *e);
 
 /**
 \brief Armazena jogadas.
+@param Apontador para o estado.
+@param A coordenada.
 */
 void armazenar_jogada(ESTADO *e, COORDENADA c);
 /**
 \brief Atualiza o número de jogadas.
+@param Apontador para o estado.
+@returns O número de jogadas atualizado.
 */
 int atualiza_num_jogadas(ESTADO *e);
 /**
 \brief Atualiza o jogador atual.
+@param Apontador para o estado.
+@returns O número do jogador atual.
 */
 int atualiza_jogador_atual(ESTADO *e);
 /**
 \brief Atualiza o array de jogadas.
+@param Apontador para o estado.
+@param A coordenada.
 */
 void atualiza_jogadas(ESTADO *e, COORDENADA c);
-
+/**
+\brief Obtém o número de comandos feitos até ao momento.
+@param Apontador para o estado.
+@returns O número de comandos.
+*/
+int obter_numero_comandos(ESTADO *e);
+/**
+\brief Mete o número de jogados ao máximo.
+@param Apontador para o estado.
+*/
+void maximiza_jogadas(ESTADO *e);
 
 #endif // SRC_CAMADADEDADOS_H

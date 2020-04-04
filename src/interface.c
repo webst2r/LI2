@@ -1,15 +1,18 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "interface.h"
 #include "camadadedados.h"
 #include "logica.h"
 #define BUF_SIZE 1024
+#include <string.h>
 
 void printMovs(ESTADO *e, FILE *pFile);
 
-#include <string.h>
-
-
+void prompt (ESTADO *e) {
+    int nc = obter_numero_comandos(e);
+    int ja = obter_jogador_atual (e);
+    int nj = obter_numero_de_jogadas(e);
+    printf ("# %i PL%i (%i)>",nc, ja , nj );
+}
 
 void print_erro(ERROS erro) {
     if (erro == JOGADA_INVALIDA) {
@@ -20,17 +23,21 @@ void print_erro(ERROS erro) {
         } else {
             if (erro == ERRO_LER_TAB) {
                 printf("Ocorreu um erro ao ler o tabuleiro.\n");
-            } else printf("Ocorreu um erro ao abrir o ficheiro.\n");
+            } else {
+                if (erro = ERRO_ABRIR_FICHEIRO) {
+                    printf("Ocorreu um erro ao abrir o ficheiro.\n");
+                } else printf("Ocorreu um erro ao gravar o ficheiro.\n");
+            }
         }
     }
 }
 
-ERROS gravar(ESTADO *e, char *nome_ficheiro) { // FIXME - IMPLEMENTAR ERRO
+ERROS gravar(ESTADO *e, char *nome_ficheiro) {
     FILE *fp = fopen(nome_ficheiro, "w");
 
     if(fp == NULL){
         printf("Não é possivel criar o ficheiro.\n");
-        exit(EXIT_FAILURE);
+        return ERRO_GRAVAR_TAB;
     }
 
     for (int i = 7; i >= 0; i--){
@@ -60,12 +67,12 @@ ERROS gravar(ESTADO *e, char *nome_ficheiro) { // FIXME - IMPLEMENTAR ERRO
 
     fprintf(fp,"\n");
     printMovs(e,fp);
-    fclose(fp); /* Fechar ficheiro para salvar a informação */
+    fclose(fp); // Fechar ficheiro para salvar a informação
     printf("Ficheiro criado e salvado com sucesso.  \n");
     return 0;
 }
 
-void printMovs(ESTADO *e, FILE *fp) {
+void printMovs(ESTADO *e, FILE *fp) {  //FIXME - TROCAR TODOS OS e->qualquercoisa E METER FUNÇOES AUXILIARES QUE FAÇAM A MESMA COISA
     // so serve quando i < 9
     for (int i = 0; i < obter_numero_de_jogadas(e) + 1; i++) {
         if (i < 9) {
@@ -73,7 +80,7 @@ void printMovs(ESTADO *e, FILE *fp) {
                 fprintf(fp, "0%d: %c%d", i + 1, e->jogadas[i].jogador1.coluna + 'a', e->jogadas[i].jogador1.linha + 1);
             }
             if (e->jogadas[i].jogador2.linha != 0 || e->jogadas[i].jogador2.coluna != 0)
-                fprintf(fp, " %c%d\n", e->jogadas[i].jogador2.coluna + 'a', e->jogadas[i].jogador2.linha + 1);
+                fprintf(fp, " %c%d\n", e->jogadas[i].jogador2.coluna + 'a', e->jogadas[i].jogador2.linha + 1); // FIXME - ERRO DE LEITURA EXTRA DE UM MOVIMENTO ENCONTRA-SE NESTE PRIMEIRO IF
 
 
             if (e->jogadas[i].jogador1.linha != 0 && e->jogadas[i].jogador1.coluna != 0 &&
@@ -92,13 +99,12 @@ void printMovs(ESTADO *e, FILE *fp) {
     }
 }
 
-ERROS ler(ESTADO *e, char *nome_ficheiro) {
-    ERROS erro;
+ERROS ler(ESTADO *e, char *nome_ficheiro) { //FIXME - TROCAR TODOS OS e->qualquercoisa E METER FUNÇOES AUXILIARES QUE FAÇAM A MESMA COISA
     COORDENADA c1, c2;
     char buffer[BUF_SIZE];
     int line = 0;
     int w = 0;
-    char linha[BUF_SIZE];
+    //char linha[BUF_SIZE];
 
     FILE *fp;
     fp = fopen(nome_ficheiro, "r");
@@ -162,11 +168,11 @@ ERROS ler(ESTADO *e, char *nome_ficheiro) {
         return OK;
     }
 
-
+/* JÁ NAO ERA USADA, PODEMOS APAGÁ-LA, JA TIREI A SUA VERSAO NO INTERFACE.H
 void set_casa(ESTADO *e, COORDENADA c, CASA valor) {       // COLOCA O VALOR NA CASA COM COORDENADA por miudos COORDENADA -> VALOR
     e->tab[c.linha][c.coluna] = valor;
 }
-
+*/
 void mostrar_tabuleiro(FILE *fp, ESTADO *e) {
     int k, i;
     //int n = 0;
@@ -207,15 +213,18 @@ int interpretador(ESTADO *e) {
     if (strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
         COORDENADA coord = {*col - 'a', *lin - '1'};
         ERROS erro;
-        if ((erro = jogar(e, coord)) == OK)
-            mostrar_tabuleiro(stdout, e);
+        if ((erro = jogar(e, coord)) == OK) {
+             if (obter_numero_de_jogadas(e) < 32){
+                mostrar_tabuleiro(stdout, e);
+            }
+        }
         else
             print_erro(erro);
         return 1;
     }
 
     if (strcmp(linha, "Q\n") == 0)
-        e->num_jogadas = 32;
+        maximiza_jogadas(e);
 
     if (sscanf(linha, "gr %s", nome_ficheiro) == 1) { // invocar na gravar o a -- stdout
         gravar(e, nome_ficheiro);

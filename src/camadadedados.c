@@ -80,7 +80,15 @@ int atualiza_jogador_atual(ESTADO *e) {
     } else return 1;
 }
 
+int obter_numero_comandos(ESTADO *e) {
+    int num_com = 0;
+    num_com = e->numeroComandos;
+    return num_com;
+}
 
+void maximiza_jogadas(ESTADO *e) {
+    e->num_jogadas = 32;
+}
 
 int atualiza_num_jogadas(ESTADO *e) {
     int n = obter_numero_de_jogadas(e);
@@ -89,6 +97,11 @@ int atualiza_num_jogadas(ESTADO *e) {
     }
     return n;
 }
+
+void add_numerodecomandos(ESTADO *e){
+    e->numeroComandos++;
+}
+
 
 
 void armazenar_jogada(ESTADO *e, COORDENADA c) {

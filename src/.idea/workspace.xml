@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
+    <generated>
+      <config projectName="src" targetName="src" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -32,6 +34,7 @@
     <expand />
     <select />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="ProjectId" id="1Yww8TvhCSCCrj4Vtn2TLTdmKTS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -49,6 +52,13 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
+  <component name="RunManager">
+    <configuration name="src" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="src" TARGET_NAME="src" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="src" RUN_TARGET_NAME="src">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -61,6 +71,7 @@
       <updated>1583866804952</updated>
       <workItem from="1583866806847" duration="146000" />
       <workItem from="1583871026467" duration="34607000" />
+      <workItem from="1585933605410" duration="6548000" />
     </task>
     <servers />
   </component>
@@ -68,10 +79,11 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="616" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1583866808279">
-      <screen x="0" y="28" width="1920" height="1052" />
+    <state x="585" y="370" key="com.intellij.ide.util.TipDialog" timestamp="1586022568403">
+      <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="616" y="381" key="com.intellij.ide.util.TipDialog/0.28.1920.1052@0.28.1920.1052" timestamp="1583866808279" />
+    <state x="585" y="370" key="com.intellij.ide.util.TipDialog/67.27.1613.1023@67.27.1613.1023" timestamp="1586022568403" />
     <state x="657" y="90" width="662" height="795" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585334059720">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -80,9 +92,10 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="657" y="221" key="run.anything.popup/67.27.1853.923@67.27.1853.923" timestamp="1584644076882" />
-    <state x="656" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1584312330684">
-      <screen x="67" y="27" width="1853" height="923" />
+    <state x="580" y="246" width="672" height="752" key="search.everywhere.popup" timestamp="1586022970911">
+      <screen x="67" y="27" width="1613" height="1023" />
     </state>
+    <state x="580" y="246" width="672" height="752" key="search.everywhere.popup/67.27.1613.1023@67.27.1613.1023" timestamp="1586022970911" />
     <state x="656" y="225" width="672" height="678" key="search.everywhere.popup/67.27.1853.923@67.27.1853.923" timestamp="1584312330684" />
   </component>
 </project>

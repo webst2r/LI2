@@ -6,17 +6,10 @@
 #include "interface.h"
 #include "logica.h"
 
-void prompt (ESTADO *e) {
-    int nc = e->numeroComandos ;
-    int ja = obter_jogador_atual (e);
-    int nj = obter_numero_de_jogadas(e);
-    printf ("# %i PL%i (%i)>",nc, ja , nj );
-}
-
 int main() {
     ESTADO *e = inicializar_estado();
     mostrar_tabuleiro(stdout,e);
-    while(e->num_jogadas < 32) {
+    while(obter_numero_de_jogadas(e) < 32) {
         prompt(e);
         interpretador(e);
     }
