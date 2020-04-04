@@ -109,7 +109,7 @@ ERROS ler(ESTADO *e, char *nome_ficheiro) {
 
     e->num_jogadas = 0;
 
-    while (w < 32) {          
+    while (w < 32) {
         e->jogadas[w].jogador1.coluna = 0;
         e->jogadas[w].jogador1.linha = 0;
         e->jogadas[w].jogador2.coluna = 0;

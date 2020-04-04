@@ -99,7 +99,6 @@ ERROS check_movimentos(ESTADO *estado,COORDENADA c) {
 
     else return JOGADA_INVALIDA;
 }
-
 //esta função devolveria 0 se a casa não existe (porque ultrapassa os limites do tabuleiro) ou se não está livre e 1 caso contrário
 //então, ha_jogada_possivel invoca essa função 8 vezes
 ERROS casa_livre(ESTADO *e, COORDENADA c) {
