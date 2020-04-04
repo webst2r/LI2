@@ -11,7 +11,7 @@ void prompt (ESTADO *e) {
     int nc = obter_numero_comandos(e);
     int ja = obter_jogador_atual (e);
     int nj = obter_numero_de_jogadas(e);
-    printf ("# %i PL%i (%i)>",nc, ja , nj );
+    printf ("# %i PL%i (%i)> ",nc ,ja ,nj);
 }
 
 void print_erro(ERROS erro) {
@@ -230,15 +230,14 @@ int interpretador(ESTADO *e) {
         gravar(e, nome_ficheiro);
     }
 
-        if (sscanf(linha, "ler %s", nome_ficheiro) == 1) {
-            ERROS erro;
+    if (sscanf(linha, "ler %s", nome_ficheiro) == 1) {
+         ERROS erro;
             //if ((erro = ler(e, nome_ficheiro)) == OK)
-            ler(e,nome_ficheiro);
+         ler(e,nome_ficheiro);
 
           // else
           //     print_erro(erro);
         }
-
     if(strcmp(linha, "movs\n") == 0) {
         printMovs(e, stdout);
     }

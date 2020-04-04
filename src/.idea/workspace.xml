@@ -71,7 +71,7 @@
       <updated>1583866804952</updated>
       <workItem from="1583866806847" duration="146000" />
       <workItem from="1583871026467" duration="34607000" />
-      <workItem from="1585933605410" duration="6548000" />
+      <workItem from="1585933605410" duration="8698000" />
     </task>
     <servers />
   </component>
@@ -79,6 +79,38 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="1567" height="332" key="GridCell.Tab.0.bottom" timestamp="1586036891829">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state width="1567" height="332" key="GridCell.Tab.0.bottom/67.27.1613.1023@67.27.1613.1023" timestamp="1586036891829" />
+    <state width="1567" height="332" key="GridCell.Tab.0.center" timestamp="1586036891829">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state width="1567" height="332" key="GridCell.Tab.0.center/67.27.1613.1023@67.27.1613.1023" timestamp="1586036891829" />
+    <state width="1567" height="332" key="GridCell.Tab.0.left" timestamp="1586036891828">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state width="1567" height="332" key="GridCell.Tab.0.left/67.27.1613.1023@67.27.1613.1023" timestamp="1586036891828" />
+    <state width="1567" height="332" key="GridCell.Tab.0.right" timestamp="1586036891829">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state width="1567" height="332" key="GridCell.Tab.0.right/67.27.1613.1023@67.27.1613.1023" timestamp="1586036891829" />
+    <state width="1567" height="332" key="GridCell.Tab.1.bottom" timestamp="1586036891831">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state width="1567" height="332" key="GridCell.Tab.1.bottom/67.27.1613.1023@67.27.1613.1023" timestamp="1586036891831" />
+    <state width="1567" height="332" key="GridCell.Tab.1.center" timestamp="1586036891830">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state width="1567" height="332" key="GridCell.Tab.1.center/67.27.1613.1023@67.27.1613.1023" timestamp="1586036891830" />
+    <state width="1567" height="332" key="GridCell.Tab.1.left" timestamp="1586036891830">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state width="1567" height="332" key="GridCell.Tab.1.left/67.27.1613.1023@67.27.1613.1023" timestamp="1586036891830" />
+    <state width="1567" height="332" key="GridCell.Tab.1.right" timestamp="1586036891830">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state width="1567" height="332" key="GridCell.Tab.1.right/67.27.1613.1023@67.27.1613.1023" timestamp="1586036891830" />
     <state x="585" y="370" key="com.intellij.ide.util.TipDialog" timestamp="1586022568403">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -88,6 +120,10 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="657" y="90" width="662" height="795" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.923@67.27.1853.923" timestamp="1585334059720" />
+    <state x="408" y="256" width="920" height="562" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1586036869934">
+      <screen x="67" y="27" width="1613" height="1023" />
+    </state>
+    <state x="408" y="256" width="920" height="562" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/67.27.1613.1023@67.27.1613.1023" timestamp="1586036869934" />
     <state x="657" y="221" key="run.anything.popup" timestamp="1584644076882">
       <screen x="67" y="27" width="1853" height="923" />
     </state>

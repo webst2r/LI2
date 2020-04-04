@@ -15,7 +15,7 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c){
     coluna = c.coluna;
     linha = c.linha;
 
-    // srand(time(NULL));
+    //srand(time(NULL));
 
     if(coluna == 7 && linha == 7) {
         printf("Parabéns, o jogador 2 é o vencedor!\n");
