@@ -232,11 +232,11 @@ int interpretador(ESTADO *e) {
 
     if (sscanf(linha, "ler %s", nome_ficheiro) == 1) {
          ERROS erro;
-            //if ((erro = ler(e, nome_ficheiro)) == OK)
-         ler(e,nome_ficheiro);
-
-          // else
-          //     print_erro(erro);
+         if ((erro = ler(e, nome_ficheiro)) == OK) {
+             ler(e,nome_ficheiro);
+         } else {
+             print_erro(erro);
+         }
         }
     if(strcmp(linha, "movs\n") == 0) {
         printMovs(e, stdout);
