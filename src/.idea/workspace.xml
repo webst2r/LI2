@@ -51,6 +51,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager">
     <configuration name="src" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="src" TARGET_NAME="src" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="src" RUN_TARGET_NAME="src">
@@ -71,7 +72,7 @@
       <updated>1583866804952</updated>
       <workItem from="1583866806847" duration="146000" />
       <workItem from="1583871026467" duration="34607000" />
-      <workItem from="1585933605410" duration="8930000" />
+      <workItem from="1585933605410" duration="19111000" />
     </task>
     <servers />
   </component>
@@ -111,6 +112,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state width="1567" height="332" key="GridCell.Tab.1.right/67.27.1613.1023@67.27.1613.1023" timestamp="1586036891830" />
+    <state x="898" y="156" key="SettingsEditor" timestamp="1586102970470">
+      <screen x="67" y="27" width="1853" height="948" />
+    </state>
+    <state x="898" y="156" key="SettingsEditor/67.27.1853.948@67.27.1853.948" timestamp="1586102970470" />
     <state x="585" y="370" key="com.intellij.ide.util.TipDialog" timestamp="1586022568403">
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
@@ -124,9 +129,10 @@
       <screen x="67" y="27" width="1613" height="1023" />
     </state>
     <state x="408" y="256" width="920" height="562" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/67.27.1613.1023@67.27.1613.1023" timestamp="1586036869934" />
-    <state x="657" y="221" key="run.anything.popup" timestamp="1584644076882">
-      <screen x="67" y="27" width="1853" height="923" />
+    <state x="581" y="242" key="run.anything.popup" timestamp="1586040508343">
+      <screen x="67" y="27" width="1613" height="1023" />
     </state>
+    <state x="581" y="242" key="run.anything.popup/67.27.1613.1023@67.27.1613.1023" timestamp="1586040508343" />
     <state x="657" y="221" key="run.anything.popup/67.27.1853.923@67.27.1853.923" timestamp="1584644076882" />
     <state x="580" y="246" width="672" height="752" key="search.everywhere.popup" timestamp="1586022970911">
       <screen x="67" y="27" width="1613" height="1023" />

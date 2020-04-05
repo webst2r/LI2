@@ -5,6 +5,8 @@ Definição do estado e das funções que o manipulam
 #ifndef SRC_CAMADADEDADOS_H
 #define SRC_CAMADADEDADOS_H
 
+#include <bits/types/FILE.h>
+
 /**
 \brief Tipo de dados para as Coordenadas
 */
@@ -140,5 +142,17 @@ int obter_numero_comandos(ESTADO *e);
 @param Apontador para o estado.
 */
 void maximiza_jogadas(ESTADO *e);
+/**
+\brief Auxilia a ler a alterar o tabuleiro e a alterar o estado.
+@param Apontador para o estado.
+@param fp Apontador para o ficheiro.
+*/
+int ler_aux(ESTADO *e, FILE *fp);
+/**
+\brief Auxilia a ler a alterar o tabuleiro e a alterar o estado.
+@param Apontador para o estado.
+@param fp Apontador para o ficheiro.
+*/
+void printMovs_aux(ESTADO *e, FILE *fp);
 
 #endif // SRC_CAMADADEDADOS_H

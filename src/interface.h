@@ -56,4 +56,12 @@ ERROS ler(ESTADO *e, char *nome_ficheiro);
 */
 void printMovs(ESTADO *e, FILE *fp);
 
+
+void atualiza_tabuleiro(ESTADO *e, int numero_de_pos);
+
+
+
+
+void atualiza_estado(ESTADO *e, int numero_de_pos);
+
 #endif // SRC_INTERFACE_H

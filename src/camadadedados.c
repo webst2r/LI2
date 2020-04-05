@@ -6,7 +6,6 @@
 
 ESTADO *inicializar_estado() {
     ESTADO *e = (ESTADO*)malloc(sizeof(ESTADO));
-    CASA arr[8][8];
     *e = (ESTADO){.tab = {{UM, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
                           {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
                           {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
@@ -22,6 +21,7 @@ ESTADO *inicializar_estado() {
             .numeroComandos = 0};
     return e;
 }
+
 //Maneira alternativa de imprimir o tabuleiro inicial.
 /*
 int imprime_tabuleiro(CASA arr[8][8]) {
@@ -72,7 +72,61 @@ void atualiza_jogadas(ESTADO *e, COORDENADA c){
         e->jogadas[obter_numero_de_jogadas(e)].jogador2 = c;
 }
 
+int ler_aux(ESTADO *e, FILE *fp) {
+    COORDENADA c1, c2;
+    char buffer[BUF_SIZE];
+    int line = 0;
+    int w = 0;
 
+    e->num_jogadas = 0;
+
+    while (w < 32) {
+        e->jogadas[w].jogador1.coluna = 0;
+        e->jogadas[w].jogador1.linha = 0;
+        e->jogadas[w].jogador2.coluna = 0;
+        e->jogadas[w].jogador2.linha = 0;
+        w++;
+    }
+    int linha2, coluna2;
+    for (linha2 = 0; linha2 < 8; linha2++) {
+        for (coluna2 = 0; coluna2 < 8; coluna2++) {
+            if (linha2 == 4 && coluna2 == 4)
+                e->tab[linha2][coluna2] = BRANCA;
+            else
+                e->tab[linha2][coluna2] = VAZIO;
+        }
+    }
+    e->tab[0][0] = UM;
+    e->tab[7][7] = DOIS;
+    while (fgets(buffer, BUF_SIZE, fp) != NULL) {
+        if (line <= 7) {
+            for (int j = 0; j <= 7; j++) {
+                if (buffer[j] == '.') e->tab[7 - line][j] = VAZIO;
+                else if (buffer[j] == '*') e->tab[7 - line][j] = BRANCA;
+                else if (buffer[j] == '#') e->tab[7 - line][j] = PRETA;
+            }
+        } else {
+            if (line >= 9) {
+                if (buffer[4] >= 'a' && buffer[4] <= 'h' && buffer[5] >= '1' && buffer[5] <= '8') {
+                    e->jogador_atual = 2;
+                    c1.linha = buffer[5] - '1';
+                    c1.coluna = buffer[4] - 'a';
+                    e->jogadas[e->num_jogadas].jogador1 = c1;
+                    e->ultima_jogada = c1;
+                }
+                if (buffer[7] >= 'a' && buffer[7] <= 'h' && buffer[8] >= '1' && buffer[8] <= '8') {
+                    e->jogador_atual = 1;
+                    c2.linha = buffer[8] - '1';
+                    c2.coluna = buffer[7] - 'a';
+                    e->jogadas[e->num_jogadas].jogador2 = c2;
+                    e->ultima_jogada = c2;
+                    e->num_jogadas++;
+                }
+            }
+        }
+        line++;
+    }
+}
 
 int atualiza_jogador_atual(ESTADO *e) {
     if(obter_jogador_atual(e) == 1) {
@@ -98,8 +152,43 @@ int atualiza_num_jogadas(ESTADO *e) {
     return n;
 }
 
-void add_numerodecomandos(ESTADO *e){
+void add_numerodecomandos(ESTADO *e) {
     e->numeroComandos++;
+}
+
+void printMovs_aux(ESTADO *e, FILE *fp) {
+    // so serve quando i < 9
+    for (int i = 0; i < obter_numero_de_jogadas(e) + 1; i++) {
+        if (i < 9) {
+            if (e->jogadas[i].jogador1.linha != 0 || e->jogadas[i].jogador1.coluna != 0) {
+                fprintf(fp, "0%d: %c%d", i + 1, e->jogadas[i].jogador1.coluna + 'a', e->jogadas[i].jogador1.linha + 1); // FIXME - ERRO DE LEITURA EXTRA DE UM MOVIMENTO ENCONTRA-SE NESTE PRIMEIRO IF
+            }
+            if (e->jogadas[i].jogador2.linha != 0 || e->jogadas[i].jogador2.coluna != 0)
+                fprintf(fp, " %c%d\n", e->jogadas[i].jogador2.coluna + 'a', e->jogadas[i].jogador2.linha + 1);
+
+            if ((e->jogadas[i].jogador1.linha != 0 || e->jogadas[i].jogador1.coluna != 0)&&
+                (e->jogadas[i].jogador2.coluna == 0 && e->jogadas[i].jogador2.linha == 0)) {
+                fprintf(fp, "\n");
+            }
+        } else {
+            if (e->jogadas[i].jogador1.linha != 0 || e->jogadas[i].jogador1.coluna != 0)
+                fprintf(fp, "%d: %c%d", i + 1, e->jogadas[i].jogador1.coluna + 'a', e->jogadas[i].jogador1.linha + 1);
+
+            if (e->jogadas[i].jogador2.linha != 0 || e->jogadas[i].jogador2.coluna != 0)
+                fprintf(fp, " %c%d\n", e->jogadas[i].jogador2.coluna + 'a', e->jogadas[i].jogador2.linha + 1);
+            else
+                fprintf(fp, "\n");
+        }
+    }
+}
+
+
+
+
+
+/*
+void add_numerodejogadas(ESTADO *e) {
+    e->num_jogadas++;
 }
 
 void armazenar_jogada(ESTADO *e, COORDENADA c) {
@@ -110,5 +199,5 @@ void armazenar_jogada(ESTADO *e, COORDENADA c) {
         e->num_jogadas++;
     }
 }
-
+*/
 

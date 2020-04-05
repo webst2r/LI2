@@ -18,10 +18,8 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c){
     //srand(time(NULL));
 
     if(coluna == 7 && linha == 7) {
-        printf("Parabéns, o jogador 2 é o vencedor!\n");
         maximiza_jogadas(e);
     } else if (coluna == 0 && linha == 0) {
-        printf("Parabéns, o jogador 1 é o vencedor\n");
         maximiza_jogadas(e);
         /*
         int resposta = rand() % 4;
@@ -52,17 +50,19 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c){
     return OK;
 }
 
-ERROS jogar(ESTADO *e, COORDENADA c) {
-   // int coluna, colunaNova, linha, linhaNova;
+ERROS jogar(ESTADO *e, COORDENADA c,int *numero_de_pos) {
     add_numerodecomandos(e);
 
     if(jogada_valida(e,c) == OK) {
-
         printf("Jogar %d %d\n", c.coluna, c.linha);
+        if(*numero_de_pos != 50) {
+            atualiza_estado(e, *numero_de_pos);
+            *numero_de_pos = 50;
+        }
         func(e);
         e->tab[c.linha][c.coluna] = BRANCA;
         atualiza_jogadas(e,c);
-                                    //e->tab[linha][coluna] = PRETA;
+
         e->num_jogadas = atualiza_num_jogadas(e);
         e->jogador_atual = atualiza_jogador_atual(e);
         e->ultima_jogada = c;

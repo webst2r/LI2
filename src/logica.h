@@ -13,7 +13,7 @@ Definição da interface e das funções que a manipulam
 @param c  A coordenada.
 @returns Um erro.
 */
-ERROS jogar(ESTADO *e, COORDENADA c);
+ERROS jogar(ESTADO *e, COORDENADA c, int *numero_de_pos);
 
 /**
 \brief Função que verifica se o jogador se pode movimentar para determinada casa com base na distãncia a que o jogador se encontra dela.
