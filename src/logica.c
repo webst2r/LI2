@@ -57,7 +57,6 @@ ERROS jogar(ESTADO *e, COORDENADA c,int *numero_de_pos) {
         atualiza_estado(e, *numero_de_pos);
             *numero_de_pos = 50;
         }
-
     if(jogada_valida(e,c) == OK) {
         printf("Jogar %d %d\n", c.coluna, c.linha);
         func(e);

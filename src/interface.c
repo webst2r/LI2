@@ -189,12 +189,12 @@ int interpretador(ESTADO *e) {
         ERROS erro;
         if ((erro = jogar(e, coord, &numero_de_pos)) == OK) {
             mostrar_tabuleiro(stdout, e);
-            /*
              if (obter_numero_de_jogadas(e) == 32 && colunavencedor == 7 && linhavencedor == 7){
                 printf("O Jogador 2 é o vencedor! Parabéns!\n");
-            } else {
+            }
+             if(obter_numero_de_jogadas(e) == 32 && colunavencedor == 0 && linhavencedor == 0){
                  printf("O Jogador 1 é o vencedor! Parabéns!\n");
-             } */
+             }
         }
         else
             print_erro(erro);
