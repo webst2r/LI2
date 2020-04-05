@@ -53,12 +53,13 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c){
 ERROS jogar(ESTADO *e, COORDENADA c,int *numero_de_pos) {
     add_numerodecomandos(e);
 
-    if(jogada_valida(e,c) == OK) {
-        printf("Jogar %d %d\n", c.coluna, c.linha);
-        if(*numero_de_pos != 50) {
-            atualiza_estado(e, *numero_de_pos);
+    if(*numero_de_pos != 50) {
+        atualiza_estado(e, *numero_de_pos);
             *numero_de_pos = 50;
         }
+
+    if(jogada_valida(e,c) == OK) {
+        printf("Jogar %d %d\n", c.coluna, c.linha);
         func(e);
         e->tab[c.linha][c.coluna] = BRANCA;
         atualiza_jogadas(e,c);
