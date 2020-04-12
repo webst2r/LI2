@@ -52,4 +52,6 @@ void func(ESTADO *e);
 */
 ERROS verifica_se_acabou (ESTADO *estado, COORDENADA c);
 
+int ha_jogada_possivel (ESTADO *e);
+
 #endif // SRC_LOGICA_H

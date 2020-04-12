@@ -10,14 +10,14 @@
 
 void func(ESTADO *e);
 
-ERROS verifica_se_acabou (ESTADO *e, COORDENADA c){
+ERROS verifica_se_acabou (ESTADO *e, COORDENADA c) {
     int coluna, linha;
     coluna = c.coluna;
     linha = c.linha;
 
     //srand(time(NULL));
 
-    if(coluna == 7 && linha == 7) {
+    if (coluna == 7 && linha == 7) {
         maximiza_jogadas(e);
     } else if (coluna == 0 && linha == 0) {
         maximiza_jogadas(e);
@@ -45,8 +45,8 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c){
                 printf("Vitória!");
                 break;
         }
-*/
-    }
+*/}
+    else { if (ha_jogada_possivel(e) == 0 ) ; maximiza_jogadas(e);}
     return OK;
 }
 
@@ -117,4 +117,26 @@ ERROS jogada_valida(ESTADO *e, COORDENADA c) {
         return check_movimentos(e,c);
     else return JOGADA_INVALIDA;
 
+}
+
+int ha_jogada_possivel (ESTADO *e) {
+    COORDENADA ultima = e->ultima_jogada;
+    int col = ultima.coluna, lin = ultima.linha;
+    COORDENADA c1 = {col + 1, lin + 1},
+            c2 = {col + 1, lin},
+            c3 = {col + 1, lin - 1},
+            c4 = {col, lin + 1},
+            c5 = {col, lin - 1},
+            c6 = {col - 1, lin + 1},
+            c7 = {col - 1, lin},
+            c8 = {col - 1, lin - 1};
+    COORDENADA vizinha[8] = {c1, c2, c3, c4, c5, c6, c7, c8};
+
+    for
+            (int i = 0; i < 8; i++) {
+        ultima = vizinha[i];
+        if (ultima.coluna > 0 && ultima.coluna < 8 && ultima.linha > 0 && ultima.linha < 8 && obter_estado_casa(e, ultima ) == VAZIO)
+            return 1;
+    }
+    return 0;
 }
