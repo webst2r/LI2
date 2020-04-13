@@ -46,7 +46,9 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c) {
                 break;
         }
 */}
-    else { if (ha_jogada_possivel(e) == 0 ) ; maximiza_jogadas(e);}
+    else if(ha_jogada_possivel(e) == 0) {
+        maximiza_jogadas(e);
+    }
     return OK;
 }
 
