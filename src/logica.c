@@ -61,7 +61,7 @@ ERROS jogar(ESTADO *e, COORDENADA c,int *numero_de_pos) {
         printf("Jogar %d %d\n", c.coluna, c.linha);
         func(e);
         e->tab[c.linha][c.coluna] = BRANCA;
-        atualiza_jogadas(e,c);
+        atualiza_jogadas(e, c);
 
         e->num_jogadas = atualiza_num_jogadas(e);
         e->jogador_atual = atualiza_jogador_atual(e);
