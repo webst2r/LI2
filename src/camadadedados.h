@@ -11,8 +11,8 @@ Definição do estado e das funções que o manipulam
 \brief Tipo de dados para as Coordenadas
 */
 typedef struct {
-    int coluna;
     int linha;
+    int coluna;
 } COORDENADA;
 
 /**

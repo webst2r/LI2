@@ -50,7 +50,7 @@ void func(ESTADO *e);
 @param c  A coordenada.
 @returns Um erro.
 */
-ERROS verifica_se_acabou (ESTADO *estado, COORDENADA c);
+ERROS verifica_se_acabou (ESTADO *e, COORDENADA c);
 
 int ha_jogada_possivel (ESTADO *e);
 

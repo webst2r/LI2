@@ -72,7 +72,7 @@ ERROS gravar(ESTADO *e, char *nome_ficheiro) {
     return 0;
 }
 
-void printMovs(ESTADO *e, FILE *fp) {  //FIXME - TROCAR TODOS OS e->qualquercoisa E METER FUNÇOES AUXILIARES QUE FAÇAM A MESMA COISA
+void printMovs(ESTADO *e, FILE *fp) {
     printMovs_aux(e,fp);
 }
 
@@ -84,8 +84,8 @@ ERROS ler(ESTADO *e, char *nome_ficheiro) {
         return ERRO_ABRIR_FICHEIRO;
         }
     ler_aux(e, fp);
-    mostrar_tabuleiro(stdout, e);
-    printMovs(e, stdout);
+    //mostrar_tabuleiro(stdout, e);
+    //printMovs(e, stdout);
     fclose(fp);
      return OK;
 }
@@ -172,6 +172,7 @@ void atualiza_tabuleiro(ESTADO *e, int numero_de_pos) {
     }
 }
 
+
 int interpretador(ESTADO *e) {
     char linha[BUF_SIZE];
     char col[2], lin[2];
@@ -182,21 +183,20 @@ int interpretador(ESTADO *e) {
     if (fgets(linha, BUF_SIZE, stdin) == NULL)
         return 0;
     if (strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
-        COORDENADA coord = {*col - 'a', *lin - '1'};
+        COORDENADA coord = {*lin - '1', *col - 'a'};
         int colunavencedor, linhavencedor;
         colunavencedor = coord.coluna;
         linhavencedor = coord.linha;
         ERROS erro;
         if ((erro = jogar(e, coord, &numero_de_pos)) == OK) {
             mostrar_tabuleiro(stdout, e);
-             if (obter_numero_de_jogadas(e) == 32 && colunavencedor == 7 && linhavencedor == 7){
+            if (obter_numero_de_jogadas(e) == 32 && colunavencedor == 7 && linhavencedor == 7) {
                 printf("O Jogador 2 é o vencedor! Parabéns!\n");
             }
-             if(obter_numero_de_jogadas(e) == 32 && colunavencedor == 0 && linhavencedor == 0){
-                 printf("O Jogador 1 é o vencedor! Parabéns!\n");
-             }
-        }
-        else
+            if (obter_numero_de_jogadas(e) == 32 && colunavencedor == 0 && linhavencedor == 0) {
+                printf("O Jogador 1 é o vencedor! Parabéns!\n");
+            }
+        } else
             print_erro(erro);
         return 1;
     }
@@ -204,23 +204,23 @@ int interpretador(ESTADO *e) {
     if (strcmp(linha, "Q\n") == 0)
         maximiza_jogadas(e);
 
-    if (sscanf(linha,  "pos %d", &numero_de_pos) == 1) {
-        atualiza_tabuleiro(e,numero_de_pos);
+    if (sscanf(linha, "pos %d", &numero_de_pos) == 1) {
+        atualiza_tabuleiro(e, numero_de_pos);
         mostrar_tabuleiro(stdout, e);
     }
-    if (sscanf(linha, "gr %s", nome_ficheiro) == 1) { // invocar na gravar o a -- stdout
+    if (sscanf(linha, "gr %s", nome_ficheiro) == 1) {
         gravar(e, nome_ficheiro);
     }
 
     if (sscanf(linha, "ler %s", nome_ficheiro) == 1) {
-         ERROS erro;
-         if ((erro = ler(e, nome_ficheiro)) == OK) {
-             ler(e,nome_ficheiro);
-         } else {
-             print_erro(erro);
-         }
-        }
-    if(strcmp(linha, "movs\n") == 0) {
+        ERROS erro;
+        if ((erro = ler(e, nome_ficheiro)) == OK) {
+            mostrar_tabuleiro(stdout, e);
+            printMovs(e, stdout);
+        } else print_erro(erro);
+    }
+
+    if (strcmp(linha, "movs\n") == 0) {
         printMovs(e, stdout);
     }
 

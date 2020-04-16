@@ -24,33 +24,31 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c) {
         /*
         int resposta = rand() % 4;
         switch(resposta) {
-
             case 0:
                 estado->num_jogadas = 32;
                 printf("Parabéns, você é o Vencedor!");
                 break;
-
             case 1:
                 estado->num_jogadas = 32;
                 printf("Venceu!");
                 break;
-
             case 2:
                 estado->num_jogadas = 32;
                 printf("Ganhou!");
                 break;
-
             case 3:
                 estado->num_jogadas = 32;
                 printf("Vitória!");
                 break;
         }
-*/}
+*/
+    }
     else if(ha_jogada_possivel(e) == 0) {
         maximiza_jogadas(e);
     }
     return OK;
 }
+
 
 ERROS jogar(ESTADO *e, COORDENADA c,int *numero_de_pos) {
     add_numerodecomandos(e);
@@ -59,11 +57,12 @@ ERROS jogar(ESTADO *e, COORDENADA c,int *numero_de_pos) {
         atualiza_estado(e, *numero_de_pos);
             *numero_de_pos = 50;
         }
+
     if(jogada_valida(e,c) == OK) {
         printf("Jogar %d %d\n", c.coluna, c.linha);
         func(e);
         e->tab[c.linha][c.coluna] = BRANCA;
-        atualiza_jogadas(e, c);
+        atualiza_jogadas(e,c);
 
         e->num_jogadas = atualiza_num_jogadas(e);
         e->jogador_atual = atualiza_jogador_atual(e);
@@ -123,15 +122,15 @@ ERROS jogada_valida(ESTADO *e, COORDENADA c) {
 
 int ha_jogada_possivel (ESTADO *e) {
     COORDENADA ultima = e->ultima_jogada;
-    int col = ultima.coluna, lin = ultima.linha;
-    COORDENADA c1 = {col + 1, lin + 1},
-            c2 = {col + 1, lin},
-            c3 = {col + 1, lin - 1},
-            c4 = {col, lin + 1},
-            c5 = {col, lin - 1},
-            c6 = {col - 1, lin + 1},
-            c7 = {col - 1, lin},
-            c8 = {col - 1, lin - 1};
+    int lin = ultima.linha, col = ultima.coluna;
+    COORDENADA c1 = {lin + 1, col + 1},
+            c2 = {lin,col + 1},
+            c3 = {lin -1, col + 1},
+            c4 = {lin + 1, col},
+            c5 = {lin - 1, col},
+            c6 = {lin + 1, col - 1},
+            c7 = {lin, col - 1},
+            c8 = {lin - 1, col - 1};
     COORDENADA vizinha[8] = {c1, c2, c3, c4, c5, c6, c7, c8};
 
     for
