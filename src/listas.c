@@ -40,15 +40,24 @@ LISTA proximo(LISTA L){     // recebe um valor x e uma lista l e vai retornar o 
 
 
 // Remove a cabeça da lista (libertando o espaço ocupado) e devolve a cauda
+
 LISTA remove_cabeca(LISTA L){
     LISTA r;
+    LISTA cabeca = L->valor; // OU SERIA:
+                             // OU nodo temp = cabeca;
+                             // cabeca = cabeca->prox;
+    if(cabeca == NULL)
+        return NULL;
 
+    L->prox->valor = r->valor;
+    r->prox = L->prox->prox;
 
-    L->prox->valor = r->valor; // a cabeça da cauda da lista L passa a ser a cabeça da nova lista R.
-    r->prox = L->prox->prox; // o resto será a cauda da lista r.
-// talvez falta libertar o espaço ocupado.
+    delete cabeca;
+
     return r;
 }
+
+
 
 
 // Devolve verdareiro se a lista é vazia
