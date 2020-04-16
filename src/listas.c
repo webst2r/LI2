@@ -28,8 +28,6 @@ void *devolve_cabeca(LISTA L) { /
 }
 
 
-
-
 // Devolve a cauda da lista
 LISTA proximo(LISTA L){     // recebe um valor x e uma lista l e vai retornar o x como cabeca e a lista l como cauda
     LISTA cauda;
@@ -60,12 +58,3 @@ int lista_esta_vazia(LISTA L){
     if(cabeca = NULL) return 1;
     else 0;
 }
-
-
-
-
-
-
-
-
-
