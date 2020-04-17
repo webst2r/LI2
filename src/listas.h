@@ -2,7 +2,7 @@
 #define LI2FINAL_LISTAS_H
 
 typedef struct nodo {
-    void valor; // cabeca
+    void *valor; // cabeca
     struct nodo *prox; // cauda
 } *LISTA;
 

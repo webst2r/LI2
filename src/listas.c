@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include "listas.h"
 
 // Cria uma lista vazia
@@ -20,7 +21,7 @@ LISTA insere_cabeca(LISTA L, void *v) {
 
 
 // Devolve a cabeça da lista
-void *devolve_cabeca(LISTA L) { /
+void *devolve_cabeca(LISTA L) {
     LISTA cabeca;
 
     cabeca = malloc (sizeof(struct nodo));
