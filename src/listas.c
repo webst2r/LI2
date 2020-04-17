@@ -1,4 +1,5 @@
 #include <stddef.h>
+#include <stdlib.h>
 #include "listas.h"
 
 // Cria uma lista vazia
@@ -53,7 +54,7 @@ LISTA remove_cabeca(LISTA L){
     L->prox->valor = r->valor;
     r->prox = L->prox->prox;
 
-    delete cabeca;
+    //delete cabeca;
 
     return r;
 }
