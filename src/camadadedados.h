@@ -147,7 +147,7 @@ void maximiza_jogadas(ESTADO *e);
 @param Apontador para o estado.
 @param fp Apontador para o ficheiro.
 */
-int ler_aux(ESTADO *e, FILE *fp);
+void ler_aux(ESTADO *e, FILE *fp);
 /**
 \brief Auxilia a ler a alterar o tabuleiro e a alterar o estado.
 @param Apontador para o estado.

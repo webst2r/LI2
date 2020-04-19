@@ -1,4 +1,5 @@
 #include "camadadedados.h"
+#include "interface.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -72,14 +73,12 @@ void atualiza_jogadas(ESTADO *e, COORDENADA c){
         e->jogadas[obter_numero_de_jogadas(e)].jogador2 = c;
 }
 
-int ler_aux(ESTADO *e, FILE *fp) {
+void ler_aux(ESTADO *e, FILE *fp) {
     COORDENADA c1, c2;
     char buffer[BUF_SIZE];
     int line = 0;
     int w = 0;
-
     e->num_jogadas = 0;
-
     while (w < 32) {
         e->jogadas[w].jogador1.coluna = 0;
         e->jogadas[w].jogador1.linha = 0;

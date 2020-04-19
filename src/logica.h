@@ -6,6 +6,7 @@ Definição da interface e das funções que a manipulam
 #ifndef SRC_LOGICA_H
 #define SRC_LOGICA_H
 #include "camadadedados.h"
+#include "listas.h"
 
 /**
 \brief Função que permite fazer jogadas, tendo em conta um estado e uma coordenada.
@@ -52,6 +53,13 @@ void func(ESTADO *e);
 */
 ERROS verifica_se_acabou (ESTADO *e, COORDENADA c);
 
+/**
+\brief Verifica se existe pelo menos uma jogada possível após uma jogada.
+@param e Apontador para o estado.
+@returns Um número.
+*/
 int ha_jogada_possivel (ESTADO *e);
+
+void livres(ESTADO *e, LISTA l);
 
 #endif // SRC_LOGICA_H

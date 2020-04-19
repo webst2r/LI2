@@ -1,6 +1,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include "listas.h"
+#include "camadadedados.h"
 
 // Cria uma lista vazia
 LISTA criar_lista() {

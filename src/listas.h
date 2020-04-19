@@ -1,5 +1,6 @@
 #ifndef LI2FINAL_LISTAS_H
 #define LI2FINAL_LISTAS_H
+#include "camadadedados.h"
 
 typedef struct nodo {
     void *valor; // cabeca

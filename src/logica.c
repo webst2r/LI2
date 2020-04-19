@@ -3,12 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include "camadadedados.h"
+#include "listas.h"
 #include "interface.h"
 #include <math.h>
 #include <time.h>
 #define BUF_SIZE 1024
-
-void func(ESTADO *e);
 
 ERROS verifica_se_acabou (ESTADO *e, COORDENADA c) {
     int coluna, linha;
@@ -44,6 +43,11 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c) {
 */
     }
     else if(ha_jogada_possivel(e) == 0) {
+        if (obter_jogador_atual(e) == 1) {
+            printf("O Jogador 2 é o vencedor! Parabéns!\n");
+        } else {
+            printf("O Jogador 1 é o vencedor! Parabéns!\n");
+        }
         maximiza_jogadas(e);
     }
     return OK;
@@ -132,12 +136,41 @@ int ha_jogada_possivel (ESTADO *e) {
             c7 = {lin, col - 1},
             c8 = {lin - 1, col - 1};
     COORDENADA vizinha[8] = {c1, c2, c3, c4, c5, c6, c7, c8};
-
-    for
-            (int i = 0; i < 8; i++) {
-        ultima = vizinha[i];
-        if (ultima.coluna > 0 && ultima.coluna < 8 && ultima.linha > 0 && ultima.linha < 8 && obter_estado_casa(e, ultima ) == VAZIO)
+    COORDENADA casa_livre;
+    for(int i = 0; i < 8; i++) {
+        casa_livre = vizinha[i];
+        if (casa_livre.coluna >= 0 && casa_livre.coluna < 8 && casa_livre.linha >= 0 && casa_livre.linha < 8 && obter_estado_casa(e, casa_livre) == VAZIO)
             return 1;
     }
     return 0;
+}
+
+void listas(ESTADO *e) {
+    LISTA l1 = criar_lista();
+
+    livres(e, l1);
+
+}
+
+
+
+void livres(ESTADO *e, LISTA l) {
+    COORDENADA ultima = e->ultima_jogada;
+    int lin = ultima.linha, col = ultima.coluna;
+    COORDENADA c1 = {lin + 1, col + 1},
+            c2 = {lin,col + 1},
+            c3 = {lin -1, col + 1},
+            c4 = {lin + 1, col},
+            c5 = {lin - 1, col},
+            c6 = {lin + 1, col - 1},
+            c7 = {lin, col - 1},
+            c8 = {lin - 1, col - 1};
+    COORDENADA vizinha[8] = {c1, c2, c3, c4, c5, c6, c7, c8};
+    COORDENADA livre;
+    for(int i = 0; i < 8; i++) {
+        livre = vizinha[i];
+        if (livre.coluna >= 0 && livre.coluna < 8 && livre.linha >= 0 && livre.linha < 8 && obter_estado_casa(e, livre) == VAZIO)
+        // Passa do tipo genérico void * para COORDENADA *
+        insere_cabeca(l, livre);
+    }
 }
