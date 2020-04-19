@@ -1,6 +1,5 @@
 #ifndef LI2FINAL_LISTAS_H
 #define LI2FINAL_LISTAS_H
-#include "camadadedados.h"
 
 typedef struct nodo {
     void *valor; // cabeca
@@ -25,5 +24,8 @@ LISTA remove_cabeca(LISTA L);
 
 // Devolve verdareiro se a lista é vazia
 int lista_esta_vazia(LISTA L);
+
+// Devolve o comprimento da lista.
+int comprimento_da_lista(LISTA l);
 
 #endif //LI2FINAL_LISTAS_H

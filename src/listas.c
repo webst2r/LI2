@@ -1,7 +1,6 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include "listas.h"
-#include "camadadedados.h"
 
 // Cria uma lista vazia
 LISTA criar_lista() {
@@ -61,12 +60,19 @@ LISTA remove_cabeca(LISTA L){
 }
 
 
-
-
 // Devolve verdareiro se a lista é vazia
 int lista_esta_vazia(LISTA L){
     LISTA cabeca = L->valor;
 
-    if(cabeca = NULL) return 1;
+    if(cabeca == NULL) return 1; // ?OU? cabeca = NULL 
     else 0;
+}
+
+
+int comprimento_da_lista (LISTA l) {
+    int c;
+
+    if(l == NULL) c = 0;
+    else c = 1 + comprimento_da_lista(l->prox);
+    return c;
 }
