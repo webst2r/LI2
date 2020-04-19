@@ -178,6 +178,7 @@ int interpretador(ESTADO *e) {
     char col[2], lin[2];
     char nome_ficheiro[BUF_SIZE];
     int numero_de_pos;
+    //char jogada[BUF_SIZE];
 
     if (fgets(linha, BUF_SIZE, stdin) == NULL)
         return 0;
@@ -203,9 +204,10 @@ int interpretador(ESTADO *e) {
     if (strcmp(linha, "Q\n") == 0)
         maximiza_jogadas(e);
 
-    if (sscanf(linha, "jog") == 1) {
-        //bot(e);
-        mostrar_tabuleiro(stdout, e);
+    if (strcmp(linha, "jog\n") == 0) {
+        bot(e);
+        printf("\no saraiva e burro");
+       mostrar_tabuleiro(stdout, e);
     }
     if (sscanf(linha, "pos %d", &numero_de_pos) == 1) {
         atualiza_tabuleiro(e, numero_de_pos);

@@ -5,7 +5,9 @@
 // Cria uma lista vazia
 LISTA criar_lista() {
     LISTA l1;
-    l1 = NULL;
+    l1 = malloc(sizeof(struct nodo));
+    l1 -> valor = NULL;
+    l1 -> prox = NULL;
     return l1;
 }
 
@@ -24,9 +26,13 @@ LISTA insere_cabeca(LISTA L, void *v) {
 // Devolve a cabeça da lista
 void *devolve_cabeca(LISTA L) {
     LISTA cabeca;
+    LISTA valor;
 
-    cabeca = malloc (sizeof(struct nodo));
+    cabeca = malloc(sizeof(struct nodo));
+    valor = malloc(sizeof(struct nodo));
     cabeca = L->valor;
+
+    return cabeca;
 }
 
 
@@ -34,11 +40,12 @@ void *devolve_cabeca(LISTA L) {
 LISTA proximo(LISTA L){     // recebe um valor x e uma lista l e vai retornar o x como cabeca e a lista l como cauda
     LISTA cauda;
 
-    cauda = malloc (sizeof(struct nodo));
+    cauda = malloc(sizeof(struct nodo));
     cauda = L->prox;
 
     return cauda;
 }
+
 
 
 // Remove a cabeça da lista (libertando o espaço ocupado) e devolve a cauda

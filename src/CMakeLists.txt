@@ -3,4 +3,4 @@ project(src C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(src main.c logica.c logica.h camadadedados.c camadadedados.h interface.c interface.h)
+add_executable(src main.c logica.c logica.h camadadedados.c camadadedados.h interface.c interface.h listas.c listas.h)

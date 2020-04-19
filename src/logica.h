@@ -60,6 +60,10 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c);
 */
 int ha_jogada_possivel (ESTADO *e);
 
-void livres(ESTADO *e, LISTA l);
+LISTA livres(ESTADO *e, LISTA l);
+
+void bot(ESTADO *e);
+
+LISTA listas(ESTADO *e);
 
 #endif // SRC_LOGICA_H

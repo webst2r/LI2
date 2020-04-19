@@ -145,16 +145,34 @@ int ha_jogada_possivel (ESTADO *e) {
     return 0;
 }
 
-void listas(ESTADO *e) {
-    LISTA l1 = criar_lista();
-
-    livres(e, l1);
-
+LISTA listas(ESTADO *e) {
+    LISTA l = criar_lista();
+    //LISTA l1 = (LISTA) livres(e, l);
+    return l;
 }
 
+void bot(ESTADO *e) {
+    LISTA l = listas(e);
+    COORDENADA * coor_escolhida;
+    int comprimento;
+    int i = 0;
+    printf("ola");
+    comprimento = comprimento_da_lista(l);
 
+    srand(time(NULL));
+    int num_escolhido = rand() % comprimento;
+    // escolhe um numero entre 0 e comprimento-1
+    while(i != num_escolhido) {
+        //coor_escolhida = l -> valor;
+        l = l -> prox;
+        i++;
+    } coor_escolhida = l -> valor;
+    jogar(e, *coor_escolhida, (int *) 50);
+}
+/*
+LISTA livres(ESTADO *e, LISTA l) {
 
-void livres(ESTADO *e, LISTA l) {
+    COORDENADA *livre = malloc(sizeof(COORDENADA));
     COORDENADA ultima = e->ultima_jogada;
     int lin = ultima.linha, col = ultima.coluna;
     COORDENADA c1 = {lin + 1, col + 1},
@@ -166,11 +184,13 @@ void livres(ESTADO *e, LISTA l) {
             c7 = {lin, col - 1},
             c8 = {lin - 1, col - 1};
     COORDENADA vizinha[8] = {c1, c2, c3, c4, c5, c6, c7, c8};
-    COORDENADA livre;
+
     for(int i = 0; i < 8; i++) {
-        livre = vizinha[i];
-        if (livre.coluna >= 0 && livre.coluna < 8 && livre.linha >= 0 && livre.linha < 8 && obter_estado_casa(e, livre) == VAZIO)
-        // Passa do tipo genérico void * para COORDENADA *
-        insere_cabeca(l, livre);
+        * livre = vizinha[i];
+        if (casa_livre(e,vizinha[i])) {
+           insere_cabeca(l, &livre);
+        }
     }
+    return l;
 }
+ */
