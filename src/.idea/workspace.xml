@@ -21,9 +21,6 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
-  <component name="FavoritesManager">
-    <favorites_list name="src" />
-  </component>
   <component name="ProjectId" id="1Yww8TvhCSCCrj4Vtn2TLTdmKTS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -62,7 +59,7 @@
       <workItem from="1583866806847" duration="146000" />
       <workItem from="1583871026467" duration="34607000" />
       <workItem from="1585933605410" duration="22883000" />
-      <workItem from="1587045377134" duration="18559000" />
+      <workItem from="1587045377134" duration="19745000" />
     </task>
     <servers />
   </component>
@@ -132,10 +129,11 @@
     </state>
     <state x="581" y="242" key="run.anything.popup/67.27.1613.1023@67.27.1613.1023" timestamp="1586040508343" />
     <state x="657" y="221" key="run.anything.popup/67.27.1853.923@67.27.1853.923" timestamp="1584644076882" />
-    <state x="580" y="246" width="672" height="752" key="search.everywhere.popup" timestamp="1586022970911">
-      <screen x="67" y="27" width="1613" height="1023" />
+    <state x="656" y="230" width="772" height="697" key="search.everywhere.popup" timestamp="1587321301988">
+      <screen x="67" y="27" width="1853" height="948" />
     </state>
     <state x="580" y="246" width="672" height="752" key="search.everywhere.popup/67.27.1613.1023@67.27.1613.1023" timestamp="1586022970911" />
     <state x="656" y="225" width="672" height="678" key="search.everywhere.popup/67.27.1853.923@67.27.1853.923" timestamp="1584312330684" />
+    <state x="656" y="230" width="772" height="697" key="search.everywhere.popup/67.27.1853.948@67.27.1853.948" timestamp="1587321301988" />
   </component>
 </project>

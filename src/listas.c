@@ -12,14 +12,15 @@ LISTA criar_lista() {
 }
 
 // Insere um valor na cabeça da lista
-LISTA insere_cabeca(LISTA L, void *v) {
+LISTA insere_cabeca(LISTA l, void *v) {
     LISTA r;
 
     r = malloc(sizeof(struct nodo));
     r->valor = v;
-    r->prox = L;
+    r->prox = l;
+    l = r;
 
-    return r;
+    return l;
 }
 
 

@@ -207,7 +207,7 @@ int interpretador(ESTADO *e) {
     if (strcmp(linha, "jog\n") == 0) {
         bot(e);
         printf("\no saraiva e burro");
-       mostrar_tabuleiro(stdout, e);
+        mostrar_tabuleiro(stdout, e);
     }
     if (sscanf(linha, "pos %d", &numero_de_pos) == 1) {
         atualiza_tabuleiro(e, numero_de_pos);

@@ -147,7 +147,7 @@ int ha_jogada_possivel (ESTADO *e) {
 
 LISTA listas(ESTADO *e) {
     LISTA l = criar_lista();
-    //LISTA l1 = (LISTA) livres(e, l);
+    LISTA l1 = (LISTA) livres(e, l);
     return l;
 }
 
@@ -169,7 +169,7 @@ void bot(ESTADO *e) {
     } coor_escolhida = l -> valor;
     jogar(e, *coor_escolhida, (int *) 50);
 }
-/*
+
 LISTA livres(ESTADO *e, LISTA l) {
 
     COORDENADA *livre = malloc(sizeof(COORDENADA));
@@ -188,9 +188,8 @@ LISTA livres(ESTADO *e, LISTA l) {
     for(int i = 0; i < 8; i++) {
         * livre = vizinha[i];
         if (casa_livre(e,vizinha[i])) {
-           insere_cabeca(l, &livre);
+           l = insere_cabeca(l, &livre);
         }
     }
     return l;
 }
- */

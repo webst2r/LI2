@@ -4,7 +4,7 @@
 typedef struct nodo {
     void *valor; // cabeca
     struct nodo *prox; // cauda
-} *LISTA;
+} NODO, *LISTA;
 
 
 // Cria uma lista vazia
