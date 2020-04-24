@@ -64,7 +64,7 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
 
     if(jogada_valida(e,c) == OK) {
         printf("Jogar %d %d\n", c.coluna, c.linha);
-        func(e);
+        preta(e);
         e->tab[c.linha][c.coluna] = BRANCA;
         atualiza_jogadas(e,c);
 
@@ -76,7 +76,7 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
     } else return JOGADA_INVALIDA;
 }
 
-void func(ESTADO *e) {
+void preta(ESTADO *e) {
     int linha, coluna;
     for (linha = 7; linha >= 0; linha --) {
         for (coluna = 0; coluna <=7 ; coluna ++) {
