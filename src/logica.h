@@ -44,7 +44,7 @@ ERROS jogada_valida(ESTADO *e, COORDENADA c);
 @param e Apontador para o estado.
 @returns Um erro.
 */
-void func(ESTADO *e);
+void preta(ESTADO *e);
 /**
 \brief Verifica se o jogo termina no fim de uma jogada.
 @param e Apontador para o estado.
