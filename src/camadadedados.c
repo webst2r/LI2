@@ -19,7 +19,8 @@ ESTADO *inicializar_estado() {
             .jogadas = {},
             .num_jogadas = 0,
             .jogador_atual = 1,
-            .numeroComandos = 0};
+            .numeroComandos = 0,
+            .numero_de_pos = 50};
     return e;
 }
 
@@ -32,7 +33,7 @@ int imprime_tabuleiro(CASA arr[8][8]) {
         }
     } imprime_linha_3(arr);
     for(int linha = 4; linha < 8; linha++) {
-        for(int coluna = 0; coluna < 8; coluna++) {
+ for(int coluna = 0; coluna < 8; coluna++) {
             arr[linha][coluna] = VAZIO;
         }
     }
@@ -51,8 +52,8 @@ int imprime_linha_3(CASA arr[8][8]) {
 int obter_jogador_atual(ESTADO *estado) {
     int player;
     player = estado->jogador_atual;
-    return player;
 }
+
 
 int obter_numero_de_jogadas(ESTADO *estado) {
     int n_jogadas;

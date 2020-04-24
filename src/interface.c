@@ -120,13 +120,16 @@ void mostrar_tabuleiro(FILE *fp, ESTADO *e) {
 }
 
 
-void atualiza_estado(ESTADO *e, int numero_de_pos) {
-    int w = numero_de_pos;
-
-    e->ultima_jogada.linha = e->jogadas[numero_de_pos-1].jogador2.linha;
-    e->ultima_jogada.coluna = e->jogadas[numero_de_pos-1].jogador2.coluna;
-    e->num_jogadas = numero_de_pos;
+void atualiza_estado(ESTADO *e) {
+    int w = e->numero_de_pos;
+    e->num_jogadas = w;
     e->jogador_atual = 1;
+
+    if(w == 0) {
+        e->ultima_jogada.coluna = 4;
+        e->ultima_jogada.linha = 4;
+    } else
+    e->ultima_jogada = e->jogadas[w-1].jogador2;
 
     while (w < 32) {
         e->jogadas[w].jogador1.coluna = 0;
@@ -135,15 +138,16 @@ void atualiza_estado(ESTADO *e, int numero_de_pos) {
         e->jogadas[w].jogador2.linha = 0;
         w++;
     }
-    atualiza_tabuleiro(e, numero_de_pos);
+    atualiza_tabuleiro(e);
 }
 
-void atualiza_tabuleiro(ESTADO *e, int numero_de_pos) {
+void atualiza_tabuleiro(ESTADO *e) {
     int linha2, coluna2;
+    int pos = e->numero_de_pos;
     for (linha2 = 0; linha2 < 8; linha2++) {
         for (coluna2 = 0; coluna2 < 8; coluna2++) {
             if (linha2 == 4 && coluna2 == 4) {
-                if (numero_de_pos == 0) {
+                if (pos == 0) {
                     e->tab[linha2][coluna2] = BRANCA;
                 } else {
                     e->tab[linha2][coluna2] = PRETA;
@@ -156,13 +160,13 @@ void atualiza_tabuleiro(ESTADO *e, int numero_de_pos) {
     e->tab[0][0] = UM;
     e->tab[7][7] = DOIS;
 
-    for(int i = 0; i < numero_de_pos; i++) {
+    for(int i = 0; i < pos; i++) {
         COORDENADA c1, c2;
 
         c1 =e->jogadas[i].jogador1;
         c2 = e->jogadas[i].jogador2;
 
-        if ((numero_de_pos - 1) != i) {
+        if ((pos - 1) != i) {
             e->tab[c1.linha][c1.coluna] = PRETA;
             e->tab[c2.linha][c2.coluna] = PRETA;
         } else {
@@ -188,7 +192,7 @@ int interpretador(ESTADO *e) {
         colunavencedor = coord.coluna;
         linhavencedor = coord.linha;
         ERROS erro;
-        if ((erro = jogar(e, coord, &numero_de_pos)) == OK) {
+        if ((erro = jogar(e, coord)) == OK) {
             mostrar_tabuleiro(stdout, e);
             if (obter_numero_de_jogadas(e) == 32 && colunavencedor == 7 && linhavencedor == 7) {
                 printf("O Jogador 2 é o vencedor! Parabéns!\n");
@@ -206,11 +210,11 @@ int interpretador(ESTADO *e) {
 
     if (strcmp(linha, "jog\n") == 0) {
         bot(e);
-        printf("teste");
         mostrar_tabuleiro(stdout, e);
     }
     if (sscanf(linha, "pos %d", &numero_de_pos) == 1) {
-        atualiza_tabuleiro(e, numero_de_pos);
+        e->numero_de_pos = numero_de_pos;
+        atualiza_tabuleiro(e);
         mostrar_tabuleiro(stdout, e);
     }
     if (sscanf(linha, "gr %s", nome_ficheiro) == 1) {

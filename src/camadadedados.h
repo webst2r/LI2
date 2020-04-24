@@ -55,6 +55,8 @@ typedef struct {
     int jogador_atual;
     /**  numero de comandos */
     int numeroComandos;
+
+    int numero_de_pos;
 } ESTADO;
 /**
 \brief Tipo de dados para os erros

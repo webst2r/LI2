@@ -54,13 +54,13 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c) {
 }
 
 
-ERROS jogar(ESTADO *e, COORDENADA c,int *numero_de_pos) {
+ERROS jogar(ESTADO *e, COORDENADA c) {
     add_numerodecomandos(e);
-
-    if(*numero_de_pos != 50) {
-        atualiza_estado(e, *numero_de_pos);
-            *numero_de_pos = 50;
-        }
+    int posx = e->numero_de_pos;
+    if(posx != 50) {
+        atualiza_estado(e);
+        e->numero_de_pos = 50;
+    }
 
     if(jogada_valida(e,c) == OK) {
         printf("Jogar %d %d\n", c.coluna, c.linha);
@@ -118,10 +118,11 @@ ERROS casa_livre(ESTADO *e, COORDENADA c) {
 
 // se a casa estiver livre, confirma se é casa vizinha (se está em distancia aceitavel para jogar).
 ERROS jogada_valida(ESTADO *e, COORDENADA c) {
+    if(c.linha < 0 || c.linha > 7) return JOGADA_INVALIDA;
+    if(c.coluna < 0 || c.coluna > 7) return JOGADA_INVALIDA;
     if(casa_livre(e,c) == OK) // se a função casa_livre retornar OK significa que a casa está livre.
         return check_movimentos(e,c);
     else return JOGADA_INVALIDA;
-
 }
 
 int ha_jogada_possivel (ESTADO *e) {
@@ -144,52 +145,119 @@ int ha_jogada_possivel (ESTADO *e) {
     }
     return 0;
 }
-
+/*
 LISTA listas(ESTADO *e) {
     LISTA l = criar_lista();
     LISTA l1 = (LISTA) livres(e, l);
-    return l;
+    return l1;
 }
-
+*/
 void bot(ESTADO *e) {
-    LISTA l = listas(e);
-    COORDENADA * coor_escolhida;
+
+    if(e->numero_de_pos != 50) {
+        atualiza_estado(e);
+        e->numero_de_pos = 50;
+    }
+    printf("%d %d", e->ultima_jogada.coluna, e->ultima_jogada.linha);
+    LISTA l = malloc(sizeof(NODO));
+
+    COORDENADA ultima = e->ultima_jogada;
+    int lin = ultima.linha, col = ultima.coluna;
+
+    COORDENADA *c1 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c2 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c3 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c4 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c5 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c6 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c7 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c8 = (COORDENADA *) malloc(sizeof(COORDENADA));
+
+    c1->linha = lin + 1;
+    c1->coluna = col + 1;
+    c2->linha = lin;
+    c2->coluna = col + 1;
+    c3->linha = lin - 1;
+    c3->coluna = col + 1;
+    c4->linha = lin + 1;
+    c4->coluna = col;
+    c5->linha = lin - 1;
+    c5->coluna = col;
+    c6->linha = lin + 1;
+    c6->coluna = col - 1;
+    c7->linha = lin;
+    c7->coluna = col - 1;
+    c8->linha = lin - 1;
+    c8->coluna = col - 1;
+
+    COORDENADA *vizinha[8] = {c1, c2, c3, c4, c5, c6, c7, c8};
+
+    for(int i = 0; i < 8; i++) {
+
+        // * livre = vizinha[i];
+        if (jogada_valida(e, *vizinha [i]) == OK) {
+            l = insere_cabeca(l, vizinha[i]);
+        }
+    }
+
+
     int comprimento;
     int i = 0;
-    printf("ola");
-    comprimento = comprimento_da_lista(l);
 
-    srand(time(NULL));
-    int num_escolhido = rand() % comprimento;
+    comprimento = comprimento_da_lista(l) - 1;
+
+    srandom(time(NULL));
+    int num_escolhido = random() % comprimento;
     // escolhe um numero entre 0 e comprimento-1
     while(i != num_escolhido) {
         //coor_escolhida = l -> valor;
         l = l -> prox;
         i++;
-    } coor_escolhida = l -> valor;
-    jogar(e, *coor_escolhida, (int *) 50);
+    }
+    COORDENADA * coor_escolhida = (COORDENADA *) devolve_cabeca(l);
+    jogar(e, *coor_escolhida);
 }
-
+/*
 LISTA livres(ESTADO *e, LISTA l) {
-
-    COORDENADA *livre = malloc(sizeof(COORDENADA));
+    //COORDENADA *livre = (COORDENADA *) malloc(sizeof(COORDENADA));
     COORDENADA ultima = e->ultima_jogada;
     int lin = ultima.linha, col = ultima.coluna;
-    COORDENADA c1 = {lin + 1, col + 1},
-            c2 = {lin,col + 1},
-            c3 = {lin -1, col + 1},
-            c4 = {lin + 1, col},
-            c5 = {lin - 1, col},
-            c6 = {lin + 1, col - 1},
-            c7 = {lin, col - 1},
-            c8 = {lin - 1, col - 1};
-    COORDENADA vizinha[8] = {c1, c2, c3, c4, c5, c6, c7, c8};
+    COORDENADA *c1 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c2 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c3 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c4 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c5 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c6 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c7 = (COORDENADA *) malloc(sizeof(COORDENADA));
+    COORDENADA *c8 = (COORDENADA *) malloc(sizeof(COORDENADA));
+
+    c1->linha = lin + 1;
+    c1->coluna = col + 1;
+    c2->linha = lin;
+    c2->coluna = col + 1;
+    c3->linha = lin - 1;
+    c3->coluna = col + 1;
+    c4->linha = lin + 1;
+    c4->coluna = col;
+    c5->linha = lin - 1;
+    c5->coluna = col;
+    c6->linha = lin + 1;
+    c6->coluna = col - 1;
+    c7->linha = lin;
+    c7->coluna = col - 1;
+    c8->linha = lin - 1;
+    c8->coluna = col - 1;
+
+    COORDENADA *vizinha[8] = {c1, c2, c3, c4, c5, c6, c7, c8};
 
     for(int i = 0; i < 8; i++) {
-        * livre = vizinha[i];
-        if (casa_livre(e,vizinha[i])) {
-           l = insere_cabeca(l, &livre);
+
+        // * livre = vizinha[i];
+
+        if (casa_livre(e, *vizinha[i])) {
+           l = insere_cabeca(l, vizinha[i]);
         }
     }
     return l;
 }
+*/
