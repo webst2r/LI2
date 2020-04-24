@@ -64,7 +64,7 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
 
     if(jogada_valida(e,c) == OK) {
         printf("Jogar %d %d\n", c.coluna, c.linha);
-        preta(e);
+        func(e);
         e->tab[c.linha][c.coluna] = BRANCA;
         atualiza_jogadas(e,c);
 
@@ -76,7 +76,7 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
     } else return JOGADA_INVALIDA;
 }
 
-void preta(ESTADO *e) {
+void func(ESTADO *e) {
     int linha, coluna;
     for (linha = 7; linha >= 0; linha --) {
         for (coluna = 0; coluna <=7 ; coluna ++) {
@@ -160,7 +160,7 @@ void bot(ESTADO *e) { //FIXME - FAZER O BOT SUICIDAR-SE UTILIZANDO HA_JOGADA_POS
     }
 
     printf("%d %d\n", e->ultima_jogada.coluna, e->ultima_jogada.linha);
-    LISTA l = malloc(sizeof(NODO));
+    LISTA l = criar_lista(); //FIXME era aqui o erro
 
     COORDENADA ultima = e->ultima_jogada;
     int lin = ultima.linha, col = ultima.coluna;
@@ -201,7 +201,6 @@ void bot(ESTADO *e) { //FIXME - FAZER O BOT SUICIDAR-SE UTILIZANDO HA_JOGADA_POS
         }
     }
 
-
     int comprimento;
     int i = 0;
 
@@ -209,12 +208,12 @@ void bot(ESTADO *e) { //FIXME - FAZER O BOT SUICIDAR-SE UTILIZANDO HA_JOGADA_POS
 
     srandom(time(NULL));
     int num_escolhido = random() % comprimento;
-    // escolhe um numero entre 0 e comprimento-1
-    while(i != num_escolhido) {
-        //coor_escolhida = l -> valor;
+
+    while(i < num_escolhido) { // i != num_escolhido
         l = l -> prox;
         i++;
     }
+
     COORDENADA * coor_escolhida = (COORDENADA *) devolve_cabeca(l);
     jogar(e, *coor_escolhida);
 
@@ -228,10 +227,10 @@ void bot(ESTADO *e) { //FIXME - FAZER O BOT SUICIDAR-SE UTILIZANDO HA_JOGADA_POS
     free(c8);
 }
 /*
-LISTA livres(ESTADO *e, LISTA l) {
-    //COORDENADA *livre = (COORDENADA *) malloc(sizeof(COORDENADA));
+LISTA vizinhas(ESTADO *e){
     COORDENADA ultima = e->ultima_jogada;
     int lin = ultima.linha, col = ultima.coluna;
+
     COORDENADA *c1 = (COORDENADA *) malloc(sizeof(COORDENADA));
     COORDENADA *c2 = (COORDENADA *) malloc(sizeof(COORDENADA));
     COORDENADA *c3 = (COORDENADA *) malloc(sizeof(COORDENADA));
@@ -261,13 +260,8 @@ LISTA livres(ESTADO *e, LISTA l) {
     COORDENADA *vizinha[8] = {c1, c2, c3, c4, c5, c6, c7, c8};
 
     for(int i = 0; i < 8; i++) {
-
-        // * livre = vizinha[i];
-
-        if (casa_livre(e, *vizinha[i])) {
-           l = insere_cabeca(l, vizinha[i]);
+        if (jogada_valida(e, *vizinha[i]) == OK) {
+            l = insere_cabeca(l, vizinha[i]);
         }
-    }
-    return l;
 }
 */
