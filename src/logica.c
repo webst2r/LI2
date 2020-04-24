@@ -152,13 +152,14 @@ LISTA listas(ESTADO *e) {
     return l1;
 }
 */
-void bot(ESTADO *e) {
+void bot(ESTADO *e) { //FIXME - FAZER O BOT SUICIDAR-SE UTILIZANDO HA_JOGADA_POSSIVEL PARA AS COORDENADAS VIZINHAS, CASO DE O RETURN PRETENDIDO, ELE QUE SE SUICIDE, CASO CONTRARIO , JOGA PRAI A SORTE OU PELA DISTANCIA EUCLIDIANA HÁ CASAL INICIAL
 
     if(e->numero_de_pos != 50) {
         atualiza_estado(e);
         e->numero_de_pos = 50;
     }
-    printf("%d %d", e->ultima_jogada.coluna, e->ultima_jogada.linha);
+
+    printf("%d %d\n", e->ultima_jogada.coluna, e->ultima_jogada.linha);
     LISTA l = malloc(sizeof(NODO));
 
     COORDENADA ultima = e->ultima_jogada;
@@ -216,6 +217,15 @@ void bot(ESTADO *e) {
     }
     COORDENADA * coor_escolhida = (COORDENADA *) devolve_cabeca(l);
     jogar(e, *coor_escolhida);
+
+    free(c1);
+    free(c2);
+    free(c3);
+    free(c4);
+    free(c5);
+    free(c6);
+    free(c7);
+    free(c8);
 }
 /*
 LISTA livres(ESTADO *e, LISTA l) {
