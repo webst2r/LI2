@@ -70,6 +70,7 @@ typedef enum {
     ERRO_GRAVAR_TAB,
 } ERROS;
 
+
 /**
 \brief Inicializa o valor do estado
 Esta função inicializa o valor do estado. Isso implica o tabuleiro ser colocado na posição inicial e todos os campos do estado estarem com o valor por omissão.

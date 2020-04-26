@@ -4,11 +4,11 @@
 
 // Cria uma lista vazia
 LISTA criar_lista() {
-    LISTA l1;
-    l1 = malloc(sizeof(NODO));
-    l1 -> valor = NULL;
-    l1 -> prox = NULL;
-    return l1;
+    //LISTA l1;
+    //l1 = malloc(sizeof(NODO));
+    //l1 -> valor = NULL;
+    //l1 -> prox = NULL;
+    return NULL;
 }
 
 // Insere um valor na cabeça da lista
@@ -28,7 +28,6 @@ void *devolve_cabeca(LISTA l) {
 /*
     LISTA cabeca;
     LISTA valor;
-
     cabeca = malloc(sizeof(struct nodo));
     valor = malloc(sizeof(struct nodo));
     cabeca = l->valor;
@@ -39,12 +38,11 @@ void *devolve_cabeca(LISTA l) {
 
 // Devolve a cauda da lista
 LISTA proximo(LISTA L){     // recebe um valor x e uma lista l e vai retornar o x como cabeca e a lista l como cauda
-  /*
-    LISTA cauda;
-
-    cauda = malloc(sizeof(struct nodo));
-    cauda = L->prox;
-*/
+    /*
+      LISTA cauda;
+      cauda = malloc(sizeof(struct nodo));
+      cauda = L->prox;
+  */
     return L->prox;
 }
 
@@ -55,8 +53,8 @@ LISTA proximo(LISTA L){     // recebe um valor x e uma lista l e vai retornar o 
 LISTA remove_cabeca(LISTA L){
     LISTA r = NULL;
     LISTA cabeca = L->valor; // OU SERIA:
-                             // OU nodo temp = cabeca;
-                             // cabeca = cabeca->prox;
+    // OU nodo temp = cabeca;
+    // cabeca = cabeca->prox;
     if(cabeca == NULL)
         return NULL;
 
@@ -70,11 +68,9 @@ LISTA remove_cabeca(LISTA L){
 
 
 // Devolve verdareiro se a lista é vazia
-int lista_esta_vazia(LISTA L){
-    LISTA cabeca = L->valor;
+int lista_esta_vazia(LISTA L){ // return L == NULL
 
-    if(cabeca == NULL) return 1; // ?OU? cabeca = NULL 
-    else return 0;
+    return L == NULL;
 }
 
 

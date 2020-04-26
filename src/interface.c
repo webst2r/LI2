@@ -43,25 +43,25 @@ ERROS gravar(ESTADO *e, char *nome_ficheiro) {
     for (int i = 7; i >= 0; i--){
 
         for (int k = 0; k < 8; k++) {
-                switch (e->tab[i][k])
-                {
-                    case DOIS:
-                        fprintf(fp,"2");
-                        break;
-                    case UM:
-                        fprintf(fp,"1");
-                        break;
-                    case PRETA:
-                        fprintf(fp,"#");
-                        break;
-                    case VAZIO:
-                        fprintf(fp, ".");
-                        break;
-                    case BRANCA:
-                        fprintf(fp, "*");
-                        break;
-                }
+            switch (e->tab[i][k])
+            {
+                case DOIS:
+                    fprintf(fp,"2");
+                    break;
+                case UM:
+                    fprintf(fp,"1");
+                    break;
+                case PRETA:
+                    fprintf(fp,"#");
+                    break;
+                case VAZIO:
+                    fprintf(fp, ".");
+                    break;
+                case BRANCA:
+                    fprintf(fp, "*");
+                    break;
             }
+        }
 
         fprintf(fp, "\n");   }
 
@@ -82,12 +82,12 @@ ERROS ler(ESTADO *e, char *nome_ficheiro) {
     if (fp == NULL) {
         perror("Ao ler");
         return ERRO_ABRIR_FICHEIRO;
-        }
+    }
     ler_aux(e, fp);
     //mostrar_tabuleiro(stdout, e);
     //printMovs(e, stdout);
     fclose(fp);
-     return OK;
+    return OK;
 }
 
 void mostrar_tabuleiro(FILE *fp, ESTADO *e) {
@@ -129,7 +129,7 @@ void atualiza_estado(ESTADO *e) {
         e->ultima_jogada.coluna = 4;
         e->ultima_jogada.linha = 4;
     } else
-    e->ultima_jogada = e->jogadas[w-1].jogador2;
+        e->ultima_jogada = e->jogadas[w-1].jogador2;
 
     while (w < 32) {
         e->jogadas[w].jogador1.coluna = 0;
@@ -210,6 +210,10 @@ int interpretador(ESTADO *e) {
 
     if (strcmp(linha, "jog\n") == 0) {
         bot(e);
+        mostrar_tabuleiro(stdout, e);
+    }
+    if (strcmp(linha, "jog2\n") == 0) {
+        bot2(e);
         mostrar_tabuleiro(stdout, e);
     }
     if (sscanf(linha, "pos %d", &numero_de_pos) == 1) {

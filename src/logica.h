@@ -44,7 +44,7 @@ ERROS jogada_valida(ESTADO *e, COORDENADA c);
 @param e Apontador para o estado.
 @returns Um erro.
 */
-void func(ESTADO *e);
+void preta(ESTADO *e);
 /**
 \brief Verifica se o jogo termina no fim de uma jogada.
 @param e Apontador para o estado.
@@ -52,18 +52,25 @@ void func(ESTADO *e);
 @returns Um erro.
 */
 ERROS verifica_se_acabou (ESTADO *e, COORDENADA c);
+int verifica_se_acabou_bot(ESTADO *e, COORDENADA c);
 
 /**
 \brief Verifica se existe pelo menos uma jogada possível após uma jogada.
 @param e Apontador para o estado.
 @returns Um número.
 */
-int ha_jogada_possivel (ESTADO *e);
+int ha_jogada_possivel (ESTADO *e, COORDENADA c);
 
 LISTA vizinhas(ESTADO *e, LISTA l);
 
 void bot(ESTADO *e);
 
-LISTA listas(ESTADO *e);
+void bot2(ESTADO *e);
+
+float distance (COORDENADA * c, int jogador);
+
+COORDENADA fim_de_jogo(ESTADO *e, LISTA l);
+
+COORDENADA *euclidiana (ESTADO *e);
 
 #endif // SRC_LOGICA_H

@@ -24,31 +24,7 @@ ESTADO *inicializar_estado() {
     return e;
 }
 
-//Maneira alternativa de imprimir o tabuleiro inicial.
-/*
-int imprime_tabuleiro(CASA arr[8][8]) {
-    for (int linha = 0; linha < 3; linha++) {
-        for(int coluna = 0; coluna < 8; coluna++) {
-            arr[linha][coluna] = VAZIO;
-        }
-    } imprime_linha_3(arr);
-    for(int linha = 4; linha < 8; linha++) {
- for(int coluna = 0; coluna < 8; coluna++) {
-            arr[linha][coluna] = VAZIO;
-        }
-    }
-}
 
-int imprime_linha_3(CASA arr[8][8]) {
-    int coluna;
-    for (coluna = 0; coluna < 4; coluna++) {
-        arr[3][coluna] = VAZIO;
-    } arr[3][4] = BRANCA;
-    for (coluna = 5; coluna < 8; coluna++) {
-        arr[3][coluna] = VAZIO;
-    }
-}
-*/
 int obter_jogador_atual(ESTADO *estado) {
     int player;
     player = estado->jogador_atual;
@@ -141,7 +117,7 @@ int obter_numero_comandos(ESTADO *e) {
 }
 
 void maximiza_jogadas(ESTADO *e){
-     e->num_jogadas = 32;
+    e->num_jogadas = 32;
 }
 
 int atualiza_num_jogadas(ESTADO *e) {

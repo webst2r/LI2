@@ -9,40 +9,44 @@
 #include <time.h>
 #define BUF_SIZE 1024
 
+
+int ha_jogada_possivel (ESTADO *e, COORDENADA c) {
+    COORDENADA ultima = c;
+    //e->ultima_jogada;
+    int r = 0;
+    int lin = ultima.linha, col = ultima.coluna;
+    COORDENADA c1 = {lin + 1, col + 1},
+            c2 = {lin,col + 1},
+            c3 = {lin -1, col + 1},
+            c4 = {lin + 1, col},
+            c5 = {lin - 1, col},
+            c6 = {lin + 1, col - 1},
+            c7 = {lin, col - 1},
+            c8 = {lin - 1, col - 1};
+    COORDENADA vizinha[8] = {c1, c2, c3, c4, c5, c6, c7, c8};
+    COORDENADA casa_livre;
+
+    for(int i = 0; i < 8; i++) {
+        casa_livre = vizinha[i];
+        if (casa_livre.coluna >= 0 && casa_livre.coluna < 8 && casa_livre.linha >= 0 && casa_livre.linha < 8 && obter_estado_casa(e, casa_livre) == VAZIO)
+            r = 1;
+    }
+
+    return r;
+}
+
+
 ERROS verifica_se_acabou (ESTADO *e, COORDENADA c) {
     int coluna, linha;
     coluna = c.coluna;
     linha = c.linha;
 
-    //srand(time(NULL));
-
     if (coluna == 7 && linha == 7) {
         maximiza_jogadas(e);
     } else if (coluna == 0 && linha == 0) {
         maximiza_jogadas(e);
-        /*
-        int resposta = rand() % 4;
-        switch(resposta) {
-            case 0:
-                estado->num_jogadas = 32;
-                printf("Parabéns, você é o Vencedor!");
-                break;
-            case 1:
-                estado->num_jogadas = 32;
-                printf("Venceu!");
-                break;
-            case 2:
-                estado->num_jogadas = 32;
-                printf("Ganhou!");
-                break;
-            case 3:
-                estado->num_jogadas = 32;
-                printf("Vitória!");
-                break;
-        }
-*/
     }
-    else if(ha_jogada_possivel(e) == 0) {
+    else if(ha_jogada_possivel(e,e->ultima_jogada) == 0) {
         if (obter_jogador_atual(e) == 1) {
             printf("O Jogador 2 é o vencedor! Parabéns!\n");
         } else {
@@ -52,6 +56,48 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c) {
     }
     return OK;
 }
+
+int verifica_se_acabou_bot(ESTADO *e, COORDENADA c) {
+    int coluna, linha;
+    int r = 0;
+    coluna = c.coluna;
+    linha = c.linha;
+
+    if(obter_jogador_atual(e) == 2 && coluna == 7 && linha == 7) {
+        r = 1;
+    } else if(obter_jogador_atual(e) == 1 && coluna == 0 && linha == 0) {
+        r = 1;
+    }
+
+    if (ha_jogada_possivel(e,c) == 0) {
+        r = 1;
+    }
+    return r;
+}
+
+COORDENADA fim_de_jogo(ESTADO *e, LISTA l){
+    preta(e);
+    COORDENADA c;
+    CASA antiga;
+    c.linha = 50;
+    c.coluna = 50;
+
+    while(l != NULL){
+        COORDENADA *teste = (COORDENADA *) l->valor;
+        antiga = e->tab[teste -> linha][teste -> coluna];
+        e->tab[teste -> linha][teste -> coluna] = BRANCA;
+
+        if(verifica_se_acabou_bot(e,*teste) == 1){
+            c = *teste;
+        }
+        e->tab[teste -> linha][teste -> coluna] = antiga;
+        l = l->prox;
+    }
+    return c;
+}
+
+
+
 
 
 ERROS jogar(ESTADO *e, COORDENADA c) {
@@ -64,7 +110,7 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
 
     if(jogada_valida(e,c) == OK) {
         printf("Jogar %d %d\n", c.coluna, c.linha);
-        func(e);
+        preta(e);
         e->tab[c.linha][c.coluna] = BRANCA;
         atualiza_jogadas(e,c);
 
@@ -76,7 +122,7 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
     } else return JOGADA_INVALIDA;
 }
 
-void func(ESTADO *e) {
+void preta(ESTADO *e) {
     int linha, coluna;
     for (linha = 7; linha >= 0; linha --) {
         for (coluna = 0; coluna <=7 ; coluna ++) {
@@ -125,26 +171,7 @@ ERROS jogada_valida(ESTADO *e, COORDENADA c) {
     else return JOGADA_INVALIDA;
 }
 
-int ha_jogada_possivel (ESTADO *e) {
-    COORDENADA ultima = e->ultima_jogada;
-    int lin = ultima.linha, col = ultima.coluna;
-    COORDENADA c1 = {lin + 1, col + 1},
-            c2 = {lin,col + 1},
-            c3 = {lin -1, col + 1},
-            c4 = {lin + 1, col},
-            c5 = {lin - 1, col},
-            c6 = {lin + 1, col - 1},
-            c7 = {lin, col - 1},
-            c8 = {lin - 1, col - 1};
-    COORDENADA vizinha[8] = {c1, c2, c3, c4, c5, c6, c7, c8};
-    COORDENADA casa_livre;
-    for(int i = 0; i < 8; i++) {
-        casa_livre = vizinha[i];
-        if (casa_livre.coluna >= 0 && casa_livre.coluna < 8 && casa_livre.linha >= 0 && casa_livre.linha < 8 && obter_estado_casa(e, casa_livre) == VAZIO)
-            return 1;
-    }
-    return 0;
-}
+
 /*
 LISTA listas(ESTADO *e) {
     LISTA l = criar_lista();
@@ -226,8 +253,9 @@ void bot(ESTADO *e) { //FIXME - FAZER O BOT SUICIDAR-SE UTILIZANDO HA_JOGADA_POS
     free(c7);
     free(c8);
 }
-/*
-LISTA vizinhas(ESTADO *e){
+
+LISTA vizinhas(ESTADO *e, LISTA l) {
+
     COORDENADA ultima = e->ultima_jogada;
     int lin = ultima.linha, col = ultima.coluna;
 
@@ -259,9 +287,79 @@ LISTA vizinhas(ESTADO *e){
 
     COORDENADA *vizinha[8] = {c1, c2, c3, c4, c5, c6, c7, c8};
 
-    for(int i = 0; i < 8; i++) {
+    for (int i = 0; i < 8; i++) {
         if (jogada_valida(e, *vizinha[i]) == OK) {
             l = insere_cabeca(l, vizinha[i]);
         }
+    }
+    return l;
 }
-*/
+
+
+
+
+float distance (COORDENADA * c, int jogador) {
+    COORDENADA fim;
+
+    if(jogador == 1) {
+        fim.coluna = 0;
+        fim.linha = 0;
+    } else {
+        fim.coluna = 7;
+        fim.linha = 7;
+    }
+    int x1 = fim.linha;
+    int x2 = c -> linha;
+    int y1 = fim.coluna;
+    int y2 = c -> coluna;
+    int x = x1 - x2;
+    int y = y1 - y2;
+    float distancia;
+    distancia = sqrt(pow(x,2) + pow(y,2));
+
+    return distancia;
+}
+
+COORDENADA *euclidiana (ESTADO *e) {
+    LISTA l;
+    l = criar_lista();
+    l = vizinhas(e, l);
+    COORDENADA *melhor;
+    COORDENADA d = fim_de_jogo(e,l);
+
+
+    melhor = malloc(sizeof(COORDENADA));
+
+    if (d.linha != 50 && d.coluna != 50) {
+        *melhor = d;
+    } else {
+        COORDENADA *melhor_jogada = malloc(sizeof(COORDENADA));
+        COORDENADA *mj_temp = malloc(sizeof(COORDENADA));
+        melhor_jogada = l->valor;
+
+        l = l->prox;
+        int jogador = obter_jogador_atual(e);
+        float distancia = distance(melhor_jogada, jogador);
+        float dist_temporaria;
+
+        while (l != NULL) {
+            mj_temp = l->valor;
+            dist_temporaria = distance(mj_temp, jogador);
+            if (dist_temporaria < distancia) {
+                melhor_jogada = mj_temp;
+                distancia = dist_temporaria;
+            }
+
+            l = l->prox;
+        }
+        melhor = melhor_jogada;
+    }
+    return melhor;
+}
+
+
+void bot2 (ESTADO *e){
+    COORDENADA c = *euclidiana(e);
+    jogar(e,c);
+}
+
