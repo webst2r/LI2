@@ -56,10 +56,16 @@ ERROS ler(ESTADO *e, char *nome_ficheiro);
 */
 void printMovs(ESTADO *e, FILE *fp);
 
-
+/**
+\brief Atualiza o tabuleiro.
+@param e Apontador para o estado.
+*/
 void atualiza_tabuleiro(ESTADO *e);
 
-
+/**
+\brief Atualiza o estado.
+@param e Apontador para o estado.
+*/
 void atualiza_estado(ESTADO *e);
 
 #endif // SRC_INTERFACE_H
