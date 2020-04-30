@@ -47,6 +47,7 @@ void atualiza_jogadas(ESTADO *e, COORDENADA c){
         e->jogadas[obter_numero_de_jogadas(e)].jogador1 = c;
     } else
         e->jogadas[obter_numero_de_jogadas(e)].jogador2 = c;
+    e->ultima_jogada = c;
 }
 
 void ler_aux(ESTADO *e, FILE *fp) {
@@ -173,10 +174,10 @@ int obter_numero_de_pos(ESTADO *e) {
     return numero;
 }
 
-int atualiza_jogador_atual(ESTADO *e) {
+void atualiza_jogador_atual(ESTADO *e) {
     if(obter_jogador_atual(e) == 1) {
-        return 2;
-    } else return 1;
+        e->jogador_atual = 2;
+    } else e->jogador_atual = 1;
 }
 
 int obter_numero_comandos(ESTADO *e) {
@@ -189,12 +190,11 @@ void maximiza_jogadas(ESTADO *e){
     e->num_jogadas = 32;
 }
 
-int atualiza_num_jogadas(ESTADO *e) {
-    int n = obter_numero_de_jogadas(e);
-    if(obter_jogador_atual(e) == 2) {
-        n++;
-    }
-    return n;
+void atualiza_num_jogadas(ESTADO *e) {
+     int n = obter_numero_de_jogadas(e);
+     if(obter_jogador_atual(e) == 2) {
+         n++;
+     } e->num_jogadas = n;
 }
 
 void add_numerodecomandos(ESTADO *e) {

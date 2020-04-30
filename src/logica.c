@@ -108,10 +108,9 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
         e->tab[c.linha][c.coluna] = BRANCA;
         atualiza_jogadas(e,c);
 
-        e->num_jogadas = atualiza_num_jogadas(e);
-        e->jogador_atual = atualiza_jogador_atual(e);
-        e->ultima_jogada = c;
-        verifica_se_acabou(e, c);
+        atualiza_num_jogadas(e);
+        atualiza_jogador_atual(e);
+        verifica_se_acabou(e,c);
         return OK;
     } else return JOGADA_INVALIDA;
 }
@@ -204,7 +203,7 @@ void bot(ESTADO *e) {
     int num_escolhido = random() % comprimento;
 
     while(i < num_escolhido) { 
-        l = l -> prox;
+        l = proximo(l);
         i++;
     }
     COORDENADA * coor_escolhida = (COORDENADA *) devolve_cabeca(l);
@@ -296,21 +295,21 @@ COORDENADA *euclidiana (ESTADO *e) {
     } else {
         COORDENADA *melhor_jogada = malloc(sizeof(COORDENADA));
         COORDENADA *mj_temp = malloc(sizeof(COORDENADA));
-        melhor_jogada = l->valor;
+        melhor_jogada = devolve_cabeca(l);
 
-        l = l->prox;
+        l = proximo(l);
         int jogador = obter_jogador_atual(e);
         float distancia = distance(melhor_jogada, jogador);
         float dist_temporaria;
 
         while (lista_esta_vazia(l) != 1) {
-            mj_temp = l->valor;
+            mj_temp = devolve_cabeca(l);
             dist_temporaria = distance(mj_temp, jogador);
             if (dist_temporaria < distancia) {
                 melhor_jogada = mj_temp;
                 distancia = dist_temporaria;
             }
-            l = l->prox;
+            l = proximo(l);
         }
         melhor = melhor_jogada;
     }

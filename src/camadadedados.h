@@ -126,15 +126,13 @@ void add_numerodecomandos(ESTADO *e);
 /**
 \brief Atualiza o número de jogadas.
 @param Apontador para o estado.
-@returns O número de jogadas atualizado.
 */
-int atualiza_num_jogadas(ESTADO *e);
+void atualiza_num_jogadas(ESTADO *e);
 /**
 \brief Atualiza o jogador atual.
 @param Apontador para o estado.
-@returns O número do jogador atual.
 */
-int atualiza_jogador_atual(ESTADO *e);
+void atualiza_jogador_atual(ESTADO *e);
 /**
 \brief Atualiza o array de jogadas.
 @param Apontador para o estado.
