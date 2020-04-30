@@ -1,31 +1,48 @@
 #ifndef LI2FINAL_LISTAS_H
 #define LI2FINAL_LISTAS_H
 
+/**
+\brief Tipo de dados para as Listas.
+*/
 typedef struct nodo {
     void *valor; // cabeca
     struct nodo *prox; // cauda
 } NODO, *LISTA;
 
-
-// Cria uma lista vazia
+/**
+\brief Cria uma lista vazia.
+@returns Uma lista.
+*/
 LISTA criar_lista();
-
-// Insere um valor na cabeça da lista
+/**
+\brief Insere um valor na cabeça da lista.
+@returns Uma lista.
+*/
 LISTA insere_cabeca(LISTA L, void *v);
-
-// Devolve a cabeça da lista
+/**
+\brief Devolve a cabeça da lista.
+@returns Uma lista.
+*/
 void *devolve_cabeca(LISTA L);
-
-// Devolve a cauda da lista
+/**
+\brief Devolve a cauda da lista.
+@returns Uma lista.
+*/
 LISTA proximo(LISTA L);
-
-// Remove a cabeça da lista (libertando o espaço ocupado) e devolve a cauda
+/**
+\brief Remove a cabeça da lista (libertando o espaço ocupado) e devolve a cauda.
+@returns Uma lista.
+*/
 LISTA remove_cabeca(LISTA L);
-
-// Devolve verdareiro se a lista é vazia
+/**
+\brief Devolve verdareiro se a lista é vazia.
+@returns Um inteiro.
+*/
 int lista_esta_vazia(LISTA L);
-
-// Devolve o comprimento da lista.
+/**
+\brief Devolve o comprimento da lista.
+@returns Um inteiro.
+*/
 int comprimento_da_lista(LISTA l);
 
 #endif //LI2FINAL_LISTAS_H
