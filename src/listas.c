@@ -16,8 +16,6 @@ LISTA insere_cabeca(LISTA l, void *v) {
     return r;
 }
 
-
-
 void *devolve_cabeca(LISTA l) {
     return l->valor;
 }
@@ -37,11 +35,9 @@ LISTA remove_cabeca(LISTA L){
     return r;
 }
 
-
 int lista_esta_vazia(LISTA L){ 
     return L == NULL;
 }
-
 
 int comprimento_da_lista (LISTA l) {
     int c = 0;

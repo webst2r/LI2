@@ -16,7 +16,6 @@ ESTADO *inicializar_estado() {
                           {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
                           {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, DOIS}},
             .ultima_jogada = {4,4},
-            .jogadas = {},
             .num_jogadas = 0,
             .jogador_atual = 1,
             .numeroComandos = 0,
@@ -28,8 +27,8 @@ ESTADO *inicializar_estado() {
 int obter_jogador_atual(ESTADO *estado) {
     int player;
     player = estado->jogador_atual;
+    return player;
 }
-
 
 int obter_numero_de_jogadas(ESTADO *estado) {
     int n_jogadas;
@@ -104,6 +103,76 @@ void ler_aux(ESTADO *e, FILE *fp) {
     }
 }
 
+void preta(ESTADO *e) {
+    int linha, coluna;
+    for (linha = 7; linha >= 0; linha --) {
+        for (coluna = 0; coluna <=7 ; coluna ++) {
+            if (e -> tab [linha] [coluna] == BRANCA) e -> tab [linha] [coluna] = PRETA;
+        }
+    }
+}
+void atualiza_estado(ESTADO *e) {
+    int w = e->numero_de_pos;
+    e->num_jogadas = w;
+    e->jogador_atual = 1;
+
+    if(w == 0) {
+        e->ultima_jogada.coluna = 4;
+        e->ultima_jogada.linha = 4;
+    } else
+        e->ultima_jogada = e->jogadas[w-1].jogador2;
+
+    while (w < 32) {
+        e->jogadas[w].jogador1.coluna = 0;
+        e->jogadas[w].jogador1.linha = 0;
+        e->jogadas[w].jogador2.coluna = 0;
+        e->jogadas[w].jogador2.linha = 0;
+        w++;
+    }
+    atualiza_tabuleiro(e);
+}
+
+void atualiza_tabuleiro(ESTADO *e) {
+    int linha2, coluna2;
+    int pos = e->numero_de_pos;
+    for (linha2 = 0; linha2 < 8; linha2++) {
+        for (coluna2 = 0; coluna2 < 8; coluna2++) {
+            if (linha2 == 4 && coluna2 == 4) {
+                if (pos == 0) {
+                    e->tab[linha2][coluna2] = BRANCA;
+                } else {
+                    e->tab[linha2][coluna2] = PRETA;
+                }
+            }
+            else
+                e->tab[linha2][coluna2] = VAZIO;
+        }
+    }
+    e->tab[0][0] = UM;
+    e->tab[7][7] = DOIS;
+
+    for(int i = 0; i < pos; i++) {
+        COORDENADA c1, c2;
+
+        c1 =e->jogadas[i].jogador1;
+        c2 = e->jogadas[i].jogador2;
+
+        if ((pos - 1) != i) {
+            e->tab[c1.linha][c1.coluna] = PRETA;
+            e->tab[c2.linha][c2.coluna] = PRETA;
+        } else {
+            e->tab[c1.linha][c1.coluna] = PRETA;
+            e->tab[c2.linha][c2.coluna] = BRANCA;
+        }
+    }
+}
+
+int obter_numero_de_pos(ESTADO *e) {
+    int numero;
+    numero = e->numero_de_pos;
+    return numero;
+}
+
 int atualiza_jogador_atual(ESTADO *e) {
     if(obter_jogador_atual(e) == 1) {
         return 2;
@@ -133,7 +202,6 @@ void add_numerodecomandos(ESTADO *e) {
 }
 
 void printMovs_aux(ESTADO *e, FILE *fp) {
-    // so serve quando i < 9
     for (int i = 0; i < obter_numero_de_jogadas(e) + 1; i++) {
         if (i < 9) {
             if (e->jogadas[i].jogador1.linha != 0 || e->jogadas[i].jogador1.coluna != 0) {

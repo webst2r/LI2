@@ -2,12 +2,10 @@
 @file logica.h
 Definição da interface e das funções que a manipulam
 */
-
 #ifndef SRC_LOGICA_H
 #define SRC_LOGICA_H
 #include "camadadedados.h"
 #include "listas.h"
-
 /**
 \brief Função que permite fazer jogadas, tendo em conta um estado e uma coordenada.
 @param e Apontador para o estado.
@@ -15,7 +13,6 @@ Definição da interface e das funções que a manipulam
 @returns Um erro.
 */
 ERROS jogar(ESTADO *e, COORDENADA c);
-
 /**
 \brief Função que verifica se o jogador se pode movimentar para determinada casa com base na distãncia a que o jogador se encontra dela.
 @param e Apontador para o estado.
@@ -23,7 +20,6 @@ ERROS jogar(ESTADO *e, COORDENADA c);
 @returns Um erro.
 */
 ERROS check_movimentos(ESTADO *estado,COORDENADA c);
-
 /**
 \brief Função que averigua se uma casa está livre.
 @param e Apontador para o estado.
@@ -31,7 +27,6 @@ ERROS check_movimentos(ESTADO *estado,COORDENADA c);
 @returns Um erro.
 */
 ERROS casa_livre(ESTADO *e, COORDENADA c);
-
 /**
 \brief Função que averigua se uma jogada é valida.
 @param e Apontador para o estado.
@@ -39,12 +34,6 @@ ERROS casa_livre(ESTADO *e, COORDENADA c);
 @returns Um erro.
 */
 ERROS jogada_valida(ESTADO *e, COORDENADA c);
-/**
-\brief Altera as casas para PRETO.
-@param e Apontador para o estado.
-@returns Um erro.
-*/
-void preta(ESTADO *e);
 /**
 \brief Verifica se o jogo termina no fim de uma jogada.
 @param e Apontador para o estado.
@@ -59,7 +48,6 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c);
 @returns Um erro.
 */
 int verifica_se_acabou_bot(ESTADO *e, COORDENADA c);
-
 /**
 \brief Verifica se existe pelo menos uma jogada possível após uma jogada.
 @param e Apontador para o estado.

@@ -78,6 +78,28 @@ Esta função inicializa o valor do estado. Isso implica o tabuleiro ser colocad
  */
 ESTADO *inicializar_estado();
 /**
+\brief Altera as casas para PRETO.
+@param e Apontador para o estado.
+@returns Um erro.
+*/
+void preta(ESTADO *e);
+/**
+\brief Atualiza o tabuleiro.
+@param e Apontador para o estado.
+*/
+void atualiza_tabuleiro(ESTADO *e);
+/**
+\brief Atualiza o estado.
+@param e Apontador para o estado.
+*/
+void atualiza_estado(ESTADO *e);
+/**
+\brief Obtém o número de posição.
+@param e Apontador para o estado.
+@returns O número de posição.
+*/
+int obter_numero_de_pos(ESTADO *e);
+/**
 \brief Obtém o jogador atual.
 @param Apontador para o estado.
 @returns O número do jogador atual.
@@ -97,25 +119,10 @@ int obter_numero_de_jogadas(ESTADO *estado);
  */
 CASA obter_estado_casa(ESTADO *e, COORDENADA c);
 /**
-\brief Imprime o tabuleiro para jogar.
-*/
-int imprime_tabuleiro (CASA arr[8][8]);
-/**
-\brief Imprime a linha 3.
-*/
-int imprime_linha_3 (CASA arr[8][8]);
-/**
 \brief Aumenta o número de comandos.
 @param Apontador para o estado.
 */
 void add_numerodecomandos(ESTADO *e);
-
-/**
-\brief Armazena jogadas.
-@param Apontador para o estado.
-@param A coordenada.
-*/
-void armazenar_jogada(ESTADO *e, COORDENADA c);
 /**
 \brief Atualiza o número de jogadas.
 @param Apontador para o estado.

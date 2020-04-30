@@ -34,16 +34,14 @@ void print_erro(ERROS erro) {
 
 ERROS gravar(ESTADO *e, char *nome_ficheiro) {
     FILE *fp = fopen(nome_ficheiro, "w");
-
     if(fp == NULL){
         printf("Não é possivel criar o ficheiro.\n");
         return ERRO_GRAVAR_TAB;
     }
-
     for (int i = 7; i >= 0; i--){
-
         for (int k = 0; k < 8; k++) {
-            switch (e->tab[i][k])
+            COORDENADA coord; coord.linha = i; coord.coluna = k;
+            switch (obter_estado_casa(e, coord))
             {
                 case DOIS:
                     fprintf(fp,"2");
@@ -62,7 +60,6 @@ ERROS gravar(ESTADO *e, char *nome_ficheiro) {
                     break;
             }
         }
-
         fprintf(fp, "\n");   }
 
     fprintf(fp,"\n");
@@ -115,64 +112,6 @@ void mostrar_tabuleiro(FILE *fp, ESTADO *e) {
     }
     fprintf(fp,"abcdefgh\n");
 }
-
-
-void atualiza_estado(ESTADO *e) {
-    int w = e->numero_de_pos;
-    e->num_jogadas = w;
-    e->jogador_atual = 1;
-
-    if(w == 0) {
-        e->ultima_jogada.coluna = 4;
-        e->ultima_jogada.linha = 4;
-    } else
-        e->ultima_jogada = e->jogadas[w-1].jogador2;
-
-    while (w < 32) {
-        e->jogadas[w].jogador1.coluna = 0;
-        e->jogadas[w].jogador1.linha = 0;
-        e->jogadas[w].jogador2.coluna = 0;
-        e->jogadas[w].jogador2.linha = 0;
-        w++;
-    }
-    atualiza_tabuleiro(e);
-}
-
-void atualiza_tabuleiro(ESTADO *e) {
-    int linha2, coluna2;
-    int pos = e->numero_de_pos;
-    for (linha2 = 0; linha2 < 8; linha2++) {
-        for (coluna2 = 0; coluna2 < 8; coluna2++) {
-            if (linha2 == 4 && coluna2 == 4) {
-                if (pos == 0) {
-                    e->tab[linha2][coluna2] = BRANCA;
-                } else {
-                    e->tab[linha2][coluna2] = PRETA;
-                }
-            }
-            else
-                e->tab[linha2][coluna2] = VAZIO;
-        }
-    }
-    e->tab[0][0] = UM;
-    e->tab[7][7] = DOIS;
-
-    for(int i = 0; i < pos; i++) {
-        COORDENADA c1, c2;
-
-        c1 =e->jogadas[i].jogador1;
-        c2 = e->jogadas[i].jogador2;
-
-        if ((pos - 1) != i) {
-            e->tab[c1.linha][c1.coluna] = PRETA;
-            e->tab[c2.linha][c2.coluna] = PRETA;
-        } else {
-            e->tab[c1.linha][c1.coluna] = PRETA;
-            e->tab[c2.linha][c2.coluna] = BRANCA;
-        }
-    }
-}
-
 
 int interpretador(ESTADO *e) {
     char linha[BUF_SIZE];

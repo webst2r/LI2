@@ -1,14 +1,17 @@
+/**
+@file listas.h
+Definição das listas ligadas.
+*/
+
 #ifndef LI2FINAL_LISTAS_H
 #define LI2FINAL_LISTAS_H
-
 /**
 \brief Tipo de dados para as Listas.
 */
 typedef struct nodo {
-    void *valor; // cabeca
-    struct nodo *prox; // cauda
+    void *valor;
+    struct nodo *prox;
 } NODO, *LISTA;
-
 /**
 \brief Cria uma lista vazia.
 @returns Uma lista.

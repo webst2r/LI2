@@ -95,14 +95,9 @@ COORDENADA fim_de_jogo(ESTADO *e, LISTA l){
     return c;
 }
 
-
-
-
-
 ERROS jogar(ESTADO *e, COORDENADA c) {
     add_numerodecomandos(e);
-    int posx = e->numero_de_pos;
-    if(posx != 50) {
+    if(obter_numero_de_pos(e) != 50) {
         atualiza_estado(e);
         e->numero_de_pos = 50;
     }
@@ -121,23 +116,12 @@ ERROS jogar(ESTADO *e, COORDENADA c) {
     } else return JOGADA_INVALIDA;
 }
 
-void preta(ESTADO *e) {
-    int linha, coluna;
-    for (linha = 7; linha >= 0; linha --) {
-        for (coluna = 0; coluna <=7 ; coluna ++) {
-            if (e -> tab [linha] [coluna] == BRANCA) e -> tab [linha] [coluna] = PRETA;
-        }
-    }
-}
-
-
 ERROS check_movimentos(ESTADO *estado,COORDENADA c) {
     int coluna1, coluna2, linha1, linha2;
     coluna1 = estado->ultima_jogada.coluna;
     linha1 = estado->ultima_jogada.linha;
     coluna2 = c.coluna;
     linha2 = c.linha;
-
 
     if ((coluna2 == coluna1 + 1 || coluna2 == coluna1 - 1 || coluna2 == coluna1) && (linha2 == linha1 + 1 || linha2 == linha1 - 1 || linha2 == linha1))
         return OK;
@@ -168,18 +152,18 @@ ERROS jogada_valida(ESTADO *e, COORDENADA c) {
     else return JOGADA_INVALIDA;
 }
 
-void bot(ESTADO *e) { 
-
-    if(e->numero_de_pos != 50) {
+void bot(ESTADO *e) {
+    int comprimento;
+    int i = 0;
+    COORDENADA ultima = e->ultima_jogada;
+    int lin = ultima.linha, col = ultima.coluna;
+    if(obter_numero_de_pos(e) != 50) {
         atualiza_estado(e);
         e->numero_de_pos = 50;
     }
 
     printf("%d %d\n", e->ultima_jogada.coluna, e->ultima_jogada.linha);
-    LISTA l = criar_lista(); //FIXME era aqui o erro
-
-    COORDENADA ultima = e->ultima_jogada;
-    int lin = ultima.linha, col = ultima.coluna;
+    LISTA l = criar_lista();
 
     COORDENADA *c1 = (COORDENADA *) malloc(sizeof(COORDENADA));
     COORDENADA *c2 = (COORDENADA *) malloc(sizeof(COORDENADA));
@@ -211,17 +195,11 @@ void bot(ESTADO *e) {
 
     for(int i = 0; i < 8; i++) {
 
-        // * livre = vizinha[i];
         if (jogada_valida(e, *vizinha [i]) == OK) {
             l = insere_cabeca(l, vizinha[i]);
         }
     }
-
-    int comprimento;
-    int i = 0;
-
     comprimento = comprimento_da_lista(l) - 1;
-
     srandom(time(NULL));
     int num_escolhido = random() % comprimento;
 
@@ -229,7 +207,6 @@ void bot(ESTADO *e) {
         l = l -> prox;
         i++;
     }
-
     COORDENADA * coor_escolhida = (COORDENADA *) devolve_cabeca(l);
     jogar(e, *coor_escolhida);
 
@@ -315,8 +292,6 @@ COORDENADA *euclidiana (ESTADO *e) {
     l = vizinhas(e, l);
     COORDENADA *melhor;
     COORDENADA d = fim_de_jogo(e,l);
-
-
     melhor = malloc(sizeof(COORDENADA));
 
     if (d.linha != 50 && d.coluna != 50) {
@@ -338,7 +313,6 @@ COORDENADA *euclidiana (ESTADO *e) {
                 melhor_jogada = mj_temp;
                 distancia = dist_temporaria;
             }
-
             l = l->prox;
         }
         melhor = melhor_jogada;
@@ -348,6 +322,11 @@ COORDENADA *euclidiana (ESTADO *e) {
 
 
 void bot2 (ESTADO *e){
+    if(obter_numero_de_pos(e) != 50) {
+        atualiza_estado(e);
+        e->numero_de_pos = 50;
+    }
+
     COORDENADA c = *euclidiana(e);
     jogar(e,c);
 }
