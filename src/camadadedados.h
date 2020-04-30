@@ -8,7 +8,7 @@ Definição do estado e das funções que o manipulam
 #include <bits/types/FILE.h>
 
 /**
-\brief Tipo de dados para as Coordenadas
+\brief Tipo de dados para as Coordenadas.
 */
 typedef struct {
     int linha;
