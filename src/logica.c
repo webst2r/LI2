@@ -97,9 +97,9 @@ COORDENADA fim_de_jogo(ESTADO *e, LISTA l){
 
 ERROS jogar(ESTADO *e, COORDENADA c) {
     add_numerodecomandos(e);
-    if(obter_numero_de_pos(e) != 50) {
+    if(obter_numero_de_pos(e) != 50) { //FIXME - SE CALHAR VAMOS TER QUE RETIRAR O NUMERO DE POS DO ESTADO E VOLTAR AO QUE TINHAMOS ANTIGAMENTE.
         atualiza_estado(e);
-        e->numero_de_pos = 50;
+        e->numero_de_pos = 50; //FIXME - FUNCAO AUXILIAR PRA ISTO
     }
 
     if(jogada_valida(e,c) == OK) {
@@ -261,9 +261,6 @@ LISTA vizinhas(ESTADO *e, LISTA l) {
     return l;
 }
 
-
-
-
 float distance (COORDENADA * c, int jogador) {
     COORDENADA fim;
 
@@ -306,7 +303,7 @@ COORDENADA *euclidiana (ESTADO *e) {
         float distancia = distance(melhor_jogada, jogador);
         float dist_temporaria;
 
-        while (l != NULL) {
+        while (lista_esta_vazia(l) != 1) {
             mj_temp = l->valor;
             dist_temporaria = distance(mj_temp, jogador);
             if (dist_temporaria < distancia) {
@@ -320,8 +317,8 @@ COORDENADA *euclidiana (ESTADO *e) {
     return melhor;
 }
 
-
 void bot2 (ESTADO *e){
+
     if(obter_numero_de_pos(e) != 50) {
         atualiza_estado(e);
         e->numero_de_pos = 50;

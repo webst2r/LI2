@@ -35,7 +35,7 @@ LISTA remove_cabeca(LISTA L){
     return r;
 }
 
-int lista_esta_vazia(LISTA L){ 
+int lista_esta_vazia(LISTA L){
     return L == NULL;
 }
 
