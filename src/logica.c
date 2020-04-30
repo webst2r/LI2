@@ -12,7 +12,6 @@
 
 int ha_jogada_possivel (ESTADO *e, COORDENADA c) {
     COORDENADA ultima = c;
-    //e->ultima_jogada;
     int r = 0;
     int lin = ultima.linha, col = ultima.coluna;
     COORDENADA c1 = {lin + 1, col + 1},
@@ -145,8 +144,7 @@ ERROS check_movimentos(ESTADO *estado,COORDENADA c) {
 
     else return JOGADA_INVALIDA;
 }
-//esta função devolveria 0 se a casa não existe (porque ultrapassa os limites do tabuleiro) ou se não está livre e 1 caso contrário
-//então, ha_jogada_possivel invoca essa função 8 vezes
+
 ERROS casa_livre(ESTADO *e, COORDENADA c) {
     ERROS erro;
     int coluna, linha;
@@ -157,29 +155,20 @@ ERROS casa_livre(ESTADO *e, COORDENADA c) {
         if (obter_estado_casa(e, c) == VAZIO || obter_estado_casa(e, c) == UM || obter_estado_casa(e, c) == DOIS) {
             erro = OK;
         }
-        else erro = JOGADA_INVALIDA; // devolve 0 se a casa não estiver vazia;
-    } else erro = COORDENADA_INVALIDA; // devolve 0 se a casa nao existe (está fora do mapa);
+        else erro = JOGADA_INVALIDA; 
+    } else erro = COORDENADA_INVALIDA; 
     return erro;
 }
 
-// se a casa estiver livre, confirma se é casa vizinha (se está em distancia aceitavel para jogar).
 ERROS jogada_valida(ESTADO *e, COORDENADA c) {
     if(c.linha < 0 || c.linha > 7) return JOGADA_INVALIDA;
     if(c.coluna < 0 || c.coluna > 7) return JOGADA_INVALIDA;
-    if(casa_livre(e,c) == OK) // se a função casa_livre retornar OK significa que a casa está livre.
+    if(casa_livre(e,c) == OK) 
         return check_movimentos(e,c);
     else return JOGADA_INVALIDA;
 }
 
-
-/*
-LISTA listas(ESTADO *e) {
-    LISTA l = criar_lista();
-    LISTA l1 = (LISTA) livres(e, l);
-    return l1;
-}
-*/
-void bot(ESTADO *e) { //FIXME - FAZER O BOT SUICIDAR-SE UTILIZANDO HA_JOGADA_POSSIVEL PARA AS COORDENADAS VIZINHAS, CASO DE O RETURN PRETENDIDO, ELE QUE SE SUICIDE, CASO CONTRARIO , JOGA PRAI A SORTE OU PELA DISTANCIA EUCLIDIANA HÁ CASAL INICIAL
+void bot(ESTADO *e) { 
 
     if(e->numero_de_pos != 50) {
         atualiza_estado(e);
@@ -236,7 +225,7 @@ void bot(ESTADO *e) { //FIXME - FAZER O BOT SUICIDAR-SE UTILIZANDO HA_JOGADA_POS
     srandom(time(NULL));
     int num_escolhido = random() % comprimento;
 
-    while(i < num_escolhido) { // i != num_escolhido
+    while(i < num_escolhido) { 
         l = l -> prox;
         i++;
     }
