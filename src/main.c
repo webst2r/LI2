@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "camadadedados.h"
 #include "interface.h"
 #include "logica.h"
