@@ -182,7 +182,6 @@ int interpretador(ESTADO *e) {
     char col[2], lin[2];
     char nome_ficheiro[BUF_SIZE];
     int numero_de_pos;
-    //char jogada[BUF_SIZE];
 
     if (fgets(linha, BUF_SIZE, stdin) == NULL)
         return 0;
@@ -205,9 +204,9 @@ int interpretador(ESTADO *e) {
         return 1;
     }
 
-    if (strcmp(linha, "Q\n") == 0)
+    if (strcmp(linha, "Q\n") == 0) {
         maximiza_jogadas(e);
-
+    }
     if (strcmp(linha, "jog\n") == 0) {
         bot(e);
         mostrar_tabuleiro(stdout, e);
@@ -224,7 +223,6 @@ int interpretador(ESTADO *e) {
     if (sscanf(linha, "gr %s", nome_ficheiro) == 1) {
         gravar(e, nome_ficheiro);
     }
-
     if (sscanf(linha, "ler %s", nome_ficheiro) == 1) {
         ERROS erro;
         if ((erro = ler(e, nome_ficheiro)) == OK) {
@@ -232,7 +230,6 @@ int interpretador(ESTADO *e) {
             printMovs(e, stdout);
         } else print_erro(erro);
     }
-
     if (strcmp(linha, "movs\n") == 0) {
         printMovs(e, stdout);
     }
