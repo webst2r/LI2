@@ -67,7 +67,7 @@ ERROS gravar(ESTADO *e, char *nome_ficheiro) {
 
     fprintf(fp,"\n");
     printMovs(e,fp);
-    fclose(fp); // Fechar ficheiro para salvar a informação
+    fclose(fp); 
     printf("Ficheiro criado e salvado com sucesso.  \n");
     return 0;
 }
@@ -84,15 +84,12 @@ ERROS ler(ESTADO *e, char *nome_ficheiro) {
         return ERRO_ABRIR_FICHEIRO;
     }
     ler_aux(e, fp);
-    //mostrar_tabuleiro(stdout, e);
-    //printMovs(e, stdout);
     fclose(fp);
     return OK;
 }
 
 void mostrar_tabuleiro(FILE *fp, ESTADO *e) {
     int k, i;
-    //int n = 0;
     for (i = 8; i > 0; i--) {
         for (k = 0; k < 8; k++) {
             switch (e->tab[i-1][k]) {
