@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug"/>
+				<Option working_dir="/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug"/>
+				<Option working_dir="/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug"/>
+				<Option working_dir="/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="src">
-				<Option output="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/src" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug"/>
+				<Option output="/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/src" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -51,15 +51,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 src"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 src"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="src/fast">
-				<Option output="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/src" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug"/>
+				<Option output="/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/src" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -71,41 +71,47 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 src/fast"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 src/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/camadadedados.c">
+		<Unit filename="/home/rodrigo/CLionProjects/GIT/bot/bot.c">
 			<Option target="src"/>
 		</Unit>
-		<Unit filename="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/camadadedados.h">
+		<Unit filename="/home/rodrigo/CLionProjects/GIT/bot/bot.h">
 			<Option target="src"/>
 		</Unit>
-		<Unit filename="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/interface.c">
+		<Unit filename="/home/rodrigo/CLionProjects/GIT/bot/camadadedados.c">
 			<Option target="src"/>
 		</Unit>
-		<Unit filename="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/interface.h">
+		<Unit filename="/home/rodrigo/CLionProjects/GIT/bot/camadadedados.h">
 			<Option target="src"/>
 		</Unit>
-		<Unit filename="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/listas.c">
+		<Unit filename="/home/rodrigo/CLionProjects/GIT/bot/interface.c">
 			<Option target="src"/>
 		</Unit>
-		<Unit filename="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/listas.h">
+		<Unit filename="/home/rodrigo/CLionProjects/GIT/bot/interface.h">
 			<Option target="src"/>
 		</Unit>
-		<Unit filename="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/logica.c">
+		<Unit filename="/home/rodrigo/CLionProjects/GIT/bot/listas.c">
 			<Option target="src"/>
 		</Unit>
-		<Unit filename="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/logica.h">
+		<Unit filename="/home/rodrigo/CLionProjects/GIT/bot/listas.h">
 			<Option target="src"/>
 		</Unit>
-		<Unit filename="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/main.c">
+		<Unit filename="/home/rodrigo/CLionProjects/GIT/bot/logica.c">
 			<Option target="src"/>
 		</Unit>
-		<Unit filename="/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/CMakeLists.txt">
+		<Unit filename="/home/rodrigo/CLionProjects/GIT/bot/logica.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/rodrigo/CLionProjects/GIT/bot/main.c">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/rodrigo/CLionProjects/GIT/bot/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

@@ -14,6 +14,7 @@ typedef struct {
     int linha;
     int coluna;
 } COORDENADA;
+
 /**
 \brief Tipo de dados para a Jogada
 */
@@ -21,10 +22,12 @@ typedef struct {
     COORDENADA jogador1;
     COORDENADA jogador2;
 } JOGADA;
+
 /**
 \brief Tipo de dados para as jogadas
 */
 typedef JOGADA JOGADAS[32];
+
 /**
 \brief Tipo de dados para a casa
 */
@@ -35,6 +38,7 @@ typedef enum {
     BRANCA = '*',
     PRETA = '#'
 } CASA;
+
 /**
 \brief Tipo de dados para o estado
 */
@@ -65,6 +69,8 @@ typedef enum {
     ERRO_ABRIR_FICHEIRO,
     ERRO_GRAVAR_TAB,
 } ERROS;
+
+
 /**
 \brief Inicializa o valor do estado
 Esta função inicializa o valor do estado. Isso implica o tabuleiro ser colocado na posição inicial e todos os campos do estado estarem com o valor por omissão.
@@ -95,65 +101,66 @@ void atualiza_estado(ESTADO *e);
 int obter_numero_de_pos(ESTADO *e);
 /**
 \brief Obtém o jogador atual.
-@param Apontador para o estado.
+@param e Apontador para o estado.
 @returns O número do jogador atual.
 */
-int obter_jogador_atual(ESTADO *estado);
+int obter_jogador_atual(ESTADO *e);
 /**
 \brief Obtém o numero de jogadas.
-@param Apontador para o estado.
+@param e Apontador para o estado.
 @returns O número de jogadas.
 */
-int obter_numero_de_jogadas(ESTADO *estado);
+int obter_numero_de_jogadas(ESTADO *e);
 /**
 \brief Obtém o estado de determinada casa.
-@param Apontador para o estado.
-@param A coordenado.
+@param e Apontador para o estado.
+@param c A coordenado.
 @returns O estado da casa,
  */
 CASA obter_estado_casa(ESTADO *e, COORDENADA c);
 /**
 \brief Aumenta o número de comandos.
-@param Apontador para o estado.
+@param e Apontador para o estado.
 */
 void add_numerodecomandos(ESTADO *e);
 /**
 \brief Atualiza o número de jogadas.
-@param Apontador para o estado.
+@param e Apontador para o estado.
 */
 void atualiza_num_jogadas(ESTADO *e);
 /**
 \brief Atualiza o jogador atual.
-@param Apontador para o estado.
+@param e Apontador para o estado.
 */
 void atualiza_jogador_atual(ESTADO *e);
 /**
 \brief Atualiza o array de jogadas.
-@param Apontador para o estado.
-@param A coordenada.
+@param e Apontador para o estado.
+@param c A coordenada.
 */
 void atualiza_jogadas(ESTADO *e, COORDENADA c);
 /**
 \brief Obtém o número de comandos feitos até ao momento.
-@param Apontador para o estado.
+@param e Apontador para o estado.
 @returns O número de comandos.
 */
 int obter_numero_comandos(ESTADO *e);
 /**
 \brief Mete o número de jogados ao máximo.
-@param Apontador para o estado.
+@param e Apontador para o estado.
 */
 void maximiza_jogadas(ESTADO *e);
 /**
 \brief Auxilia a ler a alterar o tabuleiro e a alterar o estado.
-@param Apontador para o estado.
+@param e Apontador para o estado.
 @param fp Apontador para o ficheiro.
 */
 void ler_aux(ESTADO *e, FILE *fp);
 /**
 \brief Auxilia a ler a alterar o tabuleiro e a alterar o estado.
-@param Apontador para o estado.
+@param e Apontador para o estado.
 @param fp Apontador para o ficheiro.
 */
 void printMovs_aux(ESTADO *e, FILE *fp);
+
 #endif // SRC_CAMADADEDADOS_H

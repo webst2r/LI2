@@ -4,6 +4,7 @@
 #include "camadadedados.h"
 #include "interface.h"
 #include "logica.h"
+#include "bot.h"
 /*
 int main(char *ficheiro_lido,  char *ficheiro_gravado) {
     ESTADO *e = inicializar_estado();
@@ -16,19 +17,21 @@ int main(char *ficheiro_lido,  char *ficheiro_gravado) {
     return 0;
 }
 */
+
+
 int main(int argc, char *argv[]) {
     ESTADO *e = inicializar_estado();
-    mostrar_tabuleiro(stdout,e);
+    mostrar_tabuleiro(stdout, e);
 
     if(argc == 3) {
-        char *jog01 = atoi(argv[1]);
-        char *jog02 = atoi(argv[2]);
+        //char *jog01 = atoi(argv[1]);
+        //char *jog02 = atoi(argv[2]);
 
-        jog01 = ler(e, ficheiro_lido);
+        ler(e, argv[1]);
         bot2(e);
-        jog02 = gravar(e,ficheiro_gravado);
+        mostrar_tabuleiro(stdout, e);
+        gravar(e, argv[2]);
 
     }
-}
-return 0;
+    return 0;
 }

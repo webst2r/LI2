@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/112/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/111/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/112/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/111/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot
+CMAKE_SOURCE_DIR = /home/rodrigo/CLionProjects/GIT/bot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug
+CMAKE_BINARY_DIR = /home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/src.dir/depend.make
@@ -59,68 +59,81 @@ include CMakeFiles/src.dir/flags.make
 
 CMakeFiles/src.dir/main.c.o: CMakeFiles/src.dir/flags.make
 CMakeFiles/src.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/src.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/src.dir/main.c.o   -c /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/src.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/src.dir/main.c.o   -c /home/rodrigo/CLionProjects/GIT/bot/main.c
 
 CMakeFiles/src.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/main.c > CMakeFiles/src.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rodrigo/CLionProjects/GIT/bot/main.c > CMakeFiles/src.dir/main.c.i
 
 CMakeFiles/src.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/main.c -o CMakeFiles/src.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rodrigo/CLionProjects/GIT/bot/main.c -o CMakeFiles/src.dir/main.c.s
 
 CMakeFiles/src.dir/logica.c.o: CMakeFiles/src.dir/flags.make
 CMakeFiles/src.dir/logica.c.o: ../logica.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/src.dir/logica.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/src.dir/logica.c.o   -c /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/logica.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/src.dir/logica.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/src.dir/logica.c.o   -c /home/rodrigo/CLionProjects/GIT/bot/logica.c
 
 CMakeFiles/src.dir/logica.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/logica.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/logica.c > CMakeFiles/src.dir/logica.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rodrigo/CLionProjects/GIT/bot/logica.c > CMakeFiles/src.dir/logica.c.i
 
 CMakeFiles/src.dir/logica.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/logica.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/logica.c -o CMakeFiles/src.dir/logica.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rodrigo/CLionProjects/GIT/bot/logica.c -o CMakeFiles/src.dir/logica.c.s
 
 CMakeFiles/src.dir/camadadedados.c.o: CMakeFiles/src.dir/flags.make
 CMakeFiles/src.dir/camadadedados.c.o: ../camadadedados.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/src.dir/camadadedados.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/src.dir/camadadedados.c.o   -c /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/camadadedados.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/src.dir/camadadedados.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/src.dir/camadadedados.c.o   -c /home/rodrigo/CLionProjects/GIT/bot/camadadedados.c
 
 CMakeFiles/src.dir/camadadedados.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/camadadedados.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/camadadedados.c > CMakeFiles/src.dir/camadadedados.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rodrigo/CLionProjects/GIT/bot/camadadedados.c > CMakeFiles/src.dir/camadadedados.c.i
 
 CMakeFiles/src.dir/camadadedados.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/camadadedados.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/camadadedados.c -o CMakeFiles/src.dir/camadadedados.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rodrigo/CLionProjects/GIT/bot/camadadedados.c -o CMakeFiles/src.dir/camadadedados.c.s
 
 CMakeFiles/src.dir/interface.c.o: CMakeFiles/src.dir/flags.make
 CMakeFiles/src.dir/interface.c.o: ../interface.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/src.dir/interface.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/src.dir/interface.c.o   -c /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/interface.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/src.dir/interface.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/src.dir/interface.c.o   -c /home/rodrigo/CLionProjects/GIT/bot/interface.c
 
 CMakeFiles/src.dir/interface.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/interface.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/interface.c > CMakeFiles/src.dir/interface.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rodrigo/CLionProjects/GIT/bot/interface.c > CMakeFiles/src.dir/interface.c.i
 
 CMakeFiles/src.dir/interface.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/interface.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/interface.c -o CMakeFiles/src.dir/interface.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rodrigo/CLionProjects/GIT/bot/interface.c -o CMakeFiles/src.dir/interface.c.s
 
 CMakeFiles/src.dir/listas.c.o: CMakeFiles/src.dir/flags.make
 CMakeFiles/src.dir/listas.c.o: ../listas.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/src.dir/listas.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/src.dir/listas.c.o   -c /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/listas.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/src.dir/listas.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/src.dir/listas.c.o   -c /home/rodrigo/CLionProjects/GIT/bot/listas.c
 
 CMakeFiles/src.dir/listas.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/listas.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/listas.c > CMakeFiles/src.dir/listas.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rodrigo/CLionProjects/GIT/bot/listas.c > CMakeFiles/src.dir/listas.c.i
 
 CMakeFiles/src.dir/listas.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/listas.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/listas.c -o CMakeFiles/src.dir/listas.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rodrigo/CLionProjects/GIT/bot/listas.c -o CMakeFiles/src.dir/listas.c.s
+
+CMakeFiles/src.dir/bot.c.o: CMakeFiles/src.dir/flags.make
+CMakeFiles/src.dir/bot.c.o: ../bot.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/src.dir/bot.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/src.dir/bot.c.o   -c /home/rodrigo/CLionProjects/GIT/bot/bot.c
+
+CMakeFiles/src.dir/bot.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/src.dir/bot.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/rodrigo/CLionProjects/GIT/bot/bot.c > CMakeFiles/src.dir/bot.c.i
+
+CMakeFiles/src.dir/bot.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/src.dir/bot.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/rodrigo/CLionProjects/GIT/bot/bot.c -o CMakeFiles/src.dir/bot.c.s
 
 # Object files for target src
 src_OBJECTS = \
@@ -128,7 +141,8 @@ src_OBJECTS = \
 "CMakeFiles/src.dir/logica.c.o" \
 "CMakeFiles/src.dir/camadadedados.c.o" \
 "CMakeFiles/src.dir/interface.c.o" \
-"CMakeFiles/src.dir/listas.c.o"
+"CMakeFiles/src.dir/listas.c.o" \
+"CMakeFiles/src.dir/bot.c.o"
 
 # External object files for target src
 src_EXTERNAL_OBJECTS =
@@ -138,9 +152,10 @@ src: CMakeFiles/src.dir/logica.c.o
 src: CMakeFiles/src.dir/camadadedados.c.o
 src: CMakeFiles/src.dir/interface.c.o
 src: CMakeFiles/src.dir/listas.c.o
+src: CMakeFiles/src.dir/bot.c.o
 src: CMakeFiles/src.dir/build.make
 src: CMakeFiles/src.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable src"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable src"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/src.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,6 +168,6 @@ CMakeFiles/src.dir/clean:
 .PHONY : CMakeFiles/src.dir/clean
 
 CMakeFiles/src.dir/depend:
-	cd /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles/src.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rodrigo/CLionProjects/GIT/bot /home/rodrigo/CLionProjects/GIT/bot /home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug /home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug /home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles/src.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/src.dir/depend
 

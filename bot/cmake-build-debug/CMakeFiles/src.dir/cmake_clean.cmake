@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/src.dir/bot.c.o"
   "CMakeFiles/src.dir/camadadedados.c.o"
   "CMakeFiles/src.dir/interface.c.o"
   "CMakeFiles/src.dir/listas.c.o"

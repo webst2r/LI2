@@ -14,12 +14,12 @@ Definição da interface e das funções que a manipulam
 */
 ERROS jogar(ESTADO *e, COORDENADA c);
 /**
-\brief Função que verifica se o jogador se pode movimentar para determinada casa com base na distãncia a que o jogador se encontra dela.
+\brief Função que verifica se o jogador se pode movimentar para determinada casa com base na distância a que o jogador se encontra dela.
 @param e Apontador para o estado.
 @param c  A coordenada.
 @returns Um erro.
 */
-ERROS check_movimentos(ESTADO *estado,COORDENADA c);
+ERROS check_movimentos(ESTADO *e,COORDENADA c);
 /**
 \brief Função que averigua se uma casa está livre.
 @param e Apontador para o estado.
@@ -51,21 +51,20 @@ int verifica_se_acabou_bot(ESTADO *e, COORDENADA c);
 /**
 \brief Verifica se existe pelo menos uma jogada possível após uma jogada.
 @param e Apontador para o estado.
+@param c A coordenada.
 @returns Um número.
 */
 int ha_jogada_possivel (ESTADO *e, COORDENADA c);
 /**
 \brief Insere numa lista, as coordenadas vizinhas e válidas para serem jogadas.
 @param e Apontador para o estado.
-@param c Uma lista.
+@param l Uma lista.
 @returns Uma lista.
 */
 LISTA vizinhas(ESTADO *e, LISTA l);
 /**
 \brief Faz uma jogada sozinho aleatoriamente.
 @param e Apontador para o estado.
-@param c Uma lista.
-@returns Uma lista.
 */
 void bot(ESTADO *e);
 /**
@@ -74,16 +73,16 @@ void bot(ESTADO *e);
 */
 void bot2(ESTADO *e);
 /**
-\brief Cálcula a distância euclidiana de uma casa à casa final.
-@param e Apontador para o estado.
-@param c Uma lista.
+\brief Calcula a distância euclidiana, em float, de uma casa à casa final.
+@param c A coordenada.
+@param jogador O nº do jogador.
 @returns A distância.
 */
 float distance (COORDENADA * c, int jogador);
 /**
 \brief Verifica se é possível acabar o jogo favoravelmente.
 @param e Apontador para o estado.
-@param c Uma lista.
+@param l Uma lista.
 @returns Uma coordenada.
 */
 COORDENADA fim_de_jogo(ESTADO *e, LISTA l);

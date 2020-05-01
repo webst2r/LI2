@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/112/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/111/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/112/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/111/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot
+CMAKE_SOURCE_DIR = /home/rodrigo/CLionProjects/GIT/bot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug
+CMAKE_BINARY_DIR = /home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-buil
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/112/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/111/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/112/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/111/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles /home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -122,6 +122,33 @@ src: cmake_check_build_system
 src/fast:
 	$(MAKE) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/build
 .PHONY : src/fast
+
+bot.o: bot.c.o
+
+.PHONY : bot.o
+
+# target to build an object file
+bot.c.o:
+	$(MAKE) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/bot.c.o
+.PHONY : bot.c.o
+
+bot.i: bot.c.i
+
+.PHONY : bot.i
+
+# target to preprocess a source file
+bot.c.i:
+	$(MAKE) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/bot.c.i
+.PHONY : bot.c.i
+
+bot.s: bot.c.s
+
+.PHONY : bot.s
+
+# target to generate assembly for a file
+bot.c.s:
+	$(MAKE) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/bot.c.s
+.PHONY : bot.c.s
 
 camadadedados.o: camadadedados.c.o
 
@@ -267,6 +294,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... src"
+	@echo "... bot.o"
+	@echo "... bot.i"
+	@echo "... bot.s"
 	@echo "... camadadedados.o"
 	@echo "... camadadedados.i"
 	@echo "... camadadedados.s"

@@ -4,11 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/camadadedados.c" "/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles/src.dir/camadadedados.c.o"
-  "/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/interface.c" "/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles/src.dir/interface.c.o"
-  "/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/listas.c" "/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles/src.dir/listas.c.o"
-  "/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/logica.c" "/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles/src.dir/logica.c.o"
-  "/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/main.c" "/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles/src.dir/main.c.o"
+  "/home/rodrigo/CLionProjects/GIT/bot/bot.c" "/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles/src.dir/bot.c.o"
+  "/home/rodrigo/CLionProjects/GIT/bot/camadadedados.c" "/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles/src.dir/camadadedados.c.o"
+  "/home/rodrigo/CLionProjects/GIT/bot/interface.c" "/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles/src.dir/interface.c.o"
+  "/home/rodrigo/CLionProjects/GIT/bot/listas.c" "/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles/src.dir/listas.c.o"
+  "/home/rodrigo/CLionProjects/GIT/bot/logica.c" "/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles/src.dir/logica.c.o"
+  "/home/rodrigo/CLionProjects/GIT/bot/main.c" "/home/rodrigo/CLionProjects/GIT/bot/cmake-build-debug/CMakeFiles/src.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
