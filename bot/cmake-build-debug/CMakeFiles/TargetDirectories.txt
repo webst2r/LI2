@@ -1,0 +1,3 @@
+/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/guizao/CLionProjects/LI2PL2G04.git/trunk/bot/cmake-build-debug/CMakeFiles/src.dir
