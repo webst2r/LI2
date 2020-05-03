@@ -226,23 +226,3 @@ void printMovs_aux(ESTADO *e, FILE *fp) {
         }
     }
 }
-
-
-
-
-
-/*
-void add_numerodejogadas(ESTADO *e) {
-    e->num_jogadas++;
-}
-
-void armazenar_jogada(ESTADO *e, COORDENADA c) {
-    int i = 0;
-    if(e->jogador_atual == 1) e->jogadas[i].jogador1 = c;
-    else if(e->jogador_atual == 2) {
-        e->jogadas[i].jogador2 = c;
-        e->num_jogadas++;
-    }
-}
-*/
-
