@@ -50,4 +50,4 @@ int lista_esta_vazia(LISTA L);
 */
 int comprimento_da_lista(LISTA l);
 
-#endif //
+#endif // PROJETO_LISTAS_H
