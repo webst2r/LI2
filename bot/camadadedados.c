@@ -16,8 +16,8 @@ ESTADO *inicializar_estado() {
                           {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO},
                           {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, DOIS}},
             .ultima_jogada = {4,4},
-            .num_jogadas = 0,
             .jogador_atual = 1,
+            .num_jogadas = 0,
             .numeroComandos = 0,
             .numero_de_pos = 100};
     return e;
@@ -202,7 +202,7 @@ void add_numerodecomandos(ESTADO *e) {
 }
 
 void printMovs_aux(ESTADO *e, FILE *fp) {
-    for (int i = 0; i < obter_numero_de_jogadas(e) + 1; i++) {
+    for (int i = 0; i <= obter_numero_de_jogadas(e) && i < 32 ; i++) {
         if (i < 9) {
             if (e->jogadas[i].jogador1.linha != 0 || e->jogadas[i].jogador1.coluna != 0) {
                 fprintf(fp, "0%d: %c%d", i + 1, e->jogadas[i].jogador1.coluna + 'a', e->jogadas[i].jogador1.linha + 1); // FIXME - ERRO DE LEITURA EXTRA DE UM MOVIMENTO ENCONTRA-SE NESTE PRIMEIRO IF
@@ -225,3 +225,23 @@ void printMovs_aux(ESTADO *e, FILE *fp) {
         }
     }
 }
+
+
+
+
+
+/*
+void add_numerodejogadas(ESTADO *e) {
+    e->num_jogadas++;
+}
+
+void armazenar_jogada(ESTADO *e, COORDENADA c) {
+    int i = 0;
+    if(e->jogador_atual == 1) e->jogadas[i].jogador1 = c;
+    else if(e->jogador_atual == 2) {
+        e->jogadas[i].jogador2 = c;
+        e->num_jogadas++;
+    }
+}
+*/
+
