@@ -205,7 +205,7 @@ void printMovs_aux(ESTADO *e, FILE *fp) {
     for (int i = 0; i <= obter_numero_de_jogadas(e) && i < 32 ; i++) {
         if (i < 9) {
             if (e->jogadas[i].jogador1.linha != 0 || e->jogadas[i].jogador1.coluna != 0) {
-                fprintf(fp, "0%d: %c%d", i + 1, e->jogadas[i].jogador1.coluna + 'a', e->jogadas[i].jogador1.linha + 1); // FIXME - ERRO DE LEITURA EXTRA DE UM MOVIMENTO ENCONTRA-SE NESTE PRIMEIRO IF
+                fprintf(fp, "0%d: %c%d", i + 1, e->jogadas[i].jogador1.coluna + 'a', e->jogadas[i].jogador1.linha + 1); 
             }
             if (e->jogadas[i].jogador2.linha != 0 || e->jogadas[i].jogador2.coluna != 0)
                 fprintf(fp, " %c%d\n", e->jogadas[i].jogador2.coluna + 'a', e->jogadas[i].jogador2.linha + 1);
