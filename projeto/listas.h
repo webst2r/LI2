@@ -3,8 +3,8 @@
 Definição das listas ligadas.
 */
 
-#ifndef LI2PL2G04_LISTAS_H
-#define LI2PL2G04_LISTAS_H
+#ifndef PROJETO_LISTAS_H
+#define PROJETO_LISTAS_H
 /**
 \brief Tipo de dados para as Listas.
 */
@@ -50,4 +50,4 @@ int lista_esta_vazia(LISTA L);
 */
 int comprimento_da_lista(LISTA l);
 
-#endif 
+#endif //
