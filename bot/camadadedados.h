@@ -2,8 +2,8 @@
 @file camadadedados.h
 Definição do estado e das funções que o manipulam
 */
-#ifndef SRC_CAMADADEDADOS_H
-#define SRC_CAMADADEDADOS_H
+#ifndef BOT_CAMADADEDADOS_H
+#define BOT_CAMADADEDADOS_H
 
 #include <bits/types/FILE.h>
 
@@ -163,4 +163,4 @@ void ler_aux(ESTADO *e, FILE *fp);
 */
 void printMovs_aux(ESTADO *e, FILE *fp);
 
-#endif // SRC_CAMADADEDADOS_H
+#endif // BOT_CAMADADEDADOS_H
