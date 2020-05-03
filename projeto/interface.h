@@ -2,8 +2,8 @@
 @file interface.h
 Definição da interface e das funções que a manipulam
 */
-#ifndef SRC_INTERFACE_H
-#define SRC_INTERFACE_H
+#ifndef PROJETO_INTERFACE_H
+#define PROJETO_INTERFACE_H
 #include "camadadedados.h"
 /**
 \brief Interpretador de jogadas
