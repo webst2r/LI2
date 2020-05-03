@@ -2,8 +2,8 @@
 @file logica.h
 Definição da interface e das funções que a manipulam
 */
-#ifndef SRC_LOGICA_H
-#define SRC_LOGICA_H
+#ifndef BOT_LOGICA_H
+#define BOT_LOGICA_H
 #include "camadadedados.h"
 #include "listas.h"
 /**
@@ -51,4 +51,4 @@ int ha_jogada_possivel (ESTADO *e, COORDENADA c);
 
 
 
-#endif // SRC_LOGICA_H
+#endif // BOT_LOGICA_H
