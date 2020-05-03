@@ -19,7 +19,6 @@ int verifica_se_acabou_bot(ESTADO *e, COORDENADA c) {
     } else if(obter_jogador_atual(e) == 1 && coluna == 0 && linha == 0) {
         r = 1;
     }
-
     if (ha_jogada_possivel(e,c) == 0) {
         r = 1;
     }
@@ -37,18 +36,43 @@ COORDENADA fim_de_jogo(ESTADO *e, LISTA l){
         COORDENADA *teste = (COORDENADA *) l->valor;
         antiga = e->tab[teste -> linha][teste -> coluna];
         e->tab[teste -> linha][teste -> coluna] = BRANCA;
-
+        
         if(verifica_se_acabou_bot(e,*teste) == 1){
             c = *teste;
         }
+        
         e->tab[teste -> linha][teste -> coluna] = antiga;
         l = l->prox;
     }
     return c;
 }
 
-LISTA vizinhas(ESTADO *e, LISTA l) {
+float distance (COORDENADA * c, int jogador) {
+    COORDENADA fim;
 
+    if(jogador == 1) {
+        fim.coluna = 0;
+        fim.linha = 0;
+    } else {
+        fim.coluna = 7;
+        fim.linha = 7;
+    }
+    int x1 = fim.linha;
+    int x2 = c -> linha;
+    int y1 = fim.coluna;
+    int y2 = c -> coluna;
+    int x = x1 - x2;
+    int y = y1 - y2;
+    float distancia;
+    distancia = sqrt(pow(x,2) + pow(y,2));
+
+    return distancia;
+}
+
+COORDENADA *euclidiana (ESTADO *e) {
+    LISTA l;
+    l = criar_lista();
+    
     COORDENADA ultima = e->ultima_jogada;
     int lin = ultima.linha, col = ultima.coluna;
 
@@ -85,35 +109,8 @@ LISTA vizinhas(ESTADO *e, LISTA l) {
             l = insere_cabeca(l, vizinha[i]);
         }
     }
-    return l;
-}
-
-float distance (COORDENADA * c, int jogador) {
-    COORDENADA fim;
-
-    if(jogador == 1) {
-        fim.coluna = 0;
-        fim.linha = 0;
-    } else {
-        fim.coluna = 7;
-        fim.linha = 7;
-    }
-    int x1 = fim.linha;
-    int x2 = c -> linha;
-    int y1 = fim.coluna;
-    int y2 = c -> coluna;
-    int x = x1 - x2;
-    int y = y1 - y2;
-    float distancia;
-    distancia = sqrt(pow(x,2) + pow(y,2));
-
-    return distancia;
-}
-
-COORDENADA *euclidiana (ESTADO *e) {
-    LISTA l;
-    l = criar_lista();
-    l = vizinhas(e, l);
+    free(c1);free(c2);free(c3);free(c4);free(c5);free(c6);free(c7);free(c8);
+    
     COORDENADA *melhor;
     COORDENADA d = fim_de_jogo(e,l);
     melhor = malloc(sizeof(COORDENADA));
