@@ -86,10 +86,10 @@ ERROS ler(ESTADO *e, char *nome_ficheiro) {
 }
 
 void mostrar_tabuleiro(FILE *fp, ESTADO *e) {
-    int k, i;
-    for (i = 8; i > 0; i--) {
-        for (k = 0; k < 8; k++) {
-            switch (e->tab[i-1][k]) {
+    int coluna, linha;
+    for (linha = 8; linha > 0; linha--) {
+        for (coluna = 0; coluna < 8; coluna++) {
+            switch (e->tab[linha-1][coluna]) {
                 case PRETA:
                     fprintf(fp,"#");
                     break;
@@ -107,7 +107,7 @@ void mostrar_tabuleiro(FILE *fp, ESTADO *e) {
                     break;
             }
         }
-        fprintf(fp," %d", i);
+        fprintf(fp," %d", linha);
         fprintf(fp,"\n");
     }
     fprintf(fp,"abcdefgh\n");
