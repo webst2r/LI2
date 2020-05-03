@@ -97,9 +97,9 @@ COORDENADA fim_de_jogo(ESTADO *e, LISTA l){
 
 ERROS jogar(ESTADO *e, COORDENADA c) {
     add_numerodecomandos(e);
-    if(obter_numero_de_pos(e) != 50) {
+    if(obter_numero_de_pos(e) != 100) {
         atualiza_estado(e);
-        e->numero_de_pos = 50; 
+        e->numero_de_pos = 100; 
     }
 
     if(jogada_valida(e,c) == OK) {
@@ -156,9 +156,9 @@ void bot(ESTADO *e) {
     int i = 0;
     COORDENADA ultima = e->ultima_jogada;
     int lin = ultima.linha, col = ultima.coluna;
-    if(obter_numero_de_pos(e) != 50) {
+    if(obter_numero_de_pos(e) != 100) {
         atualiza_estado(e);
-        e->numero_de_pos = 50;
+        e->numero_de_pos = 100;
     }
 
     printf("%d %d\n", e->ultima_jogada.coluna, e->ultima_jogada.linha);
@@ -318,9 +318,9 @@ COORDENADA *euclidiana (ESTADO *e) {
 
 void bot2 (ESTADO *e){
 
-    if(obter_numero_de_pos(e) != 50) {
+    if(obter_numero_de_pos(e) != 100) {
         atualiza_estado(e);
-        e->numero_de_pos = 50;
+        e->numero_de_pos = 100;
     }
 
     COORDENADA c = *euclidiana(e);
