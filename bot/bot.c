@@ -29,8 +29,8 @@ COORDENADA fim_de_jogo(ESTADO *e, LISTA l){
     preta(e);
     COORDENADA c;
     CASA antiga;
-    c.linha = 50;
-    c.coluna = 50;
+    c.linha = 100;
+    c.coluna = 100;
 
     while(l != NULL){
         COORDENADA *teste = (COORDENADA *) l->valor;
@@ -115,7 +115,7 @@ COORDENADA *euclidiana (ESTADO *e) {
     COORDENADA d = fim_de_jogo(e,l);
     melhor = malloc(sizeof(COORDENADA));
 
-    if (d.linha != 50 && d.coluna != 50) {
+    if (d.linha != 100 && d.coluna != 100) {
         *melhor = d;
     } else {
         COORDENADA *melhor_jogada = malloc(sizeof(COORDENADA));
