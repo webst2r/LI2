@@ -11,7 +11,9 @@ Definição do estado e das funções que o manipulam
 \brief Tipo de dados para as Coordenadas.
 */
 typedef struct {
+    /** A linha */
     int linha;
+    /** A coluna */
     int coluna;
 } COORDENADA;
 
@@ -19,7 +21,9 @@ typedef struct {
 \brief Tipo de dados para a Jogada
 */
 typedef struct {
+    /** Coordenada do Jogador1 */
     COORDENADA jogador1;
+    /** Coordenada do Jogador2 */
     COORDENADA jogador2;
 } JOGADA;
 
@@ -32,10 +36,15 @@ typedef JOGADA JOGADAS[32];
 \brief Tipo de dados para a casa
 */
 typedef enum {
+    /** Casa da Vitória para o Jogador1 */
     UM = '1',
+    /** Casa da Vitória para o Jogador2 */
     DOIS = '2',
+    /** Casa Vazia */
     VAZIO = '.',
+    /** Casa Branca */
     BRANCA = '*',
+    /** Casa Preta */
     PRETA = '#'
 } CASA;
 
@@ -62,11 +71,17 @@ typedef struct {
 \brief Tipo de dados para os erros
 */
 typedef enum {
+    /** OK */
     OK,
+    /** A coordenada é inválida */
     COORDENADA_INVALIDA,
+    /** A jogada é inválida */
     JOGADA_INVALIDA,
+    /** Erro ao ler o tabuleiro */
     ERRO_LER_TAB,
+    /** Erro ao abrir o ficheiro */
     ERRO_ABRIR_FICHEIRO,
+    /** Erro ao gravar o tabuleiro */
     ERRO_GRAVAR_TAB,
 } ERROS;
 
