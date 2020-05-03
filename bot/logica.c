@@ -60,9 +60,9 @@ ERROS verifica_se_acabou (ESTADO *e, COORDENADA c) {
 
 ERROS jogar(ESTADO *e, COORDENADA c) {
     add_numerodecomandos(e);
-    if(obter_numero_de_pos(e) != 50) { 
+    if(obter_numero_de_pos(e) != 100) { 
         atualiza_estado(e);
-        e->numero_de_pos = 50;
+        e->numero_de_pos = 100;
     }
 
     if(jogada_valida(e,c) == OK) {
