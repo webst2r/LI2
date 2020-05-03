@@ -2,8 +2,8 @@
 @file logica.h
 Definição da interface e das funções que a manipulam
 */
-#ifndef SRC_LOGICA_H
-#define SRC_LOGICA_H
+#ifndef PROJETO_LOGICA_H
+#define PROJETO_LOGICA_H
 #include "camadadedados.h"
 #include "listas.h"
 /**
@@ -93,4 +93,4 @@ COORDENADA fim_de_jogo(ESTADO *e, LISTA l);
 */
 COORDENADA *euclidiana (ESTADO *e);
 
-#endif // SRC_LOGICA_H
+#endif // PROJETO_LOGICA_H
