@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/src.dir/main.c.o CMakeFiles/src.dir/logica.c.o CMakeFiles/src.dir/camadadedados.c.o CMakeFiles/src.dir/interface.c.o CMakeFiles/src.dir/listas.c.o CMakeFiles/src.dir/bot.c.o  -o src 
