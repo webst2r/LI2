@@ -20,7 +20,7 @@ ESTADO *inicializar_estado() {
             .num_jogadas = 0,
             .jogador_atual = 1,
             .numeroComandos = 0,
-            .numero_de_pos = 50};
+            .numero_de_pos = 100};
     return e;
 }
 
