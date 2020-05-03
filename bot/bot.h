@@ -3,8 +3,8 @@
 Definição do bot e das funções que o manipulam.
 */
 
-#ifndef SRC_BOT_H
-#define SRC_BOT_H
+#ifndef BOT_BOT_H
+#define BOT_BOT_H
 
 #include "listas.h"
 
@@ -51,4 +51,4 @@ COORDENADA fim_de_jogo(ESTADO *e, LISTA l);
 COORDENADA *euclidiana (ESTADO *e);
 
 
-#endif //SRC_BOT_H
+#endif //BOT_BOT_H
