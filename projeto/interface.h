@@ -48,4 +48,4 @@ ERROS ler(ESTADO *e, char *nome_ficheiro);
 */
 void printMovs(ESTADO *e, FILE *fp);
 
-#endif // SRC_INTERFACE_H
+#endif // PROJETO_INTERFACE_H
