@@ -17,7 +17,6 @@ ESTADO *inicializar_estado() {
                           {VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, VAZIO, DOIS}},
             .ultima_jogada = {4,4},
             .num_jogadas = 0,
-            .jogadas = {},
             .jogador_atual = 1,
             .numeroComandos = 0,
             .numero_de_pos = 100};
