@@ -2,9 +2,10 @@
 @file interface.h
 Definição da interface e das funções que a manipulam
 */
-#ifndef SRC_INTERFACE_H
-#define SRC_INTERFACE_H
+#ifndef BOT_INTERFACE_H
+#define BOT_INTERFACE_H
 #include "camadadedados.h"
+
 /**
 \brief
 @param e Apontador para o estado.
@@ -42,4 +43,4 @@ ERROS ler(ESTADO *e, char *nome_ficheiro);
 */
 void printMovs(ESTADO *e, FILE *fp);
 
-#endif // SRC_INTERFACE_H
+#endif // BOT_INTERFACE_H
