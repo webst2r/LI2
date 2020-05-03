@@ -3,13 +3,15 @@
 Definição das listas ligadas.
 */
 
-#ifndef LI2FINAL_LISTAS_H
-#define LI2FINAL_LISTAS_H
+#ifndef LI2PL2G04_LISTAS_H
+#define LI2PL2G04_LISTAS_H
 /**
 \brief Tipo de dados para as Listas.
 */
 typedef struct nodo {
+    /** Apontador para um void */
     void *valor;
+    /** Cauda da lista */
     struct nodo *prox;
 } NODO, *LISTA;
 /**
@@ -48,4 +50,4 @@ int lista_esta_vazia(LISTA L);
 */
 int comprimento_da_lista(LISTA l);
 
-#endif //LI2FINAL_LISTAS_H
+#endif 
