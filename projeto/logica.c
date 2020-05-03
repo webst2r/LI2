@@ -97,9 +97,9 @@ COORDENADA fim_de_jogo(ESTADO *e, LISTA l){
 
 ERROS jogar(ESTADO *e, COORDENADA c) {
     add_numerodecomandos(e);
-    if(obter_numero_de_pos(e) != 50) { //FIXME - SE CALHAR VAMOS TER QUE RETIRAR O NUMERO DE POS DO ESTADO E VOLTAR AO QUE TINHAMOS ANTIGAMENTE.
+    if(obter_numero_de_pos(e) != 50) {
         atualiza_estado(e);
-        e->numero_de_pos = 50; //FIXME - FUNCAO AUXILIAR PRA ISTO
+        e->numero_de_pos = 50; 
     }
 
     if(jogada_valida(e,c) == OK) {
