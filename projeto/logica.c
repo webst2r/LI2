@@ -88,9 +88,10 @@ COORDENADA fim_de_jogo(ESTADO *e, LISTA l){
 
         if(verifica_se_acabou_bot(e,*teste) == 1){
             c = *teste;
+        } else {
+            e->tab[teste -> linha][teste -> coluna] = antiga;
+            l = l->prox;
         }
-        e->tab[teste -> linha][teste -> coluna] = antiga;
-        l = l->prox;
     }
     return c;
 }
