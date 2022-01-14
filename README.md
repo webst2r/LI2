@@ -1,7 +1,7 @@
 # Computer Lab II: Rastros
 ## LI2 Assignment: "Rastros" Game in C Language 
 
-Creating Rastros: a position game in which players share pieces and run a "ball" in an attempt to score an "own goal" or corner the opponent.
+Recreating Rastros: a mathematical/position game (1992) in which players share pieces and run a "ball" in an attempt to score an "own goal" or corner the opponent.
 
 ## Group members:    
 
