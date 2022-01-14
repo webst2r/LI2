@@ -1,5 +1,5 @@
 # Computer Lab II: Rastros
-## LI2 Assignment: "Rastros" Game in C Language.
+## LI2 Assignment: "Rastros" Game in C Language
 
 ## Group members:    
 
