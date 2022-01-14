@@ -1,5 +1,5 @@
-# LI2: Rastros
-## Jogo "Rastros" (Linguagem C).
+# Computer Lab II: Rastros
+## LI2 Assignment: "Rastros" Game in C Language.
 Projeto desenvolvido no âmbito da UC de MIEI, Laborátorios de Informática II.
 
 ## Group members:    
