@@ -4,8 +4,8 @@ Projeto desenvolvido no âmbito da UC de MIEI, Laborátorios de Informática II.
 
 ## Group members:    
 
-[Guilherme Monteiro](https://github.com/rushmetra)
-[Rodrigo Rodrigues](https://github.com/webst2r)
+[Guilherme Monteiro](https://github.com/rushmetra)  
+[Rodrigo Rodrigues](https://github.com/webst2r)  
 [Leonardo Araújo Freitas](https://github.com/leonardo1924)
 
 
